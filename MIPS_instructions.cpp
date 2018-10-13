@@ -7,10 +7,11 @@ std::map<char, rTypeFunc> R_FUNC = {
     {33, addu}
 };
 std::map<char, iTypeFunc> I_FUNC = {
-    
+    {9, addiu}
 };
 std::map<char, jTypeFunc> J_FUNC = {
-    {2,j}
+    {2, j},
+    {3, jal}
 };
 
 char ADDR_NULL[0x4];
@@ -91,6 +92,8 @@ char* memMap(int32_t pc) {
 
 //************************** MIPS INSTRUCTIONS **************************
 
+//----- R TYPE -----
+
 void addu(char s1, char s2, char dest, char shAmt) {
     if (shAmt != 0)
         std::cerr << "Shift amount not required for this operation. Value disregarded.\n";
@@ -98,7 +101,19 @@ void addu(char s1, char s2, char dest, char shAmt) {
     registers[dest] = registers[s1] + registers[s2];
 }
 
+//----- I TYPE -----
+
+void addiu(char s1, char dest, int16_t data) {
+    registers[dest] = registers[s1] + data;
+}
+
+//----- J TYPE -----
+
 void j(int32_t addr) {
     programCounter = addr;
 }
  
+void jal(int32_t addr) {
+    registers[31] = programCounter;
+    programCounter = addr;
+}
