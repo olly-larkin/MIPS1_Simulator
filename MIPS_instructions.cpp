@@ -73,7 +73,6 @@ void exitError(std::string msg, int errCode) {
 }
 
 char* memMap(int32_t pc) {
-    char defaultReturn = 0;
     if (pc < 0x4)
         return &ADDR_NULL[pc];
     else if (pc < 0x11000000)
@@ -86,7 +85,7 @@ char* memMap(int32_t pc) {
         return &ADDR_PUTC[pc - 0x30000004];
     else {
         exitError("Invalid memory access.", -11);
-        return &defaultReturn;
+        return ADDR_NULL;
     }
 }
 
