@@ -19,7 +19,7 @@ char ADDR_DATA[0x40000000];
 char ADDR_GETC[0x4];
 char ADDR_PUTC[0x4];
 int32_t registers[32];
-int32_t programCounter = ADDR_INSTR;
+int32_t programCounter = ADDR_INSTR_P;
 
 void executeR(char fn, char s1, char s2, char dest, char shAmt){
     if (R_FUNC.find(fn) == R_FUNC.end()) {
@@ -54,13 +54,13 @@ int32_t pcLocation() {
 }
 
 int32_t getNextInstr() {
-    int32_t returnVal = get32(memBlock, programCounter);
+    int32_t returnVal = get32(memMap(programCounter));
     programCounter += 4;
     return returnVal;
 }
 
-int32_t get32(const char* arr, int addr) {
-    return ((unsigned char)arr[addr] << 24) | ((unsigned char)arr[addr + 1] << 16) | ((unsigned char)arr[addr + 2] << 8) | (unsigned char)arr[addr + 3];
+int32_t get32(const char* arr) {
+    return ((unsigned char)arr[0] << 24) | ((unsigned char)arr[1] << 16) | ((unsigned char)arr[2] << 8) | (unsigned char)arr[3];
 }
 
 char returnCode() {
@@ -82,7 +82,7 @@ char* memMap(int32_t pc) {
     else if (pc < 0x30000004)
         return &ADDR_GETC[pc - 0x30000000];
     else if (pc < 0x30000008)
-        return %ADDR_PUTC[pc - 0x30000004];
+        return &ADDR_PUTC[pc - 0x30000004];
     else
         exitError("Invalid memory access.", -11);
 }

@@ -2,8 +2,6 @@
 #include <fstream>
 #include "MIPS_instructions.hpp"
 
-#define ADDR_INSTR_LIMIT 0x11000000
-
 enum INSTRUCTION_TYPE {R, J, I};
 
 INSTRUCTION_TYPE opcode(int32_t);
