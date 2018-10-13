@@ -92,6 +92,9 @@ char* memMap(int32_t pc) {
 
 void successfulExit() {
     programCounter = 0;
+    // maybe execute an instruction here?
+    std::cerr << "Successful execution." << std::endl << std::endl;
+    std::exit(returnCode());
 }
 
 //************************** MIPS INSTRUCTIONS **************************

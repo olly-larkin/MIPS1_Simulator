@@ -30,15 +30,12 @@ int main(int argc, const char * argv[]) {
         if (instr == 0)
             //exitError("Exit instruction not defined.", -12);
             successfulExit();
-        else
-            execute(instr);
+        
+        execute(instr);
         
         if (pcLocation() >= ADDR_INSTR_LIMIT)
             exitError("Program Counter has exceeded executable memory.", -11);
     }
-    
-    std::cerr << "Successful execution." << std::endl << std::endl;
-    std::exit(returnCode());
 }
 
 INSTRUCTION_TYPE opcode(int32_t instr) {
