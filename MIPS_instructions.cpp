@@ -10,7 +10,7 @@ std::map<char, iTypeFunc> I_FUNC = {
     
 };
 std::map<char, jTypeFunc> J_FUNC = {
-    
+    {2,j}
 };
 
 char ADDR_NULL[0x4];
@@ -96,5 +96,9 @@ void addu(char s1, char s2, char dest, char shAmt) {
         std::cerr << "Shift amount not required for this operation. Value disregarded.\n";
     
     registers[dest] = registers[s1] + registers[s2];
+}
+
+void j(int32_t addr) {
+    programCounter = addr;
 }
  

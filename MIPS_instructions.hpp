@@ -38,6 +38,6 @@ void addu(char s1, char s2, char dest, char shAmt);
 
 //----- J TYPE -----
 
-
+void j(int32_t addr);
 
 #endif /* MIPS_instructions_hpp */
