@@ -76,13 +76,13 @@ void exitError(std::string msg, int errCode) {
 char* memMap(int32_t pc) {
     if (pc < 0x4)
         return &ADDR_NULL[pc];
-    else if (pc < 0x11000000)
+    else if (pc >= 0x10000000 && pc < 0x11000000)
         return &ADDR_INSTR[pc - 0x10000000];
-    else if (pc < 0x24000000)
+    else if (pc >= 0x20000000 && pc < 0x24000000)
         return &ADDR_DATA[pc - 0x20000000];
-    else if (pc < 0x30000004)
+    else if (pc >= 0x30000000 && pc < 0x30000004)
         return &ADDR_GETC[pc - 0x30000000];
-    else if (pc < 0x30000008)
+    else if (pc >= 0x30000004 && pc < 0x30000008)
         return &ADDR_PUTC[pc - 0x30000004];
     else {
         exitError("Invalid memory access.", -11);
