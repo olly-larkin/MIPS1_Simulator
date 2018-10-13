@@ -37,6 +37,7 @@ int main(int argc, const char * argv[]) {
     }
     
     std::cerr << std::endl;
+    std::cerr << "Testing push." << std::endl;
     std::exit(returnCode());
 }
 
