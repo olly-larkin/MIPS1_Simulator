@@ -1,4 +1,3 @@
-
 simulator: main.o MIPS_instructions.o
 	g++ main.o MIPS_instructions.o -o bin/simulator
 
