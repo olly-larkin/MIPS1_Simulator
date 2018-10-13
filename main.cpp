@@ -36,7 +36,7 @@ int main(int argc, const char * argv[]) {
             exitError("Program Counter has exceeded executable memory.", -11);
     }
     
-    std::cerr << std::endl;
+    std::cerr << "Successfull execution." << std::endl << std::endl;
     std::exit(returnCode());
 }
 
