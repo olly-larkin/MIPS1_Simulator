@@ -1,5 +1,6 @@
 #include "MIPS_instructions.hpp"
 #include <iostream>
+#include <string>
 #include <map>
 
 std::map<char, rTypeFunc> R_FUNC = {
