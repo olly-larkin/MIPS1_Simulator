@@ -13,7 +13,6 @@ std::map<char, jTypeFunc> J_FUNC = {
     
 };
 
-//char memBlock[0xFFFFFFFF];
 char ADDR_NULL[0x4];
 char ADDR_INSTR[0x10000000];
 char ADDR_DATA[0x40000000];
