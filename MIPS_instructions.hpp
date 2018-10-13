@@ -3,12 +3,12 @@
 
 #include <iostream>
 
-#define ADDR_NULL 0x00000000
+/*#define ADDR_NULL 0x00000000
 #define ADDR_INSTR 0x10000000
 #define ADDR_INSTR_LIMIT 0x11000000
 #define ADDR_DATA 0x20000000
 #define ADDR_GETC 0x30000000
-#define ADDR_PUTC 0x30000004
+#define ADDR_PUTC 0x30000004*/
 
 typedef void (*rTypeFunc)(char,char,char,char);
 typedef void (*iTypeFunc)(char,char,int16_t);
@@ -23,6 +23,7 @@ int32_t getNextInstr();
 int32_t get32(const char* arr, int addr);
 char returnCode();
 void exitError(std::string msg, int errCode);
+char* memMap(int32_t pc);
 
 //************************** MIPS INSTRUCTIONS **************************
 
