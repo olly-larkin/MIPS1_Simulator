@@ -90,6 +90,10 @@ char* memMap(int32_t pc) {
     }
 }
 
+void successfulExit() {
+    programCounter = 0;
+}
+
 //************************** MIPS INSTRUCTIONS **************************
 
 //----- R TYPE -----

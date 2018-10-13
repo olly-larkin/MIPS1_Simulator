@@ -10,11 +10,11 @@ void execute(int32_t);
 int main(int argc, const char * argv[]) {
     std::cerr << std::endl;
     if(argc == 1)
-        exitError("No binary file passed.", 0);
+        exitError("No binary file passed.", 0);     // PROGRAM SHOULD EXIT IF NO FILE PASSED IN
     
     std::ifstream binaryFile(argv[1], std::ios::in | std::ios::binary | std::ios::ate);
     if (!binaryFile.is_open())
-        exitError("Unable to open binary file.", 0);
+        exitError("Unable to open binary file.", 0);        // PROGRAM EXIT IF FILE DOES NOT EXIST OR CANNOT BE OPENED
     
     std::cerr << "Binary file opened: " << argv[1] << std::endl;
     
@@ -28,9 +28,10 @@ int main(int argc, const char * argv[]) {
         int32_t instr = getNextInstr();
         
         if (instr == 0)
-            exitError("Exit instruction not defined.", -12);
-        
-        execute(instr);
+            //exitError("Exit instruction not defined.", -12);
+            successfulExit();
+        else
+            execute(instr);
         
         if (pcLocation() >= ADDR_INSTR_LIMIT)
             exitError("Program Counter has exceeded executable memory.", -11);

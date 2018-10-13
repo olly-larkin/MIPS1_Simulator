@@ -25,6 +25,7 @@ int32_t get32(const char* arr);
 char returnCode();
 void exitError(std::string msg, int errCode);
 char* memMap(int32_t pc);
+void successfulExit();
 
 //************************** MIPS INSTRUCTIONS **************************
 
