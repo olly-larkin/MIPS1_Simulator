@@ -12,7 +12,12 @@ std::map<char, jTypeFunc> J_FUNC = {
     
 };
 
-char memBlock[0xFFFFFFFF];
+//char memBlock[0xFFFFFFFF];
+char ADDR_NULL[0x4];
+char ADDR_INSTR[0x10000000];
+char ADDR_DATA[0x40000000];
+char ADDR_GETC[0x4];
+char ADDR_PUTC[0x4];
 int32_t registers[32];
 int32_t programCounter = ADDR_INSTR;
 
@@ -41,7 +46,7 @@ void executeJ(char op, int32_t addr){
 }
 
 char* executeMem() {
-    return &memBlock[ADDR_INSTR];
+    return ADDR_INSTR;
 }
 
 int32_t pcLocation() {
@@ -65,6 +70,21 @@ char returnCode() {
 void exitError(std::string msg, int errCode) {
     std::cerr << msg << std::endl << std::endl;
     std::exit(errCode);
+}
+
+char* memMap(int32_t pc) {
+    if (pc < 0x4)
+        return &ADDR_NULL[pc];
+    else if (pc < 0x11000000)
+        return &ADDR_INSTR[pc - 0x10000000];
+    else if (pc < 0x24000000)
+        return &ADDR_DATA[pc - 0x20000000];
+    else if (pc < 0x30000004)
+        return &ADDR_GETC[pc - 0x30000000];
+    else if (pc < 0x30000008)
+        return %ADDR_PUTC[pc - 0x30000004];
+    else
+        exitError("Invalid memory access.", -11);
 }
 
 //************************** MIPS INSTRUCTIONS **************************
