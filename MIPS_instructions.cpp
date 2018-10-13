@@ -73,6 +73,7 @@ void exitError(std::string msg, int errCode) {
 }
 
 char* memMap(int32_t pc) {
+    char defaultReturn = 0;
     if (pc < 0x4)
         return &ADDR_NULL[pc];
     else if (pc < 0x11000000)
@@ -83,8 +84,10 @@ char* memMap(int32_t pc) {
         return &ADDR_GETC[pc - 0x30000000];
     else if (pc < 0x30000008)
         return &ADDR_PUTC[pc - 0x30000004];
-    else
+    else {
         exitError("Invalid memory access.", -11);
+        return &defaultReturn;
+    }
 }
 
 //************************** MIPS INSTRUCTIONS **************************
