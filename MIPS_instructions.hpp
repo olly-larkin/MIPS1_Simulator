@@ -32,10 +32,12 @@ void successfulExit();
 //----- R TYPE -----
 
 void addu(char s1, char s2, char dest, char shAmt);
+void and_instr(char s1, char s2, char dest, char shAmt);
 
 //----- I TYPE -----
 
 void addiu(char s1, char dest, int16_t data);
+void andi(char s1, char dest, int16_t data);
 
 //----- J TYPE -----
 

@@ -4,10 +4,12 @@
 #include <map>
 
 std::map<char, rTypeFunc> R_FUNC = {
-    {33, addu}
+    {33, addu},
+    {36, and_instr}
 };
 std::map<char, iTypeFunc> I_FUNC = {
-    {9, addiu}
+    {9, addiu},
+    {12, andi}
 };
 std::map<char, jTypeFunc> J_FUNC = {
     {2, j},
@@ -97,15 +99,26 @@ void successfulExit() {
 
 void addu(char s1, char s2, char dest, char shAmt) {
     if (shAmt != 0)
-        std::cerr << "Shift amount not required for this operation. Value disregarded.\n";
+        std::cerr << "Shift amount not required for 'addu' operation. Value disregarded.\n";
     
     registers[dest] = registers[s1] + registers[s2];
+}
+
+void and_instr(char s1, char s2, char dest, char shAmt) {
+    if (shAmt != 0)
+        std::cerr << "Shift amount not required for 'and' operation. Value disregarded.\n";
+    
+    registers[dest] = registers[s1] & registers[s2];
 }
 
 //----- I TYPE -----
 
 void addiu(char s1, char dest, int16_t data) {
     registers[dest] = registers[s1] + data;
+}
+
+void andi(char s1, char dest, int16_t data) {
+    registers[dest] = registers[s1] & data;
 }
 
 //----- J TYPE -----
