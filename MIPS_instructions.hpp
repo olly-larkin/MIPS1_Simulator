@@ -23,6 +23,7 @@ char* executeMem();
 int32_t pcLocation();
 int32_t getNextInstr();
 int32_t get32(const char* arr);
+int32_t get16(const char* arr);
 char returnCode();
 void exitError(std::string msg, int errCode);
 char* memMap(int32_t pc);

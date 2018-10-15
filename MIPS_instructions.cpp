@@ -66,6 +66,10 @@ int32_t get32(const char* arr) {
     return ((unsigned char)arr[0] << 24) | ((unsigned char)arr[1] << 16) | ((unsigned char)arr[2] << 8) | (unsigned char)arr[3];
 }
 
+int32_t get16(const char* arr) {
+    return ((unsigned char)arr[0] << 8) | (unsigned char)arr[1];
+}
+
 char returnCode() {
     return (char)(registers[2] & 0xFF);
 }
