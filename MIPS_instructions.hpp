@@ -44,6 +44,7 @@ void and_instr(char s1, char s2, char dest, char shAmt);
 void addiu(char s1, char dest, int16_t data);
 void andi(char s1, char dest, int16_t data);
 void lb(char s1, char dest, int16_t data);
+void lbu(char s1, char dest, int16_t data);
 
 //----- J TYPE -----
 
