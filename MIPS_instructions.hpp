@@ -33,7 +33,8 @@ void successfulExit();
 
 void mfhi(char s1, char s2, char dest, char shAmt);
 void mflo(char s1, char s2, char dest, char shAmt);
-void div(char s1, char s2, char dest, char shAmt);
+void div_instr(char s1, char s2, char dest, char shAmt);
+void divu(char s1, char s2, char dest, char shAmt);
 void addu(char s1, char s2, char dest, char shAmt);
 void and_instr(char s1, char s2, char dest, char shAmt);
 

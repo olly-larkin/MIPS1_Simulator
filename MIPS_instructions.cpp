@@ -6,7 +6,8 @@
 std::map<char, rTypeFunc> R_FUNC = {
     {16, mfhi},
     {18, mflo},
-    {26, div},
+    {26, div_instr},
+    {27, divu},
     {33, addu},
     {36, and_instr}
 };
@@ -109,12 +110,20 @@ void mflo(char s1, char s2, char dest, char shAmt) {
     registers[dest] = LO;
 }
 
-void div(char s1, char s2, char dest, char shAmt) {
+void div_instr(char s1, char s2, char dest, char shAmt) {
     if (s2 == 0)
         exitError("Cannot divide by 0.", -11);
 
     LO = s1 / s2;
     HI = s1 % s2;
+}
+
+void divu(char s1, char s2, char dest, char shAmt) {
+    if (s2 == 0)
+        exitError("Cannot divide by 0.", -11);
+
+    LO = (unsigned)s1 / (unsigned)s2;
+    HI = (unsigned)s1 % (unsigned)s2;
 }
 
 void addu(char s1, char s2, char dest, char shAmt) {
