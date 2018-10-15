@@ -6,3 +6,6 @@ main.o: main.cpp
 
 MIPS_instructions.o: MIPS_instructions.cpp
 	g++ --std=c++11 -c MIPS_instructions.cpp
+
+windows_clean: 
+	del /F /Q *.o /bin/simulator.exe
