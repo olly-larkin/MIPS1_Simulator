@@ -4,6 +4,7 @@
 #include <map>
 
 std::map<char, rTypeFunc> R_FUNC = {
+    {16, mfhi},
     {33, addu},
     {36, and_instr}
 };
@@ -22,6 +23,7 @@ char ADDR_DATA[0x40000000];
 char ADDR_GETC[0x4];
 char ADDR_PUTC[0x4];
 int32_t registers[32];
+int32_t HI = 0, LO = 0;
 int32_t programCounter = ADDR_INSTR_P;
 
 void executeR(char fn, char s1, char s2, char dest, char shAmt){
@@ -96,6 +98,10 @@ void successfulExit() {
 //************************** MIPS INSTRUCTIONS **************************
 
 //----- R TYPE -----
+
+void mfhi(char s1, char s2, char dest, char shAmt) {
+    registers[dest] = HI;
+}
 
 void addu(char s1, char s2, char dest, char shAmt) {
     if (shAmt != 0)

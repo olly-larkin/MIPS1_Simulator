@@ -31,6 +31,7 @@ void successfulExit();
 
 //----- R TYPE -----
 
+void mfhi(char s1, char s2, char dest, char shAmt);
 void addu(char s1, char s2, char dest, char shAmt);
 void and_instr(char s1, char s2, char dest, char shAmt);
 
