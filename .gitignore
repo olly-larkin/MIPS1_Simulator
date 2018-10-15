@@ -1,2 +1,6 @@
 .DS_Store
 bin/.DS_Store
+bin/simulator
+bin/simulator.exe
+main.o
+MIPS_instructions.o
