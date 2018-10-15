@@ -7,5 +7,9 @@ main.o: main.cpp
 MIPS_instructions.o: MIPS_instructions.cpp
 	g++ --std=c++11 -c MIPS_instructions.cpp
 
+clean:
+	rm *.o bin/simulator
+
 windows_clean: 
-	del /F /Q *.o /bin/simulator.exe
+	del /F /Q *.o
+	del /F /Q bin\simulator.exe
