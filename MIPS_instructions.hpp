@@ -45,7 +45,6 @@ void andi(char s1, char dest, int16_t data);
 
 //----- J TYPE -----
 
-void j(int32_t addr);
-void jal(int32_t addr);
+
 
 #endif /* MIPS_instructions_hpp */

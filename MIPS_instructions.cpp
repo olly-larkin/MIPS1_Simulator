@@ -16,8 +16,7 @@ std::map<char, iTypeFunc> I_FUNC = {
     {12, andi}
 };
 std::map<char, jTypeFunc> J_FUNC = {
-    {2, j},
-    {3, jal}
+    
 };
 
 char ADDR_NULL[0x4];
@@ -152,11 +151,3 @@ void andi(char s1, char dest, int16_t data) {
 
 //----- J TYPE -----
 
-void j(int32_t addr) {
-    programCounter = addr;
-}
- 
-void jal(int32_t addr) {
-    registers[31] = programCounter;
-    programCounter = addr;
-}
