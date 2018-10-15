@@ -34,7 +34,8 @@ int main(int argc, const char * argv[]) {
         execute(instr);
         
         if (pcLocation() >= ADDR_INSTR_LIMIT)
-            exitError("Program Counter has exceeded executable memory.", -11);
+            //exitError("Program Counter has exceeded executable memory.", -11);
+            successfulExit();
     }
 }
 
