@@ -13,7 +13,8 @@ std::map<char, rTypeFunc> R_FUNC = {
 };
 std::map<char, iTypeFunc> I_FUNC = {
     {9, addiu},
-    {12, andi}
+    {12, andi},
+    {32, lb}
 };
 std::map<char, jTypeFunc> J_FUNC = {
     
@@ -111,7 +112,7 @@ void mflo(char s1, char s2, char dest, char shAmt) {
 
 void div_instr(char s1, char s2, char dest, char shAmt) {
     if (s2 == 0)
-        exitError("Cannot divide by 0.", -11);
+        exitError("Cannot divide by 0.", -10);
 
     LO = s1 / s2;
     HI = s1 % s2;
@@ -119,7 +120,7 @@ void div_instr(char s1, char s2, char dest, char shAmt) {
 
 void divu(char s1, char s2, char dest, char shAmt) {
     if (s2 == 0)
-        exitError("Cannot divide by 0.", -11);
+        exitError("Cannot divide by 0.", -10);
 
     LO = (unsigned)s1 / (unsigned)s2;
     HI = (unsigned)s1 % (unsigned)s2;
@@ -147,6 +148,13 @@ void addiu(char s1, char dest, int16_t data) {
 
 void andi(char s1, char dest, int16_t data) {
     registers[dest] = registers[s1] & data;
+}
+
+void lb(char s1, char dest, int16_t data) {
+    if (registers[s1] + data > ADDR_DATA_LIMIT)
+        exitError("Invalid memory access.", -11);
+
+    registers[dest] = (int32_t)*memMap(registers[s1] + data);
 }
 
 //----- J TYPE -----

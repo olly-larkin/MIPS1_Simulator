@@ -10,6 +10,7 @@
 #define ADDR_PUTC_P 0x30000004
 
 #define ADDR_INSTR_LIMIT 0x11000000
+#define ADDR_DATA_LIMIT 0x24000000
 
 typedef void (*rTypeFunc)(char,char,char,char);
 typedef void (*iTypeFunc)(char,char,int16_t);
@@ -42,6 +43,7 @@ void and_instr(char s1, char s2, char dest, char shAmt);
 
 void addiu(char s1, char dest, int16_t data);
 void andi(char s1, char dest, int16_t data);
+void lb(char s1, char dest, int16_t data);
 
 //----- J TYPE -----
 
