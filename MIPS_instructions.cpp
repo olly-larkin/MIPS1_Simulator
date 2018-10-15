@@ -23,26 +23,20 @@ int32_t registers[32];
 int32_t programCounter = ADDR_INSTR_P;
 
 void executeR(char fn, char s1, char s2, char dest, char shAmt){
-    if (R_FUNC.find(fn) == R_FUNC.end()) {
-        std::cerr << "Invalid instruction.\n";
-        std::exit(-12);
-    }
+    if (R_FUNC.find(fn) == R_FUNC.end())
+        exitError("Invalid instruction.", -12);
     R_FUNC[fn](s1,s2,dest,shAmt);
 }
 
 void executeI(char op, char s1, char dest, int16_t data){
-    if (I_FUNC.find(op) == I_FUNC.end()) {
-        std::cerr << "Invalid instruction.\n";
-        std::exit(-12);
-    }
+    if (I_FUNC.find(op) == I_FUNC.end()) 
+        exitError("Invalid instruction.", -12);
     I_FUNC[op](s1,dest,data);
 }
 
 void executeJ(char op, int32_t addr){
-    if (J_FUNC.find(op) == J_FUNC.end()) {
-        std::cerr << "Invalid instruction.\n";
-        std::exit(-12);
-    }
+    if (J_FUNC.find(op) == J_FUNC.end()) 
+        exitError("Invalid instruction.", -12);
     J_FUNC[op](addr);
 }
 
