@@ -5,6 +5,7 @@
 
 std::map<char, rTypeFunc> R_FUNC = {
     {16, mfhi},
+    {18, mflo},
     {33, addu},
     {36, and_instr}
 };
@@ -101,6 +102,10 @@ void successfulExit() {
 
 void mfhi(char s1, char s2, char dest, char shAmt) {
     registers[dest] = HI;
+}
+
+void mflo(char s1, char s2, char dest, char shAmt) {
+    registers[dest] = LO;
 }
 
 void addu(char s1, char s2, char dest, char shAmt) {
