@@ -15,6 +15,7 @@ std::map<char, iTypeFunc> I_FUNC = {
     {9, addiu},
     {12, andi},
     {32, lb},
+    {33, lh},
     {36, lbu}
 };
 std::map<char, jTypeFunc> J_FUNC = {
@@ -160,13 +161,28 @@ void lb(char s1, char dest, int16_t data) {
         exitError("Invalid memory access.", -11);
 
     registers[dest] = (int32_t)*memMap(registers[s1] + data);
+    if ((registers[dest] & 0x00000080) == 0)
+        registers[dest] = registers[dest] & 0x000000FF;
+    else
+        registers[dest] = registers[dest] | 0xFFFFFF00;
+}
+
+void lh(char s1, char dest, int16_t data) {
+    if (registers[s1] + data >= ADDR_DATA_P && registers[s1] + data > ADDR_DATA_LIMIT - 1)
+        exitError("Invalid memory access.", -11);
+
+    registers[dest] = (int32_t)get16(memMap(registers[s1] + data));
+    if ((registers[dest] & 0x00008000) == 0)
+        registers[dest] = registers[dest] & 0x0000FFFF;
+    else
+        registers[dest] = registers[dest] | 0xFFFF0000;
 }
 
 void lbu(char s1, char dest, int16_t data) {
     if (registers[s1] + data >= ADDR_DATA_P && registers[s1] + data > ADDR_DATA_LIMIT)
         exitError("Invalid memory access.", -11);
 
-    registers[dest] = (int32_t)(unsigned)*memMap(registers[s1] + data);
+    registers[dest] = (int32_t)*memMap(registers[s1] + data) & 0x000000FF;
 }
 
 //----- J TYPE -----
