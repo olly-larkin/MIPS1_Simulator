@@ -1,10 +1,10 @@
 simulator: main.o MIPS_instructions.o
 	g++ sim_src/main.o sim_src/MIPS_instructions.o -o bin/simulator
 
-main.o: main.cpp
+main.o: sim_src/main.cpp
 	g++ --std=c++11 -c sim_src/main.cpp -o sim_src/main.o
 
-MIPS_instructions.o: MIPS_instructions.cpp
+MIPS_instructions.o: sim_src/MIPS_instructions.cpp
 	g++ --std=c++11 -c sim_src/MIPS_instructions.cpp -o sim_src/MIPS_instructions.o
 
 clean:

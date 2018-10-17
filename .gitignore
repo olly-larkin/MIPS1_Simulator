@@ -2,5 +2,5 @@
 bin/.DS_Store
 bin/simulator
 bin/simulator.exe
-main.o
-MIPS_instructions.o
+sim_src/main.o
+sim_src/MIPS_instructions.o
