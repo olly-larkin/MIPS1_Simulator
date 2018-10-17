@@ -1,14 +1,14 @@
 simulator: main.o MIPS_instructions.o
-	g++ main.o MIPS_instructions.o -o bin/simulator
+	g++ sim_src/main.o sim_src/MIPS_instructions.o -o bin/simulator
 
 main.o: main.cpp
-	g++ --std=c++11 -c main.cpp
+	g++ --std=c++11 -c sim_src/main.cpp -o sim_src/main.o
 
 MIPS_instructions.o: MIPS_instructions.cpp
-	g++ --std=c++11 -c MIPS_instructions.cpp
+	g++ --std=c++11 -c sim_src/MIPS_instructions.cpp -o sim_src/MIPS_instructions.o
 
 clean:
-	rm *.o bin/simulator
+	rm sim_src/*.o bin/simulator
 
 windows_clean: 
 	del /F /Q *.o
