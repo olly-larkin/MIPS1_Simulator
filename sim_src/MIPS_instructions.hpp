@@ -39,6 +39,7 @@ void add(char s1, char s2, char dest, char shAmt);
 //----- I TYPE -----
 
 void addi(char s1, char dest, int16_t data);
+void addiu(char s1, char dest, int16_t data);
 
 //----- J TYPE -----
 
