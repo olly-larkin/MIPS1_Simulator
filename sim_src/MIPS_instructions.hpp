@@ -33,20 +33,11 @@ void successfulExit();
 
 //----- R TYPE -----
 
-void mfhi(char s1, char s2, char dest, char shAmt);
-void mflo(char s1, char s2, char dest, char shAmt);
-void div_instr(char s1, char s2, char dest, char shAmt);
-void divu(char s1, char s2, char dest, char shAmt);
-void addu(char s1, char s2, char dest, char shAmt);
-void and_instr(char s1, char s2, char dest, char shAmt);
+
 
 //----- I TYPE -----
 
-void addiu(char s1, char dest, int16_t data);
-void andi(char s1, char dest, int16_t data);
-void lb(char s1, char dest, int16_t data);
-void lh(char s1, char dest, int16_t data);
-void lbu(char s1, char dest, int16_t data);
+
 
 //----- J TYPE -----
 
