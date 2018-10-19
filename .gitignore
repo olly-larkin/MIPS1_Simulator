@@ -4,3 +4,5 @@ bin/simulator
 bin/simulator.exe
 sim_src/main.o
 sim_src/MIPS_instructions.o
+mips.bin
+testbin.bin
