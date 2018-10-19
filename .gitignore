@@ -6,3 +6,7 @@ sim_src/main.o
 sim_src/MIPS_instructions.o
 mips.bin
 testbin.bin
+.vscode/settings.json
+sim_src/memoryMap.o
+sim_src/registers.o
+sim_src/simulator.o
