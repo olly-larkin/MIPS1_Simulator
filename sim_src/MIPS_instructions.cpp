@@ -7,7 +7,7 @@ std::map<char, rTypeFunc> R_FUNC = {
     {32, add}
 };
 std::map<char, iTypeFunc> I_FUNC = {
-    
+    {8, addi}
 };
 std::map<char, jTypeFunc> J_FUNC = {
     
@@ -114,7 +114,7 @@ void add(char s1, char s2, char dest, char shAmt) {
     int32_t in1 = registers[s1];
     int32_t in2 = registers[s2];
     int32_t out = in1 + in2;
-    if (((in1 >> 31) == (in2 >> 31)) && ((out >> 31) != (in1 >> 31))) {
+    if ((((in1 >> 31) & 0x1) == ((in2 >> 31) & 0x1)) && (((out >> 31) & 0x1) != ((in1 >> 31) & 0x1))) {
         exitError("Overflow detected", -10);
     }
     if (validDest(dest))
@@ -123,7 +123,17 @@ void add(char s1, char s2, char dest, char shAmt) {
 
 //----- I TYPE -----
 
-
+void addi(char s1, char dest, int16_t data) {
+    int32_t in1 = registers[s1];
+    bool sb1 = (in1 >> 31) & 0x1;
+    bool sb2 = (data >> 15) & 0x1;
+    int32_t in2 = sb2 ? (data | 0xFFFF0000) : data;
+    int32_t out = in1 + in2;
+    if ((sb1 == sb2) && (sb1 != ((out >> 31) & 0x1)))
+        exitError("Overflow detected", -10);
+    if (validDest(dest))
+        registers[dest] = out;
+}
 
 //----- J TYPE -----
 
