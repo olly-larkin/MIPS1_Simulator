@@ -4,19 +4,10 @@
 #include <map>
 
 std::map<char, rTypeFunc> R_FUNC = {
-    {16, mfhi},
-    {18, mflo},
-    {26, div_instr},
-    {27, divu},
-    {33, addu},
-    {36, and_instr}
+    
 };
 std::map<char, iTypeFunc> I_FUNC = {
-    {9, addiu},
-    {12, andi},
-    {32, lb},
-    {33, lh},
-    {36, lbu}
+    
 };
 std::map<char, jTypeFunc> J_FUNC = {
     
@@ -99,7 +90,6 @@ char* memMap(int32_t addr) {
 
 void successfulExit() {
     programCounter = 0;
-    // maybe execute an instruction here?
     std::cerr << "Successful execution." << std::endl << std::endl;
     std::exit(returnCode());
 }
@@ -108,82 +98,11 @@ void successfulExit() {
 
 //----- R TYPE -----
 
-void mfhi(char s1, char s2, char dest, char shAmt) {
-    registers[dest] = HI;
-}
 
-void mflo(char s1, char s2, char dest, char shAmt) {
-    registers[dest] = LO;
-}
-
-void div_instr(char s1, char s2, char dest, char shAmt) {
-    if (s2 == 0)
-        exitError("Cannot divide by 0.", -10);
-
-    LO = s1 / s2;
-    HI = s1 % s2;
-}
-
-void divu(char s1, char s2, char dest, char shAmt) {
-    if (s2 == 0)
-        exitError("Cannot divide by 0.", -10);
-
-    LO = (unsigned)s1 / (unsigned)s2;
-    HI = (unsigned)s1 % (unsigned)s2;
-}
-
-void addu(char s1, char s2, char dest, char shAmt) {
-    if (shAmt != 0)
-        std::cerr << "Shift amount not required for 'addu' operation. Value disregarded.\n";
-    
-    registers[dest] = registers[s1] + registers[s2];
-}
-
-void and_instr(char s1, char s2, char dest, char shAmt) {
-    if (shAmt != 0)
-        std::cerr << "Shift amount not required for 'and' operation. Value disregarded.\n";
-    
-    registers[dest] = registers[s1] & registers[s2];
-}
 
 //----- I TYPE -----
 
-void addiu(char s1, char dest, int16_t data) {
-    registers[dest] = registers[s1] + data;
-}
 
-void andi(char s1, char dest, int16_t data) {
-    registers[dest] = registers[s1] & data;
-}
-
-void lb(char s1, char dest, int16_t data) {
-    if (registers[s1] + data >= ADDR_DATA_P && registers[s1] + data > ADDR_DATA_LIMIT)
-        exitError("Invalid memory access.", -11);
-
-    registers[dest] = (int32_t)*memMap(registers[s1] + data);
-    if ((registers[dest] & 0x00000080) == 0)
-        registers[dest] = registers[dest] & 0x000000FF;
-    else
-        registers[dest] = registers[dest] | 0xFFFFFF00;
-}
-
-void lh(char s1, char dest, int16_t data) {
-    if (registers[s1] + data >= ADDR_DATA_P && registers[s1] + data > ADDR_DATA_LIMIT - 1)
-        exitError("Invalid memory access.", -11);
-
-    registers[dest] = (int32_t)get16(memMap(registers[s1] + data));
-    if ((registers[dest] & 0x00008000) == 0)
-        registers[dest] = registers[dest] & 0x0000FFFF;
-    else
-        registers[dest] = registers[dest] | 0xFFFF0000;
-}
-
-void lbu(char s1, char dest, int16_t data) {
-    if (registers[s1] + data >= ADDR_DATA_P && registers[s1] + data > ADDR_DATA_LIMIT)
-        exitError("Invalid memory access.", -11);
-
-    registers[dest] = (int32_t)*memMap(registers[s1] + data) & 0x000000FF;
-}
 
 //----- J TYPE -----
 
