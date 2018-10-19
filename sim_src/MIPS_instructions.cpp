@@ -4,7 +4,7 @@
 #include <map>
 
 std::map<char, rTypeFunc> R_FUNC = {
-    
+    {"add", 32}
 };
 std::map<char, iTypeFunc> I_FUNC = {
     
@@ -78,9 +78,13 @@ char* memMap(int32_t addr) {
         return &ADDR_INSTR[addr - 0x10000000];
     else if (addr >= 0x20000000 && addr < 0x24000000)
         return &ADDR_DATA[addr - 0x20000000];
-    else if (addr >= 0x30000000 && addr < 0x30000004)
+    else if (addr >= 0x30000000 && addr < 0x30000004) {
+        char input = getchar();
+        if (input == EOF)
+            input = -1;
+        ADDR_GETC[addr - 0x30000000] = input;
         return &ADDR_GETC[addr - 0x30000000];
-    else if (addr >= 0x30000004 && addr < 0x30000008)
+    } else if (addr >= 0x30000004 && addr < 0x30000008)
         return &ADDR_PUTC[addr - 0x30000004];
     else {
         exitError("Invalid memory access.", -11);
@@ -94,11 +98,28 @@ void successfulExit() {
     std::exit(returnCode());
 }
 
+bool validDest(char dest) {
+    if (dest == 0 || dest == 1 || dest == 26 || dest == 27) {
+        exitError("Invalid register destination.", -12);
+        return false;
+    }
+    return true;
+}
+
 //************************** MIPS INSTRUCTIONS **************************
 
 //----- R TYPE -----
 
-
+void add(char s1, char s2, char dest, char shAmt) {
+    int32_t in1 = registers[s1];
+    int32_t in2 = registers[s2];
+    int32_t out = in1 + in2;
+    if (((in1 >> 31) == (in2 >> 31)) && ((out >> 31) != (in1 >> 31))) {
+        exitError("Overflow detected", -10);
+    }
+    if (validDest(dest))
+        registers[dest] = out;
+}
 
 //----- I TYPE -----
 

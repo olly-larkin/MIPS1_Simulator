@@ -28,12 +28,13 @@ char returnCode();
 void exitError(std::string msg, int errCode);
 char* memMap(int32_t addr);
 void successfulExit();
+bool validDest(char dest);
 
 //************************** MIPS INSTRUCTIONS **************************
 
 //----- R TYPE -----
 
-
+void add(char s1, char s2, char dest, char shAmt);
 
 //----- I TYPE -----
 
