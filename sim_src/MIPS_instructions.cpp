@@ -99,14 +99,6 @@ void successfulExit() {
     std::exit(returnCode());
 }
 
-bool validDest(char dest) {
-    if (dest == 0 || dest == 1 || dest == 26 || dest == 27) {
-        //exitError("Invalid register destination.", -12);
-        return false;
-    }
-    return true;
-}
-
 //************************** MIPS INSTRUCTIONS **************************
 
 //----- R TYPE -----
@@ -118,7 +110,7 @@ void add(char s1, char s2, char dest, char shAmt) {
     if ((((in1 >> 31) & 0x1) == ((in2 >> 31) & 0x1)) && (((out >> 31) & 0x1) != ((in1 >> 31) & 0x1))) {
         exitError("Overflow detected", -10);
     }
-    if (validDest(dest))
+    if (dest != 0)
         registers[dest] = out;
 }
 
@@ -132,14 +124,14 @@ void addi(char s1, char dest, int16_t data) {
     int32_t out = in1 + in2;
     if ((sb1 == sb2) && (sb1 != ((out >> 31) & 0x1)))
         exitError("Overflow detected", -10);
-    if (validDest(dest))
+    if (dest != 0)
         registers[dest] = out;
 }
 
 void addiu(char s1, char dest, int16_t data) {
     uint32_t in1 = registers[s1];
     uint32_t out = in1 + data;
-    if (validDest(dest))
+    if (dest != 0)
         registers[dest] = out;
 }
 

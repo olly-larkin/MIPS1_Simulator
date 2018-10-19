@@ -28,7 +28,6 @@ char returnCode();
 void exitError(std::string msg, int errCode);
 char* memMap(int32_t addr);
 void successfulExit();
-bool validDest(char dest);
 
 //************************** MIPS INSTRUCTIONS **************************
 
