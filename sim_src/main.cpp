@@ -1,24 +1,29 @@
 #include <iostream>
 #include <fstream>
-#include "MIPS_instructions.hpp"
+//#include "MIPS_instructions.hpp"
+#include "simulator.hpp"
 
-enum INSTRUCTION_TYPE {R, J, I};
+//enum INSTRUCTION_TYPE {R, J, I};
 
-INSTRUCTION_TYPE opcode(int32_t);
-void execute(int32_t);
+//INSTRUCTION_TYPE opcode(int32_t);
+//void execute(int32_t);
 
 int main(int argc, const char * argv[]) {
     std::cerr << std::endl;
-    if(argc == 1)
-        exitError("No binary file passed.", 0);     // PROGRAM SHOULD EXIT IF NO FILE PASSED IN
+    if(argc == 1) {
+        std::cerr << "No binary file passed." << std::endl;
+        std::exit(-21);
+    }
     
     std::ifstream binaryFile(argv[1], std::ios::in | std::ios::binary | std::ios::ate);
-    if (!binaryFile.is_open())
-        exitError("Unable to open binary file.", 0);        // PROGRAM EXIT IF FILE DOES NOT EXIST OR CANNOT BE OPENED
+    if (!binaryFile.is_open()) {
+        std::cerr << "Unable to open binary file: " << argv[1] << std::endl;
+        std::exit(-21);
+    }
     
     std::cerr << "Binary file opened: " << argv[1] << std::endl;
     
-    std::streampos size = binaryFile.tellg();
+    /*std::streampos size = binaryFile.tellg();
     binaryFile.seekg(0, std::ios::beg);
     binaryFile.read(executeMem(), size);
     binaryFile.close();
@@ -37,9 +42,16 @@ int main(int argc, const char * argv[]) {
             //exitError("Program Counter has exceeded executable memory.", -11);
             successfulExit();
     }
-    successfulExit();
+    successfulExit();*/
+
+    Simulator sim(binaryFile);
+    char exitCode = sim.execute();
+
+    std::cerr << "Successful execution: " << exitCode << std::endl << std::endl;
+    std::exit(exitCode);
 }
 
+/*
 INSTRUCTION_TYPE opcode(int32_t instr) {
     instr = instr >> 26;
     if (instr == 0)
@@ -80,3 +92,4 @@ void execute(int32_t instr) {
         }
     }
 }
+*/
