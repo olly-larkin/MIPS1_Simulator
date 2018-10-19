@@ -4,7 +4,7 @@
 #include <map>
 
 std::map<char, rTypeFunc> R_FUNC = {
-    {"add", 32}
+    {32, add}
 };
 std::map<char, iTypeFunc> I_FUNC = {
     
