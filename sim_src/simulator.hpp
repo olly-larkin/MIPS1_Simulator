@@ -31,13 +31,13 @@ private:
     void executeJ(uint32_t instr);
 
     //---- Maps ----
-    std::map<int, R_FUNC> R_MAP = {
+    std::map<char, R_FUNC> R_MAP = {
         {32, &Simulator::add}
     };
-    std::map<int, I_FUNC> I_MAP = {
+    std::map<char, I_FUNC> I_MAP = {
 
     };
-    std::map<int, J_FUNC> J_MAP = {
+    std::map<char, J_FUNC> J_MAP = {
 
     };
 
