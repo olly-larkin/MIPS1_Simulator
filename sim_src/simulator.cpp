@@ -412,3 +412,12 @@ void Simulator::sltiu(char rs, char rt, int32_t imm) {
     else
         registers.write(rt, 0);
 }
+
+void Simulator::sra(char rs, char rt, char rd, char sa) {
+    int32_t mask = 0xFFFFFFFF;
+    if (sgn(registers[rt]) == -1) {
+        registers.write(rd, (registers[rt] >> sa) | (mask << (32 - sa)));
+    } else {
+        registers.write(rd, (registers[rt] >> sa));
+    }
+}
