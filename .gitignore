@@ -14,3 +14,4 @@ sim_src/simulator.o
 bin/parser
 testFile.txt
 outFileName.txt
+bin/testBash

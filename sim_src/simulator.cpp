@@ -131,6 +131,20 @@ void Simulator::and_instr(char rs, char rt, char rd, char sa) {
     registers.write(rd, registers[rs] & registers[rt]);
 }
 
+void Simulator::andi(char rs, char rt, int32_t imm) {
+    registers.write(rt, registers[rs] & (imm & 0xFFFF));
+}
+
+void Simulator::beq(char rs, char rt, int32_t imm) {
+    if ((imm >> 15) & 1) {
+        imm = (imm << 2) | 0xFFFC0000;
+    } else {
+        imm = (imm << 2) & 0x3FFFF;
+    }
+    if (registers[rs] == registers[rt])
+        pc += imm;
+}
+
 void Simulator::jr(char rs, char rt, char rd, char sa) {
     pc = registers[rs];
 }

@@ -43,6 +43,8 @@ private:
     std::map<char, I_FUNC> I_MAP = {
         {8, &Simulator::addi},
         {9, &Simulator::addiu},
+        {12, &Simulator::andi},
+        {4, &Simulator::beq}
     };
     std::map<char, J_FUNC> J_MAP = {
 
@@ -54,6 +56,8 @@ private:
     void addiu(char rs, char rt, int32_t imm);
     void addu(char rs, char rt, char rd, char sa);
     void and_instr(char rs, char rt, char rd, char sa);
+    void andi(char rs, char rt, int32_t imm);
+    void beq(char rs, char rt, int32_t imm);
 
     void jr(char rs, char rt, char rd, char sa);
     void sll(char rs, char rt, char rd, char sa);
