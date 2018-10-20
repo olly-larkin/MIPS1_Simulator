@@ -39,7 +39,7 @@ private:
         {36, &Simulator::and_instr},
         {26, &Simulator::div_instr},
         {27, &Simulator::divu},
-
+        {9, &Simulator::jalr},
         {8, &Simulator::jr},
         {0, &Simulator::sll}
     };
@@ -76,6 +76,7 @@ private:
     void div_instr(char rs, char rt, char rd, char sa);
     void divu(char rs, char rt, char rd, char sa);
     void j(int addr);
+    void jalr(char rs, char rt, char rd, char sa);
 
     void jr(char rs, char rt, char rd, char sa);
     void sll(char rs, char rt, char rd, char sa);
