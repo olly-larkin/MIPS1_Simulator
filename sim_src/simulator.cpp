@@ -378,5 +378,9 @@ void Simulator::sh(char rs, char rt, int32_t imm) {
 }
 
 void Simulator::sll(char rs, char rt, char rd, char sa) {
-    registers.write(rd, (registers[rt] << sa));
+    registers.write(rd, (registers[rt] << (sa & 0x1F)));
+}
+
+void Simulator::sllv(char rs, char rt, char rd, char sa) {
+    registers.write(rd, (registers[rt] << (registers[rs] & 0x1F)));
 }
