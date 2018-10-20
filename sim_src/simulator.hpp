@@ -67,7 +67,8 @@ private:
         {35, &Simulator::lw},
         {34, &Simulator::lwl},
         {38, &Simulator::lwr},
-        {13, &Simulator::ori}
+        {13, &Simulator::ori},
+        {40, &Simulator::sb}
     };
     std::map<char, J_FUNC> J_MAP = {
         {2, &Simulator::j},
@@ -111,6 +112,7 @@ private:
     void multu(char rs, char rt, char rd, char sa);
     void or_instr(char rs, char rt, char rd, char sa);
     void ori(char rs, char rt, int32_t imm);
+    void sb(char rs, char rt, int32_t imm);
 
     void sll(char rs, char rt, char rd, char sa);
 };
