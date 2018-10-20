@@ -93,6 +93,10 @@ void Simulator::executeJ(uint32_t instr) {
     (this->*J_MAP[op])(addr);
 }
 
+char Simulator::sgn(int num) {
+    return (num > 0) - (num < 0);
+}
+
 // ****************** INSTRUCTIONS ******************
 
 void Simulator::add(char rs, char rt, char rd, char sa) {
@@ -100,10 +104,19 @@ void Simulator::add(char rs, char rt, char rd, char sa) {
     int32_t in2 = registers.read(rt);
     int32_t out = in1 + in2;
     if ((((in1 >> 31) & 0x1) == ((in2 >> 31) & 0x1)) && (((out >> 31) & 0x1) != ((in1 >> 31) & 0x1))) {
-        std::cerr << "Overflow detected." << std::endl << std::endl;
+        std::cerr << "Overflow detected in 'add'." << std::endl << std::endl;
         std::exit(-10);
     }
     registers.write(rd, out);
+}
+
+void Simulator::addi(char rs, char rt, int32_t imm) {
+    int32_t in1 = registers.read(rs);
+    int32_t out = in1 + imm;
+    if (sgn(in1) == sgn(imm) && sgn(in1) != sgn(out)) {
+        std::cerr << "Overflow detected in 'addi'." << std::endl << std::endl;
+    }
+    registers.write(rt, out);
 }
 
 void Simulator::sll(char rs, char rt, char rd, char sa) {

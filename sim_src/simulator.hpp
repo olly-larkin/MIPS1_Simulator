@@ -29,6 +29,7 @@ private:
     void executeR(uint32_t instr);
     void executeI(uint32_t instr);
     void executeJ(uint32_t instr);
+    char sgn(int num);
 
     //---- Maps ----
     std::map<char, R_FUNC> R_MAP = {
@@ -37,7 +38,7 @@ private:
         {0, &Simulator::sll}
     };
     std::map<char, I_FUNC> I_MAP = {
-
+        {8, &Simulator::addi}
     };
     std::map<char, J_FUNC> J_MAP = {
 
@@ -45,6 +46,7 @@ private:
 
     //---- Instructions ----
     void add(char rs, char rt, char rd, char sa);
+    void addi(char rs, char rt, int32_t imm);
     void jr(char rs, char rt, char rd, char sa);
     void sll(char rs, char rt, char rd, char sa);
 };
