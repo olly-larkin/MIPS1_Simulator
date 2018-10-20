@@ -421,3 +421,16 @@ void Simulator::sra(char rs, char rt, char rd, char sa) {
         registers.write(rd, (registers[rt] >> sa));
     }
 }
+
+void Simulator::srav(char rs, char rt, char rd, char sa) {
+    int32_t mask = 0xFFFFFFFF;
+    if (sgn(registers[rt]) == -1) {
+        registers.write(rd, (registers[rt] >> (registers[rs] & 0x1F)) | (mask << (32 - (registers[rs] & 0x1F))));
+    } else {
+        registers.write(rd, (registers[rt] >> (registers[rs] & 0x1F)));
+    }
+}
+
+void Simulator::srl(char rs, char rt, char rd, char sa) {
+    registers.write(rd, ((uint32_t)registers[rt] >> sa));
+}
