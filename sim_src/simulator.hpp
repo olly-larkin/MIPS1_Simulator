@@ -54,7 +54,8 @@ private:
         {5, &Simulator::bne}
     };
     std::map<char, J_FUNC> J_MAP = {
-        {2, &Simulator::j}
+        {2, &Simulator::j},
+        {3, &Simulator::jal}
     };
 
     //---- Instructions ----
@@ -77,6 +78,7 @@ private:
     void divu(char rs, char rt, char rd, char sa);
     void j(int addr);
     void jalr(char rs, char rt, char rd, char sa);
+    void jal(int addr);
 
     void jr(char rs, char rt, char rd, char sa);
     void sll(char rs, char rt, char rd, char sa);

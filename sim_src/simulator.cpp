@@ -258,6 +258,12 @@ void Simulator::jalr(char rs, char rt, char rd, char sa) {
     pc = registers[rs];
 }
 
+void Simulator::jal(int addr) {
+    addr = (addr << 2) | (pc & 0xFF000000);
+    registers.write(31, pc);
+    pc = addr;
+}
+
 void Simulator::jr(char rs, char rt, char rd, char sa) {
     pc = registers[rs];
 }
