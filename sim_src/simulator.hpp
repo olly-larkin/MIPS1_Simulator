@@ -48,6 +48,7 @@ private:
         {19, &Simulator::mfhi},
         {24, &Simulator::mult},
         {25, &Simulator::multu},
+        {37, &Simulator::or_instr},
         {0, &Simulator::sll}
     };
     std::map<char, I_FUNC> I_MAP = {
@@ -107,6 +108,7 @@ private:
     void mtlo(char rs, char rt, char rd, char sa);
     void mult(char rs, char rt, char rd, char sa);
     void multu(char rs, char rt, char rd, char sa);
+    void or_instr(char rs, char rt, char rd, char sa);
 
     void sll(char rs, char rt, char rd, char sa);
 };

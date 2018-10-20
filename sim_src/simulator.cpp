@@ -359,6 +359,10 @@ void Simulator::multu(char rs, char rt, char rd, char sa) {
     HI = (val >> 32) & 0xFFFFFFFF;
 }
 
+void Simulator::or_instr(char rs, char rt, char rd, char sa) {
+    registers.write(rd, registers[rs] | registers[rt]);
+}
+
 void Simulator::sll(char rs, char rt, char rd, char sa) {
     registers.write(rd, (registers[rt] << sa));
 }
