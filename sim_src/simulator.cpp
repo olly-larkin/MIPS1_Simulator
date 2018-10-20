@@ -434,3 +434,7 @@ void Simulator::srav(char rs, char rt, char rd, char sa) {
 void Simulator::srl(char rs, char rt, char rd, char sa) {
     registers.write(rd, ((uint32_t)registers[rt] >> sa));
 }
+
+void Simulator::srlv(char rs, char rt, char rd, char sa) {
+    registers.write(rd, ((uint32_t)registers[rt] >> (registers[rs] & 0x1F)));
+}

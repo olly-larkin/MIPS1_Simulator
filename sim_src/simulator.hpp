@@ -55,7 +55,8 @@ private:
         {43, &Simulator::sltu},
         {3, &Simulator::sra},
         {7, &Simulator::srav},
-        {2, &Simulator::srl}
+        {2, &Simulator::srl},
+        {6, &Simulator::srlv}
     };
     std::map<char, I_FUNC> I_MAP = {
         {8, &Simulator::addi},
@@ -132,6 +133,7 @@ private:
     void sra(char rs, char rt, char rd, char sa);
     void srav(char rs, char rt, char rd, char sa);
     void srl(char rs, char rt, char rd, char sa);
+    void srlv(char rs, char rt, char rd, char sa);
 };
 
 #endif //SIMULATOR_HPP
