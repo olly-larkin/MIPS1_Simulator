@@ -438,3 +438,21 @@ void Simulator::srl(char rs, char rt, char rd, char sa) {
 void Simulator::srlv(char rs, char rt, char rd, char sa) {
     registers.write(rd, ((uint32_t)registers[rt] >> (registers[rs] & 0x1F)));
 }
+
+void Simulator::sub(char rs, char rt, char rd, char sa) {
+    int32_t in1 = registers[rs];
+    int32_t in2 = registers[rt];
+    int32_t out = in1 - in2;
+    if (sgn(in1) != sgn(in2) && sgn(in2) == sgn(out)) {
+        std::cerr << "Overflow detected in 'add'." << std::endl << std::endl;
+        std::exit(-10);
+    }
+    registers.write(rd, out);
+}
+
+void Simulator::subu(char rs, char rt, char rd, char sa) {
+    uint32_t in1 = registers[rs];
+    uint32_t in2 = registers[rt];
+    uint32_t out = in1 - in2;
+    registers.write(rd, out);
+}
