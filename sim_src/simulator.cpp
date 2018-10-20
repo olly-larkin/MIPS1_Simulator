@@ -332,11 +332,31 @@ void Simulator::lwr(char rs, char rt, int32_t imm) {
 }
 
 void Simulator::mfhi(char rs, char rt, char rd, char sa) {
-        registers.write(rd, HI);
+    registers.write(rd, HI);
 }
 
 void Simulator::mflo(char rs, char rt, char rd, char sa) {
-        registers.write(rd, LO);
+    registers.write(rd, LO);
+}
+
+void Simulator::mthi(char rs, char rt, char rd, char sa) {
+    HI = registers[rs];
+}
+
+void Simulator::mtlo(char rs, char rt, char rd, char sa) {
+    LO = registers[rs];
+}
+
+void Simulator::mult(char rs, char rt, char rd, char sa) {
+    int64_t val = registers[rs] * registers[rt];
+    LO = val & 0xFFFFFFF;
+    HI = (val >> 32) & 0xFFFFFFFF;
+}
+
+void Simulator::multu(char rs, char rt, char rd, char sa) {
+    uint64_t val = (uint32_t)registers[rs] * (uint32_t)registers[rt];
+    LO = val & 0xFFFFFFF;
+    HI = (val >> 32) & 0xFFFFFFFF;
 }
 
 void Simulator::sll(char rs, char rt, char rd, char sa) {
