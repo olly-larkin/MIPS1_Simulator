@@ -14,7 +14,7 @@ char Simulator::execute() {
     uint32_t instr = 0;
     do {
         if (pc < ADDR_INSTR_P || pc > ADDR_INSTR_P + ADDR_INSTR_SIZE) {
-            std::cerr << "Attempted to execute non-executable memory." << std::endl;
+            std::cerr << "Attempted to execute non-executable memory." << std::endl << std::endl;
             std::exit(-11);
         }
         instr = memory.read(pc, 4);
@@ -58,7 +58,7 @@ void Simulator::executeR(uint32_t instr) {
     char fn = instr & 0x3F;
 
     if (R_MAP.find(fn) == R_MAP.end()) {
-        std::cerr << "Invalid instruction." << std::endl;
+        std::cerr << "Invalid instruction." << std::endl << std::endl;
         std::exit(-12);
     }
 
@@ -72,7 +72,7 @@ void Simulator::executeI(uint32_t instr) {
     int16_t imm = instr & 0xFFFF;
 
     if (I_MAP.find(op) == I_MAP.end()) {
-        std::cerr << "Invalid instruction." << std::endl;
+        std::cerr << "Invalid instruction." << std::endl << std::endl;
         std::exit(-12);
     }
 
@@ -84,7 +84,7 @@ void Simulator::executeJ(uint32_t instr) {
     int addr = instr & 0x3FFFFFF;
 
     if (J_MAP.find(op) == J_MAP.end()) {
-        std::cerr << "Invalid instruction." << std::endl;
+        std::cerr << "Invalid instruction." << std::endl << std::endl;
         std::exit(-12);
     }
 
@@ -98,8 +98,12 @@ void Simulator::add(char rs, char rt, char rd, char sa) {
     int32_t in2 = registers.read(rt);
     int32_t out = in1 + in2;
     if ((((in1 >> 31) & 0x1) == ((in2 >> 31) & 0x1)) && (((out >> 31) & 0x1) != ((in1 >> 31) & 0x1))) {
-        std::cerr << "Overflow detected." << std::endl;
+        std::cerr << "Overflow detected." << std::endl << std::endl;
         std::exit(-10);
     }
     registers.write(rd, out);
+}
+
+void Simulator::sll(char rs, char rt, char rd, char sa) {
+    registers.write(rd, (registers.read(rt) << sa));
 }

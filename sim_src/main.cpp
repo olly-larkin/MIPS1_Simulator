@@ -12,7 +12,7 @@ int main(int argc, const char * argv[]) {
 
     std::ifstream binaryFile(argv[1], std::ios::in | std::ios::binary | std::ios::ate);
     if (!binaryFile.is_open()) {
-        std::cerr << "Unable to open binary file: " << argv[1] << std::endl;
+        std::cerr << "Unable to open binary file: " << argv[1] << std::endl << std::endl;
         std::exit(-21);
     }
     
@@ -20,7 +20,7 @@ int main(int argc, const char * argv[]) {
     
     Simulator sim;
     sim.loadInstr(binaryFile);
-    char exitCode = sim.execute();
+    int exitCode = sim.execute();
 
     std::cerr << "Successful execution: " << exitCode << std::endl << std::endl;
     std::exit(exitCode);
