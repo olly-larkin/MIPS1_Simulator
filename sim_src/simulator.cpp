@@ -384,3 +384,10 @@ void Simulator::sll(char rs, char rt, char rd, char sa) {
 void Simulator::sllv(char rs, char rt, char rd, char sa) {
     registers.write(rd, (registers[rt] << (registers[rs] & 0x1F)));
 }
+
+void Simulator::slt(char rs, char rt, char rd, char sa) {
+    if (registers[rs] < registers[rt])
+        registers.write(rd, 1);
+    else
+        registers.write(rd, 0);
+}
