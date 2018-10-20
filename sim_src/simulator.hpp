@@ -58,7 +58,8 @@ private:
         {2, &Simulator::srl},
         {6, &Simulator::srlv},
         {34, &Simulator::sub},
-        {35, &Simulator::subu}
+        {35, &Simulator::subu},
+        {38, &Simulator::xor_instr}
     };
     std::map<char, I_FUNC> I_MAP = {
         {8, &Simulator::addi},
@@ -81,7 +82,8 @@ private:
         {41, &Simulator::sh},
         {10, &Simulator::slti},
         {11, &Simulator::sltiu},
-        {43, &Simulator::sw}
+        {43, &Simulator::sw},
+        {14, &Simulator::xori}
     };
     std::map<char, J_FUNC> J_MAP = {
         {2, &Simulator::j},
@@ -140,6 +142,8 @@ private:
     void sub(char rs, char rt, char rd, char sa);
     void subu(char rs, char rt, char rd, char sa);
     void sw(char rs, char rt, int32_t imm);
+    void xor_instr(char rs, char rt, char rd, char sa);
+    void xori(char rs, char rt, int32_t imm);
 };
 
 #endif //SIMULATOR_HPP

@@ -461,3 +461,11 @@ void Simulator::sw(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm);
     memory.write(imm + registers[rs], registers[rt], 4);
 }
+
+void Simulator::xor_instr(char rs, char rt, char rd, char sa) {
+    registers.write(rd, (registers[rs] ^ registers[rt]));
+}
+
+void Simulator::xori(char rs, char rt, int32_t imm) {
+    registers.write(rt, (registers[rs] ^ (imm & 0xFFFF)));
+}
