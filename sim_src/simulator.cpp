@@ -14,7 +14,7 @@ char Simulator::execute() {
     uint32_t instr = 0;
     do {
         if (pc < ADDR_INSTR_P || pc > ADDR_INSTR_P + ADDR_INSTR_SIZE) {
-            std::cerr << "Attempted to execute non-exacutable memory." << std::endl;
+            std::cerr << "Attempted to execute non-executable memory." << std::endl;
             std::exit(-11);
         }
         instr = memory.read(pc, 4);

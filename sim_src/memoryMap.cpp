@@ -2,6 +2,14 @@
 #include "memoryMap.hpp"
 #include <fstream>
 
+MemoryMap::MemoryMap() {
+    ADDR_NULL = std::vector<char>(ADDR_NULL_SIZE, 0);
+    ADDR_INSTR = std::vector<char>(ADDR_INSTR_SIZE, 0);
+    ADDR_DATA = std::vector<char>(ADDR_DATA_SIZE, 0);
+    ADDR_GETC = std::vector<char>(ADDR_GETC_SIZE, 0);
+    ADDR_PUTC = std::vector<char>(ADDR_PUTC_SIZE, 0);
+}
+
 int32_t MemoryMap::read(unsigned int addr, unsigned char byteNum, bool signedRead) {
     if (addr == ADDR_GETC_P) {
         int32_t inputVal = getchar();

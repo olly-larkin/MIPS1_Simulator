@@ -7,8 +7,6 @@
 #include <fstream>
 #include <map>
 
-
-
 enum OP_TYPE {R, I, J};
 
 class Simulator {
