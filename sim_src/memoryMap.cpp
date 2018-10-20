@@ -17,6 +17,11 @@ int32_t MemoryMap::read(unsigned int addr, unsigned char byteNum, bool signedRea
             return -1;
         return inputVal;
     }
+
+    if (addr % byteNum != 0) {
+        std::cerr << "Unaligned memory access." << std::endl << std::endl;
+        std::exit(-11);
+    }
     
     int32_t returnVal = 0;
     for(int i = 0; i < byteNum; ++i) {

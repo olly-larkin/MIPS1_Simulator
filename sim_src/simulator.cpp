@@ -97,11 +97,20 @@ char Simulator::sgn(int num) {
     return (num > 0) - (num < 0);
 }
 
-int32_t Simulator::sgnExt16(int32_t val){
+int32_t Simulator::sgnExt16(int32_t val) {
     if ((val >> 15) & 1) {
         val = val | 0xFFFF0000;
     } else {
         val = val & 0xFFFF;
+    }
+    return val;
+}
+
+int32_t Simulator::sgnExt8(int32_t val) {
+    if ((val >> 7) & 1) {
+        val = val | 0xFFFFFF00;
+    } else {
+        val = val & 0xFF;
     }
     return val;
 }
@@ -266,6 +275,60 @@ void Simulator::jal(int addr) {
 
 void Simulator::jr(char rs, char rt, char rd, char sa) {
     pc = registers[rs];
+}
+
+void Simulator::lb(char rs, char rt, int32_t imm) {
+    imm = sgnExt16(imm);
+    int32_t val = memory.read(imm + registers[rs], 1);
+    registers.write(rt, sgnExt8(val));
+}
+
+void Simulator::lbu(char rs, char rt, int32_t imm) {
+    imm = sgnExt16(imm);
+    int32_t val = memory.read(imm + registers[rs], 1) & 0xFF;
+    registers.write(rt, val);
+}
+
+void Simulator::lh(char rs, char rt, int32_t imm) {
+    imm = sgnExt16(imm);
+    int32_t val = memory.read(imm + registers[rs], 2);
+    registers.write(rt, sgnExt16(val));
+}
+
+void Simulator::lhu(char rs, char rt, int32_t imm) {
+    imm = sgnExt16(imm);
+    int32_t val = memory.read(imm + registers[rs], 2) & 0xFFFF;
+    registers.write(rt, val);
+}
+
+void Simulator::lw(char rs, char rt, int32_t imm) {
+    imm = sgnExt16(imm);
+    int32_t val = memory.read(imm + registers[rs], 4);
+    registers.write(rt, sgnExt16(val));
+}
+
+void Simulator::lwl(char rs, char rt, int32_t imm) {
+    uint32_t addr = registers[rs] + imm;
+    char count = 4 - (addr % 4);
+    int32_t regVal = 0;
+    for(int i = 0; i < count; ++i) {
+        uint32_t val = memory.read(addr + i, 1);
+        val = val << ((3-i)*8);
+        regVal = regVal | val;
+    }
+    registers.write(rt, regVal);
+}
+
+void Simulator::lwr(char rs, char rt, int32_t imm) {
+    uint32_t addr = registers[rs] + imm;
+    char count = 4 - (addr % 4);
+    int32_t regVal = 0;
+    for(int i = 0; i < count; ++i) {
+        uint32_t val = memory.read(addr - i, 1);
+        val = val << (i*8);
+        regVal = regVal | val;
+    }
+    registers.write(rt, regVal);
 }
 
 void Simulator::sll(char rs, char rt, char rd, char sa) {

@@ -31,6 +31,7 @@ private:
     void executeJ(uint32_t instr);
     char sgn(int num);
     int32_t sgnExt16(int32_t val);
+    int32_t sgnExt8(int32_t val);
 
     //---- Maps ----
     std::map<char, R_FUNC> R_MAP = {
@@ -51,7 +52,14 @@ private:
         {1, &Simulator::branches},
         {7, &Simulator::bgtz},
         {6, &Simulator::blez},
-        {5, &Simulator::bne}
+        {5, &Simulator::bne},
+        {32, &Simulator::lb},
+        {36, &Simulator::lbu},
+        {33, &Simulator::lh},
+        {37, &Simulator::lhu},
+        {35, &Simulator::lw},
+        {34, &Simulator::lwl},
+        {38, &Simulator::lwr}
     };
     std::map<char, J_FUNC> J_MAP = {
         {2, &Simulator::j},
@@ -79,8 +87,15 @@ private:
     void j(int addr);
     void jalr(char rs, char rt, char rd, char sa);
     void jal(int addr);
-
     void jr(char rs, char rt, char rd, char sa);
+    void lb(char rs, char rt, int32_t imm);
+    void lbu(char rs, char rt, int32_t imm);
+    void lh(char rs, char rt, int32_t imm);
+    void lhu(char rs, char rt, int32_t imm);
+    void lw(char rs, char rt, int32_t imm);
+    void lwl(char rs, char rt, int32_t imm);
+    void lwr(char rs, char rt, int32_t imm);
+
     void sll(char rs, char rt, char rd, char sa);
 };
 
