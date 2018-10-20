@@ -372,6 +372,11 @@ void Simulator::sb(char rs, char rt, int32_t imm) {
     memory.write(imm + registers[rs], registers[rt], 1);
 }
 
+void Simulator::sh(char rs, char rt, int32_t imm) {
+    imm = sgnExt16(imm);
+    memory.write(imm + registers[rs], registers[rt], 2);
+}
+
 void Simulator::sll(char rs, char rt, char rd, char sa) {
     registers.write(rd, (registers[rt] << sa));
 }
