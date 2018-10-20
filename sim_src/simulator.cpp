@@ -120,13 +120,15 @@ void Simulator::addi(char rs, char rt, int32_t imm) {
 }
 
 void Simulator::addiu(char rs, char rt, int32_t imm) {
-    uint32_t in1 = registers[rs];
-    uint32_t out = in1 + imm;
-    registers.write(rt, out);
+    registers.write(rt, imm + registers[rs]);
 }
 
 void Simulator::addu(char rs, char rt, char rd, char sa) {
-    
+    registers.write(rd, registers[rs] + registers[rt]);
+}
+
+void Simulator::and_instr(char rs, char rt, char rd, char sa) {
+    registers.write(rd, registers[rs] & registers[rt]);
 }
 
 void Simulator::jr(char rs, char rt, char rd, char sa) {

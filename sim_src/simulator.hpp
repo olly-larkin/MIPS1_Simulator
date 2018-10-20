@@ -35,6 +35,8 @@ private:
     std::map<char, R_FUNC> R_MAP = {
         {32, &Simulator::add},
         {33, &Simulator::addu},
+        {36, &Simulator::and_instr},
+
         {8, &Simulator::jr},
         {0, &Simulator::sll}
     };
@@ -51,6 +53,8 @@ private:
     void addi(char rs, char rt, int32_t imm);
     void addiu(char rs, char rt, int32_t imm);
     void addu(char rs, char rt, char rd, char sa);
+    void and_instr(char rs, char rt, char rd, char sa);
+
     void jr(char rs, char rt, char rd, char sa);
     void sll(char rs, char rt, char rd, char sa);
 };
