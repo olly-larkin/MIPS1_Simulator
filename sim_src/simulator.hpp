@@ -80,7 +80,8 @@ private:
         {40, &Simulator::sb},
         {41, &Simulator::sh},
         {10, &Simulator::slti},
-        {11, &Simulator::sltiu}
+        {11, &Simulator::sltiu},
+        {43, &Simulator::sw}
     };
     std::map<char, J_FUNC> J_MAP = {
         {2, &Simulator::j},
@@ -138,6 +139,7 @@ private:
     void srlv(char rs, char rt, char rd, char sa);
     void sub(char rs, char rt, char rd, char sa);
     void subu(char rs, char rt, char rd, char sa);
+    void sw(char rs, char rt, int32_t imm);
 };
 
 #endif //SIMULATOR_HPP

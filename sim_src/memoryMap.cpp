@@ -52,7 +52,7 @@ void MemoryMap::write(unsigned int addr, int32_t data, unsigned char byteNum) {
         putchar(data & 0xFF);
     }
 
-    if (byteNum == 2 && (addr & 0x1)) {
+    if (addr % byteNum != 0) {
             std::cerr << "Invalid memory write: Address must be naturally aligned." << std::endl << std::endl;
             std::exit(-11);
     }

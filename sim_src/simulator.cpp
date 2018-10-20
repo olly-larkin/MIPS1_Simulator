@@ -456,3 +456,8 @@ void Simulator::subu(char rs, char rt, char rd, char sa) {
     uint32_t out = in1 - in2;
     registers.write(rd, out);
 }
+
+void Simulator::sw(char rs, char rt, int32_t imm) {
+    imm = sgnExt16(imm);
+    memory.write(imm + registers[rs], registers[rt], 4);
+}
