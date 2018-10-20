@@ -42,6 +42,8 @@ private:
         {27, &Simulator::divu},
         {9, &Simulator::jalr},
         {8, &Simulator::jr},
+        {16, &Simulator::mfhi},
+        {18, &Simulator::mfhi},
         {0, &Simulator::sll}
     };
     std::map<char, I_FUNC> I_MAP = {
@@ -95,6 +97,8 @@ private:
     void lw(char rs, char rt, int32_t imm);
     void lwl(char rs, char rt, int32_t imm);
     void lwr(char rs, char rt, int32_t imm);
+    void mfhi(char rs, char rt, char rd, char sa);
+    void mflo(char rs, char rt, char rd, char sa);
 
     void sll(char rs, char rt, char rd, char sa);
 };

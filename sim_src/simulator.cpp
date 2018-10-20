@@ -331,6 +331,14 @@ void Simulator::lwr(char rs, char rt, int32_t imm) {
     registers.write(rt, regVal);
 }
 
+void Simulator::mfhi(char rs, char rt, char rd, char sa) {
+        registers.write(rd, HI);
+}
+
+void Simulator::mflo(char rs, char rt, char rd, char sa) {
+        registers.write(rd, LO);
+}
+
 void Simulator::sll(char rs, char rt, char rd, char sa) {
     registers.write(rd, (registers[rt] << sa));
 }
