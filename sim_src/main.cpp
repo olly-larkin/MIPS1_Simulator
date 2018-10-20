@@ -8,7 +8,6 @@ int main(int argc, const char * argv[]) {
         std::cerr << "No binary file passed." << std::endl << std::endl;
         std::exit(-21);
     }
-    
 
     std::ifstream binaryFile(argv[1], std::ios::in | std::ios::binary | std::ios::ate);
     if (!binaryFile.is_open()) {

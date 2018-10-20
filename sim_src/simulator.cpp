@@ -97,13 +97,22 @@ char Simulator::sgn(int num) {
     return (num > 0) - (num < 0);
 }
 
+int32_t Simulator::sgnExt16(int32_t val){
+    if ((val >> 15) & 1) {
+        val = val | 0xFFFF0000;
+    } else {
+        val = val & 0xFFFF;
+    }
+    return val;
+}
+
 // ****************** INSTRUCTIONS ******************
 
 void Simulator::add(char rs, char rt, char rd, char sa) {
     int32_t in1 = registers[rs];
     int32_t in2 = registers[rt];
     int32_t out = in1 + in2;
-    if ((((in1 >> 31) & 0x1) == ((in2 >> 31) & 0x1)) && (((out >> 31) & 0x1) != ((in1 >> 31) & 0x1))) {
+    if (sgn(in1) == sgn(in2) && sgn(in1) != sgn(out)) {
         std::cerr << "Overflow detected in 'add'." << std::endl << std::endl;
         std::exit(-10);
     }
@@ -143,6 +152,105 @@ void Simulator::beq(char rs, char rt, int32_t imm) {
     }
     if (registers[rs] == registers[rt])
         pc += imm;
+}
+
+void Simulator::branches(char rs, char rt, int32_t imm) {
+    switch(rt) {
+        case 1: {
+            bgez(rs, imm);
+            break;
+        }
+        case 17: {
+            bgezal(rs, imm);
+            break;
+        }
+        case 0: {
+            bltz(rs, imm);
+            break;
+        }
+        case 16: {
+            bltzal(rs, imm);
+            break;
+        }
+        default: {
+            std::cerr << "Invalid branch instruction." << std::endl;
+            std::exit(-12);
+        }
+    }
+}
+
+void Simulator::bgez(char rs, int32_t imm) {
+    imm = sgnExt16(imm) << 2;
+    if (registers[rs] >= 0)
+        pc += imm;
+}
+
+void Simulator::bgezal(char rs, int32_t imm) {
+    imm = sgnExt16(imm) << 2;
+    if (registers[rs] >= 0) {
+        registers.write(31, pc);    // Maybe +4? Ask about branch delay slots
+        pc += imm;
+    }
+}
+
+void Simulator::bgtz(char rs, char rt, int32_t imm) {
+    imm = sgnExt16(imm) << 2;
+    if (registers[rs] > 0)
+        pc += imm;
+}
+
+void Simulator::blez(char rs, char rt, int32_t imm) {
+    imm = sgnExt16(imm) << 2;
+    if (registers[rs] <= 0){
+        pc += imm;
+    }
+
+}
+
+void Simulator::bltz(char rs, int32_t imm) {
+    imm = sgnExt16(imm) << 2;
+    if (registers[rs] < 0){
+        pc += imm;
+    } 
+}
+
+void Simulator::bltzal(char rs, int32_t imm) {
+    imm = sgnExt16(imm) << 2;
+    if (registers[rs] < 0){
+        registers.write(31, pc);
+        pc += imm;
+    } 
+}
+
+void Simulator::bne(char rs, char rt, int32_t imm) {
+    imm = sgnExt16(imm) << 2;
+    if (registers[rs] != registers[rt]){
+        pc += imm;
+    }
+}
+
+void Simulator::div_instr(char rs, char rt, char rd, char sa) {
+    if(registers[rt] == 0){
+        std::cerr << "Attempted to divide by 0." << std::endl << std::endl;
+        std::exit(-10);
+    }
+    LO = registers[rs] / registers[rt];
+    HI = registers[rs] % registers[rt];
+    
+}
+
+void Simulator::divu(char rs, char rt, char rd, char sa){
+    if(registers[rt] == 0){
+        std::cerr << "Attempted to divide by 0." << std::endl << std::endl;
+        std::exit(-10);
+    }
+    LO = (uint32_t)registers[rs] / (uint32_t)registers[rt];
+    HI = (uint32_t)registers[rs] % (uint32_t)registers[rt];
+}
+
+void Simulator::j(int addr) {
+    addr = (addr << 2) | (pc & 0xFF000000);
+    pc = addr;
 }
 
 void Simulator::jr(char rs, char rt, char rd, char sa) {
