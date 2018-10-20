@@ -34,11 +34,13 @@ private:
     //---- Maps ----
     std::map<char, R_FUNC> R_MAP = {
         {32, &Simulator::add},
+        {33, &Simulator::addu},
         {8, &Simulator::jr},
         {0, &Simulator::sll}
     };
     std::map<char, I_FUNC> I_MAP = {
-        {8, &Simulator::addi}
+        {8, &Simulator::addi},
+        {9, &Simulator::addiu},
     };
     std::map<char, J_FUNC> J_MAP = {
 
@@ -47,6 +49,8 @@ private:
     //---- Instructions ----
     void add(char rs, char rt, char rd, char sa);
     void addi(char rs, char rt, int32_t imm);
+    void addiu(char rs, char rt, int32_t imm);
+    void addu(char rs, char rt, char rd, char sa);
     void jr(char rs, char rt, char rd, char sa);
     void sll(char rs, char rt, char rd, char sa);
 };

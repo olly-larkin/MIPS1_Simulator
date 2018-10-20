@@ -13,3 +13,7 @@ void  Registers::write(char addr, int32_t data) {
 char Registers::exitCode() {
     return regArray[2] & 0xFF;
 }
+
+int32_t Registers::operator[] (int index) {
+    return regArray[index];
+}

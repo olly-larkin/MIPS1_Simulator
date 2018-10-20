@@ -100,8 +100,8 @@ char Simulator::sgn(int num) {
 // ****************** INSTRUCTIONS ******************
 
 void Simulator::add(char rs, char rt, char rd, char sa) {
-    int32_t in1 = registers.read(rs);
-    int32_t in2 = registers.read(rt);
+    int32_t in1 = registers[rs];
+    int32_t in2 = registers[rt];
     int32_t out = in1 + in2;
     if ((((in1 >> 31) & 0x1) == ((in2 >> 31) & 0x1)) && (((out >> 31) & 0x1) != ((in1 >> 31) & 0x1))) {
         std::cerr << "Overflow detected in 'add'." << std::endl << std::endl;
@@ -111,7 +111,7 @@ void Simulator::add(char rs, char rt, char rd, char sa) {
 }
 
 void Simulator::addi(char rs, char rt, int32_t imm) {
-    int32_t in1 = registers.read(rs);
+    int32_t in1 = registers[rs];
     int32_t out = in1 + imm;
     if (sgn(in1) == sgn(imm) && sgn(in1) != sgn(out)) {
         std::cerr << "Overflow detected in 'addi'." << std::endl << std::endl;
@@ -119,10 +119,20 @@ void Simulator::addi(char rs, char rt, int32_t imm) {
     registers.write(rt, out);
 }
 
-void Simulator::sll(char rs, char rt, char rd, char sa) {
-    registers.write(rd, (registers.read(rt) << sa));
+void Simulator::addiu(char rs, char rt, int32_t imm) {
+    uint32_t in1 = registers[rs];
+    uint32_t out = in1 + imm;
+    registers.write(rt, out);
+}
+
+void Simulator::addu(char rs, char rt, char rd, char sa) {
+    
 }
 
 void Simulator::jr(char rs, char rt, char rd, char sa) {
-    pc = registers.read(rs);
+    pc = registers[rs];
+}
+
+void Simulator::sll(char rs, char rt, char rd, char sa) {
+    registers.write(rd, (registers[rt] << sa));
 }

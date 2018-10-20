@@ -12,3 +12,5 @@ sim_src/memoryMap.o
 sim_src/registers.o
 sim_src/simulator.o
 bin/parser
+testFile.txt
+outFileName.txt

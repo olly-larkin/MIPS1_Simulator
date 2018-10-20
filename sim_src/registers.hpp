@@ -8,6 +8,7 @@ public:
     int32_t read(char addr);
     void write(char addr, int32_t data);
     char exitCode();
+    int32_t operator[] (int index);
 private:
     int32_t regArray[32];
 };
