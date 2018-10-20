@@ -363,6 +363,10 @@ void Simulator::or_instr(char rs, char rt, char rd, char sa) {
     registers.write(rd, registers[rs] | registers[rt]);
 }
 
+void Simulator::ori(char rs, char rt, int32_t imm) {
+    registers.write(rt, registers[rs] | (imm & 0xFFFF));
+}
+
 void Simulator::sll(char rs, char rt, char rd, char sa) {
     registers.write(rd, (registers[rt] << sa));
 }
