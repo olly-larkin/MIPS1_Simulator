@@ -12,12 +12,16 @@ void Simulator::loadInstr(std::ifstream& binFile) {
 
 char Simulator::execute() {
     uint32_t instr = 0;
-    do {
+
+    while(pc != 0x0) {
+
         if (pc < ADDR_INSTR_P || pc > ADDR_INSTR_P + ADDR_INSTR_SIZE) {
             std::cerr << "Attempted to execute non-executable memory." << std::endl << std::endl;
             std::exit(-11);
         }
         instr = memory.read(pc, 4);
+
+        pc += 4;
 
         switch(opcode(instr)) {
             case R: {
@@ -33,9 +37,7 @@ char Simulator::execute() {
                 break;
             }
         }
-
-        pc += 4;
-    } while(instr != 0);
+    }
 
     return registers.exitCode();
 }
@@ -106,4 +108,8 @@ void Simulator::add(char rs, char rt, char rd, char sa) {
 
 void Simulator::sll(char rs, char rt, char rd, char sa) {
     registers.write(rd, (registers.read(rt) << sa));
+}
+
+void Simulator::jr(char rs, char rt, char rd, char sa) {
+    pc = registers.read(rs);
 }

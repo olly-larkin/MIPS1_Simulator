@@ -33,6 +33,7 @@ private:
     //---- Maps ----
     std::map<char, R_FUNC> R_MAP = {
         {32, &Simulator::add},
+        {8, &Simulator::jr},
         {0, &Simulator::sll}
     };
     std::map<char, I_FUNC> I_MAP = {
@@ -44,6 +45,7 @@ private:
 
     //---- Instructions ----
     void add(char rs, char rt, char rd, char sa);
+    void jr(char rs, char rt, char rd, char sa);
     void sll(char rs, char rt, char rd, char sa);
 };
 

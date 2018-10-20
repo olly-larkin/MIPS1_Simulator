@@ -25,7 +25,7 @@ int32_t MemoryMap::read(unsigned int addr, unsigned char byteNum, bool signedRea
             //Nothing should happen
         } else if (addr >= ADDR_INSTR_P && addr < ADDR_INSTR_P + ADDR_INSTR_SIZE) {
             returnVal += ((ADDR_INSTR[addr - ADDR_INSTR_P] & 0xFF) << shift);
-        } else if (addr >= ADDR_DATA_P && addr < ADDR_DATA_P + ADDR_DATA_SIZE) {       /// ???????????????????????
+        } else if (addr >= ADDR_DATA_P && addr < ADDR_DATA_P + ADDR_DATA_SIZE) {       
             returnVal += ((ADDR_DATA[addr - ADDR_DATA_P] & 0xFF) << shift);
         } else if (addr >= ADDR_PUTC_P && addr < ADDR_PUTC_P + ADDR_PUTC_SIZE) {
             returnVal += ((ADDR_PUTC[addr - ADDR_PUTC_P] & 0xFF) << shift);
