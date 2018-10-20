@@ -51,7 +51,8 @@ private:
         {37, &Simulator::or_instr},
         {0, &Simulator::sll},
         {4, &Simulator::sllv},
-        {42, &Simulator::slt}
+        {42, &Simulator::slt},
+        {43, &Simulator::sltu}
     };
     std::map<char, I_FUNC> I_MAP = {
         {8, &Simulator::addi},
@@ -71,7 +72,9 @@ private:
         {38, &Simulator::lwr},
         {13, &Simulator::ori},
         {40, &Simulator::sb},
-        {41, &Simulator::sh}
+        {41, &Simulator::sh},
+        {10, &Simulator::slti},
+        {11, &Simulator::sltiu}
     };
     std::map<char, J_FUNC> J_MAP = {
         {2, &Simulator::j},
@@ -120,6 +123,9 @@ private:
     void sll(char rs, char rt, char rd, char sa);
     void sllv(char rs, char rt, char rd, char sa);
     void slt(char rs, char rt, char rd, char sa);
+    void sltu(char rs, char rt, char rd, char sa);
+    void slti(char rs, char rt, int32_t imm);
+    void sltiu(char rs, char rt, int32_t imm);
 };
 
 #endif //SIMULATOR_HPP

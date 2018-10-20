@@ -391,3 +391,24 @@ void Simulator::slt(char rs, char rt, char rd, char sa) {
     else
         registers.write(rd, 0);
 }
+
+void Simulator::sltu(char rs, char rt, char rd, char sa) {
+    if ((uint32_t)registers[rs] < (uint32_t)registers[rt])
+        registers.write(rd, 1);
+    else
+        registers.write(rd, 0);
+}
+
+void Simulator::slti(char rs, char rt, int32_t imm) {
+    if (registers[rs] < sgnExt16(imm))
+        registers.write(rt, 1);
+    else
+        registers.write(rt, 0);
+}
+
+void Simulator::sltiu(char rs, char rt, int32_t imm) {
+    if ((uint32_t)registers[rs] < (uint32_t)(imm & 0xFFFF))
+        registers.write(rt, 1);
+    else
+        registers.write(rt, 0);
+}
