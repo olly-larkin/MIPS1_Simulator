@@ -58,7 +58,7 @@ void Simulator::executeR(uint32_t instr) {
     char fn = instr & 0x3F;
 
     if (R_MAP.find(fn) == R_MAP.end()) {
-        std::cerr << "Invalid instruction." << std::endl << std::endl;
+        std::cerr << std::hex << "Invalid instruction: " << instr <<std::endl << std::endl;
         std::exit(-12);
     }
 

@@ -39,8 +39,6 @@ int32_t MemoryMap::read(unsigned int addr, unsigned char byteNum, bool signedRea
     if (signedRead && ((returnVal >> (byteNum*8 - 1)) & 0x1)) {
         returnVal += (0xFFFFFFFF << (byteNum*8));
     }
-
-    std::cerr << std::hex << returnVal << std::endl;
     return returnVal;
 }
 
