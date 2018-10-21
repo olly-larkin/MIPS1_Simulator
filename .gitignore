@@ -16,3 +16,4 @@ bin/parser
 testFile.txt
 outFileName.txt
 bin/testBash
+test/output/out.csv

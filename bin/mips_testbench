@@ -1,6 +1,19 @@
 #!/bin/bash
 
 SIM=$1
+OUTFILE="test/output/out.csv"
 
 #testing for JR - should exit with code 0
+TEST_ID="jr1"
+INSTRUCTION="JR"
+AUTHOR="oll16"
+MESSAGE="Jumping back to null"
 $SIM tbench_src/test_bins/jr.bin
+EC=$?
+if [ $EC -eq 0 ]
+then
+    STATUS="Pass"
+else
+    STATUS="Fail"
+fi
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
