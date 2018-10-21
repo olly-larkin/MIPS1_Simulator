@@ -9,6 +9,7 @@ public:
     void write(char addr, int32_t data);
     char exitCode();
     int32_t operator[] (int index);
+    Registers();
 private:
     int32_t regArray[32];
 };

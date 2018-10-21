@@ -17,3 +17,9 @@ char Registers::exitCode() {
 int32_t Registers::operator[] (int index) {
     return regArray[index];
 }
+
+Registers::Registers() {
+    for(int i = 0; i < 32; ++i) {
+        regArray[i] = 0;
+    }
+}
