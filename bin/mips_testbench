@@ -9,42 +9,109 @@ TEST_ID="jr1"
 INSTRUCTION="jr"
 AUTHOR="oll16"
 MESSAGE="Jumping back to null"
-$SIM tbench_src/test_bins/jr1.bin
+EXPECTED_OUTCOME=0
+$SIM tbench_src/test_bins/$TEST_ID.bin
 EC=$?
-if [ $EC -eq 0 ]
+if [ $EC -eq $EXPECTED_OUTCOME ]
 then
     STATUS="Pass"
 else
     STATUS="Fail"
 fi
-echo -e $TEST_ID",\t"$INSTRUCTION",\t"$STATUS",\t"$AUTHOR",\t"$MESSAGE >> $OUTFILE
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
 
 #testing for ADDI - should exit with code 10
 TEST_ID="addi1"
 INSTRUCTION="addi"
 AUTHOR="oll16"
 MESSAGE="Adding 10 into reg 2"
-$SIM tbench_src/test_bins/addi1.bin
+EXPECTED_OUTCOME=10
+$SIM tbench_src/test_bins/$TEST_ID.bin
 EC=$?
-if [ $EC -eq 10 ]
+if [ $EC -eq $EXPECTED_OUTCOME ]
 then
     STATUS="Pass"
 else
     STATUS="Fail"
 fi
-echo -e $TEST_ID",\t"$INSTRUCTION",\t"$STATUS",\t"$AUTHOR",\t"$MESSAGE >> $OUTFILE
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
 
-#testing for ADDI - should exit with code 20
-TEST_ID="addi2"
-INSTRUCTION="addi"
+#testing for SLL - should exit with code 32
+TEST_ID="sll1"
+INSTRUCTION="sll"
 AUTHOR="oll16"
-MESSAGE="Adding 10 into reg 2 then adding 10 again"
-$SIM tbench_src/test_bins/addi2.bin
+MESSAGE="Left shift 2 by 4"
+EXPECTED_OUTCOME=32
+$SIM tbench_src/test_bins/$TEST_ID.bin
 EC=$?
-if [ $EC -eq 20 ]
+if [ $EC -eq $EXPECTED_OUTCOME ]
 then
     STATUS="Pass"
 else
     STATUS="Fail"
 fi
-echo -e $TEST_ID",\t"$INSTRUCTION",\t"$STATUS",\t"$AUTHOR",\t"$MESSAGE >> $OUTFILE
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+
+#testing for LB - should exit with code 33
+TEST_ID="lb1"
+INSTRUCTION="lb"
+AUTHOR="oll16"
+MESSAGE="Load into reg 2"
+EXPECTED_OUTCOME=33
+echo "!" | $SIM tbench_src/test_bins/$TEST_ID.bin
+EC=$?
+if [ $EC -eq $EXPECTED_OUTCOME ]
+then
+    STATUS="Pass"
+else
+    STATUS="Fail"
+fi
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+
+#testing for SB - should exit with code 2
+TEST_ID="sb1"
+INSTRUCTION="sb"
+AUTHOR="oll16"
+MESSAGE="store in memory and read back"
+EXPECTED_OUTCOME=2
+echo "!" | $SIM tbench_src/test_bins/$TEST_ID.bin
+EC=$?
+if [ $EC -eq $EXPECTED_OUTCOME ]
+then
+    STATUS="Pass"
+else
+    STATUS="Fail"
+fi
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+
+#testing for ADD - should exit with code 10
+TEST_ID="add1"
+INSTRUCTION="add"
+AUTHOR="oll16"
+MESSAGE="Add two registers"
+EXPECTED_OUTCOME=10
+$SIM tbench_src/test_bins/$TEST_ID.bin
+EC=$?
+if [ $EC -eq $EXPECTED_OUTCOME ]
+then
+    STATUS="Pass"
+else
+    STATUS="Fail"
+fi
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+
+#testing for ADDIU - should exit with code 5
+TEST_ID="addiu1"
+INSTRUCTION="addiu"
+AUTHOR="oll16"
+MESSAGE="Addiu test"
+EXPECTED_OUTCOME=5
+$SIM tbench_src/test_bins/$TEST_ID.bin
+EC=$?
+if [ $EC -eq $EXPECTED_OUTCOME ]
+then
+    STATUS="Pass"
+else
+    STATUS="Fail"
+fi
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
