@@ -3,4 +3,4 @@
 SIM=$1
 
 #testing for JR - should exit with code 0
-$SIM tbench_src/jr.bin
+$SIM tbench_src/test_bins/jr.bin
