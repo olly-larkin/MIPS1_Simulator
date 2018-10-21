@@ -9,9 +9,24 @@ TEST_ID="jr1"
 INSTRUCTION="jr"
 AUTHOR="oll16"
 MESSAGE="Jumping back to null"
-$SIM tbench_src/test_bins/jr.bin
+$SIM tbench_src/test_bins/jr1.bin
 EC=$?
 if [ $EC -eq 0 ]
+then
+    STATUS="Pass"
+else
+    STATUS="Fail"
+fi
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+
+#testing for ADDI - should exit with code 10
+TEST_ID="addi1"
+INSTRUCTION="addi"
+AUTHOR="oll16"
+MESSAGE="Adding 10 into reg 2"
+$SIM tbench_src/test_bins/addi1.bin
+EC=$?
+if [ $EC -eq 10 ]
 then
     STATUS="Pass"
 else
