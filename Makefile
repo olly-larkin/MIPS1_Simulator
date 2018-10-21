@@ -8,6 +8,7 @@ simulator: main.o simulator.o memoryMap.o registers.o
 	g++ sim_src/main.o sim_src/simulator.o sim_src/memoryMap.o sim_src/registers.o -o bin/mips_simulator
 
 testbench:
+	chmod u+x bin/mips_testbench
 
 main.o: sim_src/main.cpp
 	g++ --std=c++11 -c sim_src/main.cpp -o sim_src/main.o
