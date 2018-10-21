@@ -115,3 +115,35 @@ else
     STATUS="Fail"
 fi
 echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+
+#testing for ADDU - should exit with code 15
+TEST_ID="addu1"
+INSTRUCTION="addu"
+AUTHOR="oll16"
+MESSAGE="Addu test"
+EXPECTED_OUTCOME=15
+$SIM tbench_src/test_bins/$TEST_ID.bin
+EC=$?
+if [ $EC -eq $EXPECTED_OUTCOME ]
+then
+    STATUS="Pass"
+else
+    STATUS="Fail"
+fi
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+
+#testing for AND - should exit with code 10
+TEST_ID="and1"
+INSTRUCTION="and"
+AUTHOR="oll16"
+MESSAGE="And test"
+EXPECTED_OUTCOME=10
+$SIM tbench_src/test_bins/$TEST_ID.bin
+EC=$?
+if [ $EC -eq $EXPECTED_OUTCOME ]
+then
+    STATUS="Pass"
+else
+    STATUS="Fail"
+fi
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
