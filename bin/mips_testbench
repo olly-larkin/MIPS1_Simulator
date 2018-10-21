@@ -179,3 +179,19 @@ else
     STATUS="Fail"
 fi
 echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+
+#testing for BEQ - should exit with code 10 - if exit with 5 false branch
+TEST_ID="beq2"
+INSTRUCTION="beq"
+AUTHOR="oll16"
+MESSAGE="If exit with 5 false branch"
+EXPECTED_OUTCOME=10
+$SIM tbench_src/test_bins/$TEST_ID.bin
+EC=$?
+if [ $EC -eq $EXPECTED_OUTCOME ]
+then
+    STATUS="Pass"
+else
+    STATUS="Fail"
+fi
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
