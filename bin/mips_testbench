@@ -195,3 +195,67 @@ else
     STATUS="Fail"
 fi
 echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+
+#testing for BEGZ - should exit with code 5 - if exit with 10 branch failed
+TEST_ID="begz1"
+INSTRUCTION="bgez"
+AUTHOR="oll16"
+MESSAGE="Testing equal to 0"
+EXPECTED_OUTCOME=5
+$SIM tbench_src/test_bins/$TEST_ID.bin
+EC=$?
+if [ $EC -eq $EXPECTED_OUTCOME ]
+then
+    STATUS="Pass"
+else
+    STATUS="Fail"
+fi
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+
+#testing for BEGZ - should exit with code 5 - if exit with 10 branch failed
+TEST_ID="bgez2"
+INSTRUCTION="bgez"
+AUTHOR="oll16"
+MESSAGE="Testing greater than 0"
+EXPECTED_OUTCOME=5
+$SIM tbench_src/test_bins/$TEST_ID.bin
+EC=$?
+if [ $EC -eq $EXPECTED_OUTCOME ]
+then
+    STATUS="Pass"
+else
+    STATUS="Fail"
+fi
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+
+#testing for BEGZ - should exit with code 10 - if exit with 5 false branch
+TEST_ID="bgez3"
+INSTRUCTION="bgez"
+AUTHOR="oll16"
+MESSAGE="Testing less than 0"
+EXPECTED_OUTCOME=10
+$SIM tbench_src/test_bins/$TEST_ID.bin
+EC=$?
+if [ $EC -eq $EXPECTED_OUTCOME ]
+then
+    STATUS="Pass"
+else
+    STATUS="Fail"
+fi
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+
+#testing for BEGZAL - should exit with code 20
+TEST_ID="bgezal1"
+INSTRUCTION="bgezal"
+AUTHOR="oll16"
+MESSAGE="Exit code 10 means branch is not working - exit code 15 means link is not working"
+EXPECTED_OUTCOME=20
+$SIM tbench_src/test_bins/$TEST_ID.bin
+EC=$?
+if [ $EC -eq $EXPECTED_OUTCOME ]
+then
+    STATUS="Pass"
+else
+    STATUS="Fail"
+fi
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE

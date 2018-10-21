@@ -20,3 +20,4 @@ test/output/out.csv
 bin/new_test
 test/output/out.csv
 bin/win_testbench
+tbench_src/test_bins/parser
