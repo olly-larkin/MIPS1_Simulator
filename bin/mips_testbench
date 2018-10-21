@@ -17,7 +17,7 @@ then
 else
     STATUS="Fail"
 fi
-echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+echo -e $TEST_ID",\t"$INSTRUCTION",\t"$STATUS",\t"$AUTHOR",\t"$MESSAGE >> $OUTFILE
 
 #testing for ADDI - should exit with code 10
 TEST_ID="addi1"
@@ -32,4 +32,19 @@ then
 else
     STATUS="Fail"
 fi
-echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+echo -e $TEST_ID",\t"$INSTRUCTION",\t"$STATUS",\t"$AUTHOR",\t"$MESSAGE >> $OUTFILE
+
+#testing for ADDI - should exit with code 20
+TEST_ID="addi2"
+INSTRUCTION="addi"
+AUTHOR="oll16"
+MESSAGE="Adding 10 into reg 2 then adding 10 again"
+$SIM tbench_src/test_bins/addi2.bin
+EC=$?
+if [ $EC -eq 20 ]
+then
+    STATUS="Pass"
+else
+    STATUS="Fail"
+fi
+echo -e $TEST_ID",\t"$INSTRUCTION",\t"$STATUS",\t"$AUTHOR",\t"$MESSAGE >> $OUTFILE
