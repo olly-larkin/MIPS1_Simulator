@@ -72,7 +72,7 @@ echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
 TEST_ID="sb1"
 INSTRUCTION="sb"
 AUTHOR="oll16"
-MESSAGE="store in memory and read back"
+MESSAGE="Store in memory and read back"
 EXPECTED_OUTCOME=2
 echo "!" | $SIM tbench_src/test_bins/$TEST_ID.bin
 EC=$?
@@ -154,6 +154,22 @@ INSTRUCTION="andi"
 AUTHOR="oll16"
 MESSAGE="Andi test"
 EXPECTED_OUTCOME=10
+$SIM tbench_src/test_bins/$TEST_ID.bin
+EC=$?
+if [ $EC -eq $EXPECTED_OUTCOME ]
+then
+    STATUS="Pass"
+else
+    STATUS="Fail"
+fi
+echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+
+#testing for BEQ - should exit with code 5 - if exit with 10 branch failed
+TEST_ID="beq1"
+INSTRUCTION="beq"
+AUTHOR="oll16"
+MESSAGE="If exit with 10 branch failed"
+EXPECTED_OUTCOME=5
 $SIM tbench_src/test_bins/$TEST_ID.bin
 EC=$?
 if [ $EC -eq $EXPECTED_OUTCOME ]
