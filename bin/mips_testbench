@@ -52,9 +52,9 @@ else
 fi
 echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
 
-#testing for LB - should exit with code 33
-TEST_ID="lb1"
-INSTRUCTION="lb"
+#testing for LW - should exit with code 33
+TEST_ID="lw1"
+INSTRUCTION="lw"
 AUTHOR="oll16"
 MESSAGE="Load into reg 2"                                           # COME BACK HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 EXPECTED_OUTCOME=33
