@@ -42,6 +42,24 @@ char Simulator::execute() {
     return registers.exitCode();
 }
 
+void Simulator::branchExecute() {
+    uint32_t instr = memory.read(pc, 4);
+    switch(opcode(instr)) {
+        case R: {
+            executeR(instr);
+            break;
+        }
+        case I: {
+            executeI(instr);
+            break;
+        }
+        case J: {
+            executeJ(instr);
+            break;
+        }
+    }
+}
+
 OP_TYPE Simulator::opcode(uint32_t instr) {
     unsigned char op = (instr >> 26) & 0x3F;
     if (op == 0)
@@ -154,6 +172,7 @@ void Simulator::andi(char rs, char rt, int32_t imm) {
 }
 
 void Simulator::beq(char rs, char rt, int32_t imm) {
+    branchExecute();
     if ((imm >> 15) & 1) {
         imm = (imm << 2) | 0xFFFC0000;
     } else {
@@ -189,26 +208,30 @@ void Simulator::branches(char rs, char rt, int32_t imm) {
 }
 
 void Simulator::bgez(char rs, int32_t imm) {
+    branchExecute();
     imm = sgnExt16(imm) << 2;
     if (registers[rs] >= 0)
         pc += imm;
 }
 
 void Simulator::bgezal(char rs, int32_t imm) {
+    branchExecute();
     imm = sgnExt16(imm) << 2;
     if (registers[rs] >= 0) {
-        registers.write(31, pc);    // Maybe +4? Ask about branch delay slots
+        registers.write(31, pc + 4);  
         pc += imm;
     }
 }
 
 void Simulator::bgtz(char rs, char rt, int32_t imm) {
+    branchExecute();
     imm = sgnExt16(imm) << 2;
     if (registers[rs] > 0)
         pc += imm;
 }
 
 void Simulator::blez(char rs, char rt, int32_t imm) {
+    branchExecute();
     imm = sgnExt16(imm) << 2;
     if (registers[rs] <= 0){
         pc += imm;
@@ -217,6 +240,7 @@ void Simulator::blez(char rs, char rt, int32_t imm) {
 }
 
 void Simulator::bltz(char rs, int32_t imm) {
+    branchExecute();
     imm = sgnExt16(imm) << 2;
     if (registers[rs] < 0){
         pc += imm;
@@ -224,14 +248,16 @@ void Simulator::bltz(char rs, int32_t imm) {
 }
 
 void Simulator::bltzal(char rs, int32_t imm) {
+    branchExecute();
     imm = sgnExt16(imm) << 2;
     if (registers[rs] < 0){
-        registers.write(31, pc);
+        registers.write(31, pc + 4);
         pc += imm;
     } 
 }
 
 void Simulator::bne(char rs, char rt, int32_t imm) {
+    branchExecute();
     imm = sgnExt16(imm) << 2;
     if (registers[rs] != registers[rt]){
         pc += imm;
@@ -258,22 +284,26 @@ void Simulator::divu(char rs, char rt, char rd, char sa){
 }
 
 void Simulator::j(int addr) {
+    branchExecute();
     addr = (addr << 2) | (pc & 0xFF000000);
     pc = addr;
 }
 
 void Simulator::jalr(char rs, char rt, char rd, char sa) {
-    registers.write(31, pc);
+    branchExecute();
+    registers.write(31, pc + 4);
     pc = registers[rs];
 }
 
 void Simulator::jal(int addr) {
+    branchExecute();
     addr = (addr << 2) | (pc & 0xFF000000);
-    registers.write(31, pc);
+    registers.write(31, pc + 4);
     pc = addr;
 }
 
 void Simulator::jr(char rs, char rt, char rd, char sa) {
+    branchExecute();
     pc = registers[rs];
 }
 

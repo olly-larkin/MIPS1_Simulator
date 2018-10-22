@@ -11,13 +11,6 @@ MemoryMap::MemoryMap() {
 }
 
 int32_t MemoryMap::read(unsigned int addr, unsigned char byteNum, bool signedRead) {
-    if (addr == ADDR_GETC_P) {
-        int32_t inputVal = getchar();
-        if (inputVal == EOF)
-            return -1;
-        return inputVal;
-    }
-
     if (addr % byteNum != 0) {
         std::cerr << "Unaligned memory access." << std::endl << std::endl;
         std::exit(-11);
@@ -32,8 +25,13 @@ int32_t MemoryMap::read(unsigned int addr, unsigned char byteNum, bool signedRea
             returnVal += ((ADDR_INSTR[addr - ADDR_INSTR_P] & 0xFF) << shift);
         } else if (addr >= ADDR_DATA_P && addr < ADDR_DATA_P + ADDR_DATA_SIZE) {       
             returnVal += ((ADDR_DATA[addr - ADDR_DATA_P] & 0xFF) << shift);
-        } else if (addr >= ADDR_PUTC_P && addr < ADDR_PUTC_P + ADDR_PUTC_SIZE) {
-            returnVal += ((ADDR_PUTC[addr - ADDR_PUTC_P] & 0xFF) << shift);
+        } else if (addr >= ADDR_GETC_P && addr < ADDR_GETC_P + ADDR_GETC_SIZE) {
+            if (addr == ADDR_GETC_P + 3) {
+                int32_t inputVal = getchar();
+                if (inputVal == EOF)
+                    return -1;
+                returnVal += inputVal;
+            }
         } else {
             std::cerr << "Invalid memory read." << std::endl << std::endl;
             std::exit(-11);
@@ -48,19 +46,18 @@ int32_t MemoryMap::read(unsigned int addr, unsigned char byteNum, bool signedRea
 }
 
 void MemoryMap::write(unsigned int addr, int32_t data, unsigned char byteNum) {
-    if (addr == ADDR_PUTC_P) {
-        putchar(data & 0xFF);
-    }
-
     if (addr % byteNum != 0) {
-            std::cerr << "Invalid memory write: Address must be naturally aligned." << std::endl << std::endl;
-            std::exit(-11);
+        std::cerr << "Invalid memory write: Address must be naturally aligned." << std::endl << std::endl;
+        std::exit(-11);
     }
 
     for(int i = 0; i < byteNum; ++i) {
         int shift = (byteNum - i - 1) * 8;
         if (addr >= ADDR_DATA_P && addr < ADDR_DATA_P + ADDR_DATA_SIZE) {
             ADDR_DATA[addr - ADDR_DATA_P] = ((data >> shift) & 0xFF);
+        } else if (addr >= ADDR_PUTC_P && addr < ADDR_PUTC_P + ADDR_PUTC_SIZE) {
+            if (addr == ADDR_PUTC_P + 3)
+                putchar(data & 0xFF);
         } else {
             std::cerr << "Invalid memory write." << std::endl << std::endl;
             std::exit(-11);

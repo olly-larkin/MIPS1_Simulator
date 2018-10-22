@@ -56,7 +56,7 @@ echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
 TEST_ID="lb1"
 INSTRUCTION="lb"
 AUTHOR="oll16"
-MESSAGE="Load into reg 2"
+MESSAGE="Load into reg 2"                                           # COME BACK HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 EXPECTED_OUTCOME=33
 echo "!" | $SIM tbench_src/test_bins/$TEST_ID.bin
 EC=$?

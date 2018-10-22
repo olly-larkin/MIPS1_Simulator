@@ -26,6 +26,7 @@ private:
     int32_t HI;
     int32_t LO;
     OP_TYPE opcode(uint32_t instr);
+    void branchExecute();
     void executeR(uint32_t instr);
     void executeI(uint32_t instr);
     void executeJ(uint32_t instr);
