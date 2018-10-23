@@ -4,163 +4,55 @@ SIM=$1
 OUTFILE="test/output/out.csv"
 echo "" > $OUTFILE
 
+RUN_TEST() {
+    TEST_ID=$1
+    INSTRUCTION=$2
+    AUTHOR=$3
+    EXPECTED_OUTCOME=$5
+    if [ $# -ge 6 ]
+    then
+        echo $6 | $SIM tbench_src/test_bins/$TEST_ID.bin
+    else
+        $SIM tbench_src/test_bins/$TEST_ID.bin
+    fi
+    EC=$?
+    if [ $EC -eq $EXPECTED_OUTCOME ]
+    then
+        STATUS="Pass"
+    else
+        STATUS="Fail"
+    fi
+    MESSAGE=$4" - exited with code "$EC
+    echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+}
+
 #testing for JR - should exit with code 0
-TEST_ID="jr1"
-INSTRUCTION="jr"
-AUTHOR="oll16"
-MESSAGE="Jumping back to null"
-EXPECTED_OUTCOME=0
-$SIM tbench_src/test_bins/$TEST_ID.bin
-EC=$?
-if [ $EC -eq $EXPECTED_OUTCOME ]
-then
-    STATUS="Pass"
-else
-    STATUS="Fail"
-fi
-echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+RUN_TEST "jr1" "jr" "oll16" "Jumping back to null" 0
 
 #testing for ADDI - should exit with code 10
-TEST_ID="addi1"
-INSTRUCTION="addi"
-AUTHOR="oll16"
-MESSAGE="Adding 10 into reg 2"
-EXPECTED_OUTCOME=10
-$SIM tbench_src/test_bins/$TEST_ID.bin
-EC=$?
-if [ $EC -eq $EXPECTED_OUTCOME ]
-then
-    STATUS="Pass"
-else
-    STATUS="Fail"
-fi
-echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+RUN_TEST "addi1" "addi" "oll16" "Adding 10 into reg 2" 10
 
 #testing for SLL - should exit with code 32
-TEST_ID="sll1"
-INSTRUCTION="sll"
-AUTHOR="oll16"
-MESSAGE="Left shift 2 by 4"
-EXPECTED_OUTCOME=32
-$SIM tbench_src/test_bins/$TEST_ID.bin
-EC=$?
-if [ $EC -eq $EXPECTED_OUTCOME ]
-then
-    STATUS="Pass"
-else
-    STATUS="Fail"
-fi
-echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+RUN_TEST "sll1" "sll" "oll16" "Left shift 2 by 4" 32
 
 #testing for LW - should exit with code 33
-TEST_ID="lw1"
-INSTRUCTION="lw"
-AUTHOR="oll16"
-MESSAGE="Load into reg 2"                                           # COME BACK HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-EXPECTED_OUTCOME=33
-echo "!" | $SIM tbench_src/test_bins/$TEST_ID.bin
-EC=$?
-if [ $EC -eq $EXPECTED_OUTCOME ]
-then
-    STATUS="Pass"
-else
-    STATUS="Fail"
-fi
-echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+RUN_TEST "lw1" "lw" "oll16" "Load into reg 2" 33 "!"
 
 #testing for SB - should exit with code 2
-TEST_ID="sb1"
-INSTRUCTION="sb"
-AUTHOR="oll16"
-MESSAGE="Store in memory and read back"
-EXPECTED_OUTCOME=2
-echo "!" | $SIM tbench_src/test_bins/$TEST_ID.bin
-EC=$?
-if [ $EC -eq $EXPECTED_OUTCOME ]
-then
-    STATUS="Pass"
-else
-    STATUS="Fail"
-fi
-echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+RUN_TEST "sb1" "sb" "oll16" "Store in memory and read back" 2
 
 #testing for ADD - should exit with code 10
-TEST_ID="add1"
-INSTRUCTION="add"
-AUTHOR="oll16"
-MESSAGE="Add two registers"
-EXPECTED_OUTCOME=10
-$SIM tbench_src/test_bins/$TEST_ID.bin
-EC=$?
-if [ $EC -eq $EXPECTED_OUTCOME ]
-then
-    STATUS="Pass"
-else
-    STATUS="Fail"
-fi
-echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+RUN_TEST "add1" "add" "oll16" "Add two registers" 10
 
 #testing for ADDIU - should exit with code 5
-TEST_ID="addiu1"
-INSTRUCTION="addiu"
-AUTHOR="oll16"
-MESSAGE="Addiu test"
-EXPECTED_OUTCOME=5
-$SIM tbench_src/test_bins/$TEST_ID.bin
-EC=$?
-if [ $EC -eq $EXPECTED_OUTCOME ]
-then
-    STATUS="Pass"
-else
-    STATUS="Fail"
-fi
-echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+RUN_TEST "addiu1" "addiu" "oll16" "Addiu test" 5
 
 #testing for ADDU - should exit with code 15
-TEST_ID="addu1"
-INSTRUCTION="addu"
-AUTHOR="oll16"
-MESSAGE="Addu test"
-EXPECTED_OUTCOME=15
-$SIM tbench_src/test_bins/$TEST_ID.bin
-EC=$?
-if [ $EC -eq $EXPECTED_OUTCOME ]
-then
-    STATUS="Pass"
-else
-    STATUS="Fail"
-fi
-echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+RUN_TEST "addu1" "addu" "oll16" "Addu test" 15
 
 #testing for AND - should exit with code 10
-TEST_ID="and1"
-INSTRUCTION="and"
-AUTHOR="oll16"
-MESSAGE="And test"
-EXPECTED_OUTCOME=10
-$SIM tbench_src/test_bins/$TEST_ID.bin
-EC=$?
-if [ $EC -eq $EXPECTED_OUTCOME ]
-then
-    STATUS="Pass"
-else
-    STATUS="Fail"
-fi
-echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+RUN_TEST "and1" "and" "oll16" "And test" 10
 
 #testing for ANDI - should exit with code 10
-TEST_ID="andi1"
-INSTRUCTION="andi"
-AUTHOR="oll16"
-MESSAGE="Andi test"
-EXPECTED_OUTCOME=10
-$SIM tbench_src/test_bins/$TEST_ID.bin
-EC=$?
-if [ $EC -eq $EXPECTED_OUTCOME ]
-then
-    STATUS="Pass"
-else
-    STATUS="Fail"
-fi
-echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
+RUN_TEST "andi1" "andi" "oll16" "Andi test" 10
 
