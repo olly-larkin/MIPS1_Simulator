@@ -71,5 +71,5 @@ RUN_TEST "bgez2" "bgez" "ng2517" "Testing eq - If exit code is 10 branch failed"
 #testing for BGEZ - should exit with code 10
 RUN_TEST "bgez3" "bgez" "ng2517" "Testing lt - If exit code is 5 false branch" 10
 
-#testing for BGEZAL - should exit with code 17
-RUN_TEST "bgezal1" "bgezal" "ng2517" "Testing eq - exit code 10 means failed branch - exit code 5 means failed link" 17
+#testing for BGEZAL - should exit with code 10
+RUN_TEST "bgezal1" "bgezal" "ng2517" "Testing eq and jump back to link" 10
