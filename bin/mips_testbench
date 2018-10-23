@@ -76,3 +76,4 @@ RUN_TEST "bgezal1" "bgezal" "ng2517" "Testing eq and jump back to link" 10
 
 #testing for BGEZAL - should exit with code 5
 RUN_TEST "bgezal2" "bgezal" "ng2517" "Testing gt - not testing link - If exit code 0 branch failed" 5
+
