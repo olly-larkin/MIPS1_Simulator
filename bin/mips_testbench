@@ -78,4 +78,13 @@ RUN_TEST "bgezal1" "bgezal" "ng2517" "Testing eq and jump back to link" 10
 RUN_TEST "bgezal2" "bgezal" "ng2517" "Testing gt - not testing link - If exit code 0 branch failed" 5
 
 #testing for BGEZAL - should exit with code 5
-RUN_TEST "bgezal3" "bgezal" "ng2517" "Testing lt - If exit code 0 branch failed - if exit code != 5 active link" 5
+RUN_TEST "bgezal3" "bgezal" "ng2517" "Testing lt - If exit code 0 branch failed - if exit code != 5 false active link" 5
+
+#testing for BGTZ - should exit with code 5
+RUN_TEST "bgtz1" "bgtz" "oll16" "Testing gt - if exit with code 10 branch failed" 5
+
+#testing for BGTZ - should exit with code 10
+RUN_TEST "bgtz2" "bgtz" "oll16" "Testing eq - if exit with code 5 false branch" 10
+
+#testing for BGTZ - should exit with code 10
+RUN_TEST "bgtz3" "bgtz" "oll16" "Testing lt - if exit with code 5 false branch" 10
