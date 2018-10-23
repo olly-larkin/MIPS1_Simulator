@@ -36,7 +36,7 @@ RUN_TEST "addi1" "addi" "oll16" "Adding 10 into reg 2" 10
 RUN_TEST "sll1" "sll" "oll16" "Left shift 2 by 4" 32
 
 #testing for LW - should exit with code 33
-RUN_TEST "lw1" "lw" "oll16" "Load into reg 2" 33 "!"
+RUN_TEST "lw1" "lw" "oll16" "Load into reg 2" 33 "!"            # READ IN FUNC CALL
 
 #testing for SB - should exit with code 2
 RUN_TEST "sb1" "sb" "oll16" "Store in memory and read back" 2
