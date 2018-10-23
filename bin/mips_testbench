@@ -56,3 +56,5 @@ RUN_TEST "and1" "and" "oll16" "And test" 10
 #testing for ANDI - should exit with code 10
 RUN_TEST "andi1" "andi" "oll16" "Andi test" 10
 
+#testing for BEQ - should exit with code 10
+RUN_TEST "beq1" "beq" "oll16" "If exit code is 15 branch failed" 10
