@@ -88,3 +88,12 @@ RUN_TEST "bgtz2" "bgtz" "oll16" "Testing eq - if exit with code 5 false branch" 
 
 #testing for BGTZ - should exit with code 10
 RUN_TEST "bgtz3" "bgtz" "oll16" "Testing lt - if exit with code 5 false branch" 10
+
+#testing for BLEZ - should exit with code 5
+RUN_TEST "blez1" "blez" "oll16" "Testing eq - if exit with code 10 branch failed" 5
+
+#testing for BLEZ - should exit with code 5
+RUN_TEST "blez2" "blez" "oll16" "Testing lt - if exit with code 10 branch failed" 5
+
+#testing for BLEZ - should exit with code 10
+RUN_TEST "blez3" "blez" "oll16" "Testing gt - if exit with code 5 false branch" 10
