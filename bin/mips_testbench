@@ -61,3 +61,12 @@ RUN_TEST "beq1" "beq" "oll16" "If exit code is 15 branch failed" 10
 
 #testing for BEQ - should exit with code 15
 RUN_TEST "beq2" "beq" "oll16" "If exit code is 10 false branch" 15
+
+#testing for BGEZ - should exit with code 10
+RUN_TEST "bgez1" "bgez" "ng2517" "Testing gt - If exit code is 15 branch failed" 10
+
+#testing for BGEZ - should exit with code 5
+RUN_TEST "bgez2" "bgez" "ng2517" "Testing eq - If exit code is 10 branch failed" 5
+
+#testing for BGEZ - should exit with code 10
+RUN_TEST "bgez3" "bgez" "ng2517" "Testing eq - If exit code is 5 false branch" 10
