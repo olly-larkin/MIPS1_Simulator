@@ -97,3 +97,12 @@ RUN_TEST "blez2" "blez" "oll16" "Testing lt - if exit with code 10 branch failed
 
 #testing for BLEZ - should exit with code 10
 RUN_TEST "blez3" "blez" "oll16" "Testing gt - if exit with code 5 false branch" 10
+
+#testing for BLTZ - should exit with code 5
+RUN_TEST "bltz1" "bltz" "oll16" "Testing lt - if exit with code 10 branch failed" 5
+
+#testing for BLTZ - should exit with code 10
+RUN_TEST "bltz2" "bltz" "oll16" "Testing eq - if exit with code 5 false branch" 10
+
+#testing for BLTZ - should exit with code 10
+RUN_TEST "bltz3" "bltz" "oll16" "Testing gt - if exit with code 5 false branch" 10
