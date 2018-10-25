@@ -1,0 +1,8 @@
+bne $0, $0, jump
+nop
+addi $2, $2, 5
+jump: addi $2, $2, 5
+jr $0
+nop
+
+# expected outcome = 10

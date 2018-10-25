@@ -1,0 +1,15 @@
+addi $1, $0, -1
+bltzal $1, jump1
+nop
+addi $2, $2, 5 # -- shouldn't happen
+jr $31
+nop
+
+jump1: addi $2, $2, $5  # should happen
+jalr $31
+addi $31, $31, 4
+addi $2, $2, 5 # should happen
+jr $0
+nop
+
+#this will also test jump breaks  - expected outcome = 10

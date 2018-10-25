@@ -1,0 +1,12 @@
+addi $1, $0, 1
+addi $2, $0, -1
+div $1, $2
+mfhi $1
+mflo $2
+add $2, $2, $1
+addi $2, $2, 2
+jr $0
+nop
+
+# 1 / -1 -> should give -1
+# add hi and lo + 2 - expected outcome = 1

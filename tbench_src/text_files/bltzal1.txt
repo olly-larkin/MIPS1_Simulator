@@ -1,0 +1,12 @@
+addi $1, $0, -1
+bltzal $1, jump
+nop
+addi $2, $2, 5
+jr $0
+nop
+
+jump: addi $2, $2, 5
+jr $ra
+nop
+
+# expected output = 10

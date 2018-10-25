@@ -1,0 +1,11 @@
+jal jump
+nop
+addi $2, $2, 5
+jr $0
+nop
+
+jump: addi $2, $2, 5
+jr $31
+nop
+
+# expected outcome = 10

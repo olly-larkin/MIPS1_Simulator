@@ -1,0 +1,7 @@
+addi $1, $0, 5
+mthi $1
+mfhi $2
+jr $0
+nop
+
+# expected outcome = 5

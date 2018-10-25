@@ -1,0 +1,13 @@
+addi $1, $0, 1
+addi $2, $0, -1
+
+divu $1, $2
+
+mfhi $1
+mflo $2
+add $2, $2, $1
+
+jr $0
+nop
+
+# should fail to divide - expected outcome = 1
