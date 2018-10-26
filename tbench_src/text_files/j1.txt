@@ -1,7 +1,7 @@
 j jump
 nop
 addi $2, $2, 5
-jump: addi, $2, $2, 5
+jump: addi $2, $2, 5
 
 jr $0
 nop
