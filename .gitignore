@@ -22,3 +22,4 @@ test/output/out.csv
 bin/win_testbench
 tbench_src/test_bins/parser
 tbench_src/test_bins/bgezal2.bin
+tbench_src/bin/bingen_win
