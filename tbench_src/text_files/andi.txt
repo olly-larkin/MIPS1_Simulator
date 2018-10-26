@@ -1,0 +1,5 @@
+addi $3, $0, 21
+andi $2, $3, 13
+jr $0
+
+#Expected outcome = 5

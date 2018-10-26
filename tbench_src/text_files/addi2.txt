@@ -1,0 +1,6 @@
+addiu $2, $0, 1
+sll $2, $2, 31
+addi $2, $2, -1
+jr $0
+
+#Expected outcome = -10, testing for overflow and signed extension, if exit code = 

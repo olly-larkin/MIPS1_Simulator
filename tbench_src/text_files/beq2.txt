@@ -1,0 +1,13 @@
+addi $3, $0, 4
+addi $4, $0, 3
+beq $3, $4, jump
+nop
+addi $2, $0, 5
+jr $0
+nop
+
+jump: addi $2, $0, 10
+jr $0
+
+
+#Expected outcome = 5, if exit code = 10, branch falsely triggered

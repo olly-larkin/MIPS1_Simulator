@@ -1,0 +1,4 @@
+addi $2, $0, 5
+jr $0
+
+#Expected outcome = 5
