@@ -1,10 +1,10 @@
 bgezal $0, jump
 nop
-addi $2, $0, 5
+addi $2, $2, 5
 jr $0
 nop
 
-jump: addi $2, $0, 10
+jump: addi $2, $2, 10
 jr $31
 nop
 jr $0

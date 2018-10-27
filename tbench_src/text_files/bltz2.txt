@@ -1,0 +1,11 @@
+bltz $0, jump
+nop
+addi $2, $2, 5
+jr $0
+nop
+
+jump: addi $2, $2, 10
+jr $0
+nop
+
+#Expected outcome = 5, if exit code = 10 branch false-triggered
