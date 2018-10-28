@@ -9,5 +9,6 @@ jump: addi $2, $2, 10
 jr $31
 nop
 jr $0
+nop
 
 #Expected outcome = 5, if exit code = 15 branch falsely triggered and linked, if exit code = 10 link is broken but shouldnt even be there
