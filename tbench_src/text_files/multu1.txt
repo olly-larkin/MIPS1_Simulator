@@ -1,0 +1,8 @@
+addiu $1, $0, -1
+addiu $3, $0, 1
+multu $1, $3
+mflo $2
+jr $0
+nop
+
+#expected outcome = -1 (255)
