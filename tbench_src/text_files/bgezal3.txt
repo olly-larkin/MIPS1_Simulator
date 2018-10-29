@@ -1,4 +1,4 @@
-addi $3, $, -1
+addi $3, $0, -1
 bgezal $0, jump
 nop
 addi $2, $2, 5
