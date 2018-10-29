@@ -148,7 +148,7 @@ void Simulator::add(char rs, char rt, char rd, char sa) {
 
 void Simulator::addi(char rs, char rt, int32_t imm) {
     int32_t in1 = registers[rs];
-    int32_t out = in1 + imm;
+    int32_t out = in1 + sgnExt16(imm);
     if (sgn(in1) == sgn(imm) && sgn(in1) != sgn(out)) {
         std::cerr << "Overflow detected in 'addi'." << std::endl << std::endl;
     }
@@ -156,7 +156,7 @@ void Simulator::addi(char rs, char rt, int32_t imm) {
 }
 
 void Simulator::addiu(char rs, char rt, int32_t imm) {
-    registers.write(rt, imm + registers[rs]);
+    registers.write(rt, sgnExt16(imm) + registers[rs]);
 }
 
 void Simulator::addu(char rs, char rt, char rd, char sa) {
