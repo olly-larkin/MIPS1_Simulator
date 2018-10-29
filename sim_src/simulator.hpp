@@ -75,6 +75,7 @@ private:
         {36, &Simulator::lbu},
         {33, &Simulator::lh},
         {37, &Simulator::lhu},
+        {15, &Simulator::lui},
         {35, &Simulator::lw},
         {34, &Simulator::lwl},
         {38, &Simulator::lwr},
@@ -117,6 +118,7 @@ private:
     void lbu(char rs, char rt, int32_t imm);
     void lh(char rs, char rt, int32_t imm);
     void lhu(char rs, char rt, int32_t imm);
+    void lui(char rs, char rt, int32_t imm);
     void lw(char rs, char rt, int32_t imm);
     void lwl(char rs, char rt, int32_t imm);
     void lwr(char rs, char rt, int32_t imm);

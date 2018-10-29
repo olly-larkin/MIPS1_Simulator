@@ -334,6 +334,10 @@ void Simulator::lhu(char rs, char rt, int32_t imm) {
     registers.write(rt, val);
 }
 
+void Simulator::lui(char rs, char rt, int32_t imm) {
+    registers.write(rt, (imm << 16) & 0xFFFF0000);
+}
+
 void Simulator::lw(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm);
     int32_t val = memory.read(imm + registers[rs], 4);
