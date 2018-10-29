@@ -1,0 +1,10 @@
+addiu $1, $0, 3
+sll $1, $1, 28
+addiu $1, $1, 4
+addiu $5, $0, 545
+sb $5, 0($1)
+jr $0
+nop
+
+# expected outcome = "!" - needs to be tested as stdout
+# exit code = 0
