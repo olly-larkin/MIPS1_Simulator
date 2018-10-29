@@ -183,6 +183,7 @@ void Simulator::beq(char rs, char rt, int32_t imm) {
     }
 }
 
+//Branches function needed because multiple branches have op code 1
 void Simulator::branches(char rs, char rt, int32_t imm) {
     switch(rt) {
         case 1: {
@@ -206,7 +207,7 @@ void Simulator::branches(char rs, char rt, int32_t imm) {
             std::exit(-12);
         }
     }
-}
+}                                               
 
 void Simulator::bgez(char rs, int32_t imm) {
     imm = sgnExt16(imm) << 2;
