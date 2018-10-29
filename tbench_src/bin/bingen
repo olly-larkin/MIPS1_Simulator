@@ -1,10 +1,10 @@
 #!/bin/bash
 
-FILES="text_files/*"
+FILES="tbench_src/text_files/*"
 
 for F in $FILES
 do
-    bin/parser $F "binaries/#"
+    tbench_src/bin/parser $F "tbench_src/binaries/#"
 done
 
 echo -e "Finished.\n"
