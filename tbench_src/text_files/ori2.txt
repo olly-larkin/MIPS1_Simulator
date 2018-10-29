@@ -1,0 +1,6 @@
+or $2, $0, -1
+sll $2, $2, 16
+jr $0
+nop
+
+#expected outcome = 0

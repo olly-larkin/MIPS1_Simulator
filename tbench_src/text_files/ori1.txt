@@ -1,0 +1,6 @@
+addi $1, $0, 1
+ori $2, $1, 3
+jr $0
+nop
+
+#expected output = 3
