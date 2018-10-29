@@ -1,0 +1,11 @@
+addiu $1, $0, 1
+sll $1, $1, 16
+mult $1, $1
+mfhi $2
+mflo $3
+sll $3, $3, 1
+addu $2, $2, $3
+jr $0
+nop
+
+#expected output = 1

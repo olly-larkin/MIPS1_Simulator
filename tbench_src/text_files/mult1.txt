@@ -1,0 +1,9 @@
+addiu $5, $0, -1
+mult $5, $5
+mfhi $2
+mflo $3
+addu $2, $2, $3
+jr $0
+nop
+
+#expected outcome = 1
