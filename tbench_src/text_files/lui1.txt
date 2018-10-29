@@ -1,0 +1,6 @@
+lui $2, 10
+srl $2, $2, 16
+jr $0
+nop
+
+#expected outcome = 10
