@@ -1,0 +1,7 @@
+addiu $2, $0, 1
+addiu $1, $0, 3
+or $2, $1, $2
+jr $0
+nop
+
+# expected outcome = 3
