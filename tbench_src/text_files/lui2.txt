@@ -1,0 +1,6 @@
+lui $2, 10
+jr $0
+nop
+
+#expected outcome = 0
+#testing the lower half
