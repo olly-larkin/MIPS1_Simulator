@@ -3,9 +3,19 @@
 FILES="tbench_src/text_files/*"
 mkdir -p tbench_src/binaries
 
+FAILED=()
+
 for F in $FILES
 do
     tbench_src/bin/parser $F "tbench_src/binaries/#"
+    if [ $? -eq 5 ] 
+    then
+        FAILED+=($F)
+    fi
 done
 
 echo -e "Finished.\n"
+
+for i in $FAILED; do
+    echo -e "Failed creation: " $i "\n"
+done
