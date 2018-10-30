@@ -4,25 +4,48 @@ SIM=$1
 OUTFILE="test/output/out.csv"
 echo "" > $OUTFILE
 
+FAILED_TESTS=()
+
 RUN_TEST() {
     TEST_ID=$1
     INSTRUCTION=$2
     AUTHOR=$3
     EXPECTED_OUTCOME=$5
-    if [ $# -ge 6 ]
-    then
-        echo $6 | $SIM tbench_src/test_bins/$TEST_ID.bin
-    else
-        $SIM tbench_src/test_bins/$TEST_ID.bin
-    fi
+    EXPECTED_OUTPUT=$7
+    OUTPUT=$(echo $6 | $SIM tbench_src/binaries/$TEST_ID.bin)
     EC=$?
     if [ $EC -eq $EXPECTED_OUTCOME ]
     then
-        STATUS="Pass"
+        if [ $# -eq 7 ]
+        then
+            if [ $EXPECTED_OUTPUT = $OUTPUT ]
+            then
+                STATUS="Pass"
+            else
+                STATUS="Fail"
+                FAILED_TESTS+=($TEST_ID)
+            fi
+        else
+            STATUS="Pass"
+        fi
     else
         STATUS="Fail"
+        FAILED_TESTS+=($TEST_ID)
     fi
     MESSAGE=$4" - exited with code "$EC
     echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
 }
 
+
+#************** WORK HERE ****************
+
+# RUN_TEST "test_id" "instr" "author" "message" expected_code "stdin" "expected_stdout"
+
+
+
+#************** WORK HERE ****************
+
+
+for i in $FAILED_TESTS; do
+    echo -e "Failed tests: " $i "\n"
+done
