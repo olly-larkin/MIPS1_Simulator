@@ -4,11 +4,6 @@ simulator: main.o simulator.o memoryMap.o registers.o
 
 testbench:
 
-testbench_windows:
-	make simulator
-	chmod u+x bin/mips_testbench
-	tr -d '\r' <bin/mips_testbench> bin/win_testbench
-
 main.o: sim_src/main.cpp
 	g++ --std=c++11 -c sim_src/main.cpp -o sim_src/main.o
 
