@@ -1,9 +1,9 @@
 addiu $3, $0, 2
 sll $3, $3, 28
 addiu $4, $4, 30
-sh $4, 2($3)
+sh $4, 3($3)
 lw $2, 0($3)
 jr $0
 
-#Expected outcome = 30
+#Expected outcome = -11 unalligned access
 

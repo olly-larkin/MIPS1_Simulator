@@ -1,0 +1,14 @@
+addiu $3, $0, 2
+sll $3, $3, 28
+addiu $4, $0, 5
+sll $4, $4, 16
+addiu $4, $4, 5
+sh $4, 2($3)
+lw $5, 0($3)
+srl $6, $5, 15
+or $2, $5, $6
+
+jr $0
+
+#Expected outcome = 5, if exit code = 10 offset not considered, if exit code = 15 entire word stored
+
