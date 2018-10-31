@@ -1,0 +1,12 @@
+slti $2, $0, 1
+
+slti $3, $0, 0
+addu $2, $2, $3
+
+slti $3, $0, -1
+addu $2, $2, $3
+
+jr $0
+nop
+
+# expected outcome = 1
