@@ -1,0 +1,15 @@
+addiu $1, $0, -1
+slt $2, $1, $0
+
+addiu $1, $0, 0
+slt $3, $1, $0
+addu $2, $2, $3
+
+addiu $1, $0, 1
+slt $3, $1, $0
+addu $2, $2, $3
+
+jr $0
+nop
+
+# expected outcome = 1
