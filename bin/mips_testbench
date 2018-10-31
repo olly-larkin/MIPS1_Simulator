@@ -37,13 +37,13 @@ RUN_TEST() {
 }
 
 
-#************** WORK HERE ****************
+#************** WORK BELOW HERE ****************
 
 # RUN_TEST "test_id" "instr" "author" "message" expected_code "stdin" "expected_stdout"
 
 
 
-#************** WORK HERE ****************
+#************** WORK ABOVE HERE ****************
 
 
 for i in $FAILED_TESTS; do
