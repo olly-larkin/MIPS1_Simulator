@@ -16,6 +16,8 @@ done
 
 echo -e "Finished.\n"
 
-for i in $FAILED; do
-    echo -e "Failed creation: " $i "\n"
+for i in ${FAILED[*]}; do
+    echo -e "Failed creation: " $i
 done
+
+echo
