@@ -444,7 +444,7 @@ void Simulator::slti(char rs, char rt, int32_t imm) {
 }
 
 void Simulator::sltiu(char rs, char rt, int32_t imm) {
-    if ((uint32_t)registers[rs] < (uint32_t)(imm & 0xFFFF))
+    if ((uint32_t)registers[rs] < (uint32_t)sgnExt16(imm))
         registers.write(rt, 1);
     else
         registers.write(rt, 0);
