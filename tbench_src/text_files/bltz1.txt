@@ -1,3 +1,11 @@
+#bltz1
+#bltz
+#oll16
+#Message
+#Outcome
+#
+#
+
 addi $3, $0, 5
 bltz $3, jump
 nop

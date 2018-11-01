@@ -1,3 +1,11 @@
+#divu1
+#divu
+#oll16
+#Message
+#Outcome
+#
+#
+
 addi $1, $0, 1
 addi $2, $0, -1
 

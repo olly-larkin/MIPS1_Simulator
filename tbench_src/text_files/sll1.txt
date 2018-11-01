@@ -1,3 +1,11 @@
+#sll1
+#sll
+#oll16
+#Message
+#Outcome
+#
+#
+
 addiu $2, $0, 2
 sll $2, $2, 3
 jr $0

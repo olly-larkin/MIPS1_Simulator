@@ -1,3 +1,11 @@
+#sh3
+#sh
+#oll16
+#Message
+#Outcome
+#
+#
+
 addiu $3, $0, 2
 sll $3, $3, 28
 addiu $4, $4, 30

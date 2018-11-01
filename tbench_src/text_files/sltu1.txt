@@ -1,3 +1,11 @@
+#sltu1
+#sltu
+#oll16
+#Message
+#Outcome
+#
+#
+
 addi $1, $0, 1
 sltu $2, $0, $1
 

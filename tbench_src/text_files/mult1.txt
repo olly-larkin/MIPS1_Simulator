@@ -1,3 +1,11 @@
+#mult1
+#mult
+#oll16
+#Message
+#Outcome
+#
+#
+
 addiu $5, $0, -1
 mult $5, $5
 mfhi $2

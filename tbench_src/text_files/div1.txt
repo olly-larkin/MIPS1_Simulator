@@ -1,3 +1,11 @@
+#div1
+#div
+#oll16
+#Message
+#Outcome
+#
+#
+
 addi $1, $0, 1
 addi $2, $0, -1
 div $1, $2

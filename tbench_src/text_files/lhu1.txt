@@ -1,3 +1,11 @@
+#lhu1
+#lhu
+#oll16
+#Message
+#Outcome
+#
+#
+
 addiu $gp, $0, 2
 sll $gp, $gp, 28
 addiu $1, $0, 5

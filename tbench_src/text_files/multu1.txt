@@ -1,3 +1,11 @@
+#multu1
+#multu
+#oll16
+#Message
+#Outcome
+#
+#
+
 addiu $1, $0, -1
 addiu $3, $0, 1
 multu $1, $3

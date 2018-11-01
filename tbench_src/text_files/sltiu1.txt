@@ -1,3 +1,11 @@
+#sltiu1
+#sltiu
+#oll16
+#Message
+#Outcome
+#
+#
+
 sltiu $2, $0, 1
 
 sltiu $3, $0, 0

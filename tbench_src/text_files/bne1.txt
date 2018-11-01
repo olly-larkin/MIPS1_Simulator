@@ -1,3 +1,11 @@
+#bne1
+#bne
+#oll16
+#Message
+#Outcome
+#
+#
+
 bne $0, $0, jump
 nop
 addi $2, $2, 5

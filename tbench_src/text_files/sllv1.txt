@@ -1,3 +1,11 @@
+#sllv1
+#sllv
+#oll16
+#Message
+#Outcome
+#
+#
+
 addiu $1, $0, 2
 addiu $2, $0, 1
 sllv $2, $2, $1

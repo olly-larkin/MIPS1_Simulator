@@ -1,3 +1,11 @@
+#ori2
+#ori
+#oll16
+#Message
+#Outcome
+#
+#
+
 ori $2, $0, -1
 sll $2, $2, 16
 jr $0

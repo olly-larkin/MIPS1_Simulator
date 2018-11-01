@@ -1,3 +1,11 @@
+#lb2
+#lb
+#oll16
+#Message
+#Outcome
+#
+#
+
 addi $1, $1, 2
 sll $1, $1, 28
 addi $3, $3, 5

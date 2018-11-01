@@ -1,3 +1,11 @@
+#mtlo1
+#mtlo
+#oll16
+#Message
+#Outcome
+#
+#
+
 addi $1, $0, 10
 mthi $1
 mfhi $2

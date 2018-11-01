@@ -1,3 +1,11 @@
+#bltzal3
+#bltzal
+#oll16
+#Message
+#Outcome
+#
+#
+
 addi $1, $0, 1
 bltzal $1, jump
 nop
