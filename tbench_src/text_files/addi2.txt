@@ -1,3 +1,11 @@
+#addi2
+#addi
+#oll16
+#Testing addi instr overflow - expected exit code -10 (246)
+#246
+#
+#
+
 addiu $2, $0, 1
 sll $2, $2, 31
 addi $2, $2, -1

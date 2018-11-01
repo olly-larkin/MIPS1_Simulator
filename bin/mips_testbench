@@ -65,12 +65,7 @@ for f in $FILES; do
 
     parser/bin/parser $f "test/temp/#"
 
-    if [ ${#expected_stdout} -gt 0 ]
-    then
-        RUN_TEST "$test_id" "$instr" "$author" "$message" "$expected_code" "$stdin" "$expected_stdout"
-    else
-        RUN_TEST "$test_id" "$instr" "$author" "$message" "$expected_code" "$stdin"
-    fi
+    RUN_TEST "$test_id" "$instr" "$author" "$message" "$expected_code" "$stdin" "$expected_stdout"
 done
 
 #************** WORK ABOVE HERE ****************
@@ -79,5 +74,6 @@ rm -rf test/temp
 
 
 for i in ${FAILED_TESTS[*]}; do
-    echo -e "Failed tests: " $i "\n"
+    echo -e "Failed test: " $i
 done
+echo
