@@ -65,7 +65,7 @@ for f in $FILES; do
     read -r line <&5
     expected_stdout="${line:1:${#line}-1}"
 
-    tbench_src/bin/parser $f "tbench_src/binaries/#"
+    parser/bin/parser $f "tbench_src/binaries/#"
 
     if [ ${#expected_stdout} -gt 0 ]
     then

@@ -3,6 +3,7 @@ simulator: main.o simulator.o memoryMap.o registers.o
 	g++ sim_src/main.o sim_src/simulator.o sim_src/memoryMap.o sim_src/registers.o -o bin/mips_simulator
 
 testbench:
+	make -C parser -f ./Makefile parser
 
 testbench_windows:
 	make simulator
@@ -23,3 +24,4 @@ registers.o: sim_src/registers.cpp sim_src/registers.hpp
 
 clean:
 	rm -f -rf sim_src/*.o bin/mips_simulator test
+	make -C parser -f ./Makefile clean
