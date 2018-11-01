@@ -6,8 +6,8 @@
 #
 #
 
-addiu $3, $0, 31
+addiu $3, $0, 30
 lui $1, 0x4000
-srav $2, $1, 30
+srav $2, $1, $3
 jr $0
 nop

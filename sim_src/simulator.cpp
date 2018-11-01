@@ -482,7 +482,7 @@ void Simulator::sub(char rs, char rt, char rd, char sa) {
     int32_t in2 = registers[rt];
     int32_t out = in1 - in2;
     if (sgn(in1) != sgn(in2) && sgn(in2) == sgn(out)) {
-        std::cerr << "Overflow detected in 'add'." << std::endl << std::endl;
+        std::cerr << "Overflow detected in 'sub'" << std::endl << std::endl;
         std::exit(-10);
     }
     registers.write(rd, out);

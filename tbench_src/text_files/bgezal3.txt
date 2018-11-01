@@ -7,7 +7,7 @@
 #
 
 addi $3, $0, -1
-bgezal $0, jump
+bgezal $3, jump
 nop
 addi $2, $2, 5
 jr $0

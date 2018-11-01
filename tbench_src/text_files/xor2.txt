@@ -1,0 +1,13 @@
+#xor2
+#xor
+#oll16
+#Expected exit code 2
+#2
+#
+#
+
+addiu $5, $0, 1
+addiu $6, $0, 3
+xor $2, $5, $6
+jr $0
+nop

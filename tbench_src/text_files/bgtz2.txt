@@ -1,8 +1,8 @@
 #bgtz2
 #bgtz
 #oll16
-#Expected exit code 10 (if 5 branch failed)
-#10
+#Expected exit code 5 (if 10 branch failed)
+#5
 #
 #
 
@@ -14,5 +14,3 @@ nop
 
 jump: addi $2, $0, 10
 jr $0
-
-#Expected outcome = 10, if exit code = 5 branch failed
