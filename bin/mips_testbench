@@ -68,6 +68,8 @@ done
 
 #************** WORK ABOVE HERE ****************
 
+rm -rf test/temp
+
 for i in ${FAILED_TESTS[*]}; do
     echo -e "Failed test: " $i
 done
