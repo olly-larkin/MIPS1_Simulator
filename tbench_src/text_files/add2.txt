@@ -1,7 +1,14 @@
+#add2
+#add
+#oll16
+#Testing addi instr for overflow - expected exit code -10 (246)
+#246
+#
+#
+
 addi $2, $0, 0x7FFF
 sll $2, $2, 16
 addi $2, $2, 0xFFFF
 addi $3, $0, 1
 add $2, $2, $3
-
-#Expected outcome = -10, testing for overflow
+jr $0

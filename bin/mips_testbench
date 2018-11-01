@@ -16,9 +16,7 @@ RUN_TEST() {
     EXPECTED_OUTPUT=$7
     OUTPUT=$(echo $6 | $SIM test/temp/$TEST_ID.bin)
     EC=$?
-    echo $EXPECTED_OUTCOME
-    echo $EC
-    if [[ $EC -eq $EXPECTED_OUTCOME ]]
+    if [[ "$EC" = $EXPECTED_OUTCOME ]]
     then
         if [ $# -eq 7 ]
         then
@@ -45,8 +43,6 @@ RUN_TEST() {
 
 # RUN_TEST "test_id" "instr" "author" "message" expected_code "stdin" "expected_stdout"
 
-mkdir -p tbench_src/binaries
-
 FILES="tbench_src/text_files/*.txt"
 for f in $FILES; do
 
@@ -71,11 +67,10 @@ for f in $FILES; do
 
     if [ ${#expected_stdout} -gt 0 ]
     then
-        RUN_TEST "$test_id" "$instr" "$author $message" $(($expected_code+0)) "$stdin" "$expected_stdout"
+        RUN_TEST "$test_id" "$instr" "$author" "$message" "$expected_code" "$stdin" "$expected_stdout"
     else
-        RUN_TEST "$test_id" "$instr" "$author $message" $(($expected_code+0)) "$stdin"
+        RUN_TEST "$test_id" "$instr" "$author" "$message" "$expected_code" "$stdin"
     fi
-
 done
 
 #************** WORK ABOVE HERE ****************
