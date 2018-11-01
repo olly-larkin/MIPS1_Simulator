@@ -1,0 +1,16 @@
+#lwl5
+#lwl
+#oll16
+#Testing with offset 3 - Expected exit code 4
+#4
+#
+#
+
+lui $1, 0x2000
+lui $3, 0x0102
+addiu $3, $3, 0x0304
+sw $3, 0($1)
+lwl $4, 3($1)
+srl $2, $4, 24
+jr $0
+nop
