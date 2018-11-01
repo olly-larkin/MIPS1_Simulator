@@ -1,7 +1,7 @@
 #add1
 #add
 #oll16
-#Testing add instr - expected exit code 10
+#Expected exit code 10
 #10
 #
 #
