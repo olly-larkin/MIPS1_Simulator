@@ -1,0 +1,22 @@
+#lwr1
+#lwr
+#oll16
+#Testing offset 0 - Expected exit code 1
+#1
+#
+#
+
+lui $1, 0x2000
+lui $3, 0x0102
+addiu $3, $3, 0x0304
+sw $3, 0($1)
+lwr $4, 0($1)
+addu $2, $0, $4
+srl $4, $4, 8
+addu $2, $2, $4
+srl $4, $4, 8
+addu $2, $2, $4
+srl $4, $4, 8
+addu $2, $2, $4
+jr $0
+nop
