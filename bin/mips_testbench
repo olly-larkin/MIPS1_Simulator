@@ -16,11 +16,11 @@ RUN_TEST() {
     EXPECTED_OUTPUT=$7
     OUTPUT=$(echo $6 | $SIM tbench_src/binaries/$TEST_ID.bin)
     EC=$?
-    if [ $EC -eq $EXPECTED_OUTCOME ]
+    if [[ $EC -eq $EXPECTED_OUTCOME ]]
     then
         if [ $# -eq 7 ]
         then
-            if [ $EXPECTED_OUTPUT = $OUTPUT ]
+            if [[ $EXPECTED_OUTPUT = $OUTPUT ]]
             then
                 STATUS="Pass"
             else
@@ -43,7 +43,38 @@ RUN_TEST() {
 
 # RUN_TEST "test_id" "instr" "author" "message" expected_code "stdin" "expected_stdout"
 
+mkdir -p tbench_src/binaries
 
+FILES="tbench_src/text_files/*.txt"
+for f in $FILES; do
+
+    exec 5< $f
+
+    read -r line <&5
+    test_id="${line:1:${#line}-1}"
+    read -r line <&5
+    instr="${line:1:${#line}-1}"
+    read -r line <&5
+    author="${line:1:${#line}-1}"
+    read -r line <&5
+    message="${line:1:${#line}-1}"
+    read -r line <&5
+    expected_code="$(echo -e "${line:1:${#line}-1}" | tr -d '[:space:]')"
+    read -r line <&5
+    stdin="${line:1:${#line}-1}"
+    read -r line <&5
+    expected_stdout="${line:1:${#line}-1}"
+
+    tbench_src/bin/parser $f "tbench_src/binaries/#"
+
+    if [ ${#expected_stdout} -gt 0 ]
+    then
+        RUN_TEST "$test_id" "$instr" "$author $message" $(($expected_code+0)) "$stdin" "$expected_stdout"
+    else
+        RUN_TEST "$test_id" "$instr" "$author $message" $(($expected_code+0)) "$stdin"
+    fi
+
+done
 
 #************** WORK ABOVE HERE ****************
 
