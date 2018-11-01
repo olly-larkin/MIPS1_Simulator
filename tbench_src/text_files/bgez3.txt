@@ -1,7 +1,7 @@
-#bgez1
+#bgez3
 #bgez
 #oll16
-#Expected exit code 10 (if 5 false false branch triggered)
+#Expected exit code 10 (if 5 false branch triggered)
 #10
 #
 #
