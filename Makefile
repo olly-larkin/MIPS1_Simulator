@@ -22,4 +22,4 @@ registers.o: sim_src/registers.cpp sim_src/registers.hpp
 	g++ --std=c++11 -c sim_src/registers.cpp -o sim_src/registers.o
 
 clean:
-	rm -f sim_src/*.o bin/mips_simulator
+	rm -f -rf sim_src/*.o bin/mips_simulator test
