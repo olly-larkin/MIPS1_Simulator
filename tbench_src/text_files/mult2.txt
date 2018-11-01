@@ -1,8 +1,8 @@
 #mult2
 #mult
 #oll16
-#Expected exit code 1
-#1
+#Expected exit code 0
+#0
 #
 #
 
@@ -16,4 +16,4 @@ addu $2, $2, $3
 jr $0
 nop
 
-#expected output = 1
+#expected output = 0

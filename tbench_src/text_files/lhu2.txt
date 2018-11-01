@@ -11,7 +11,7 @@ sll $gp, $gp, 28
 addi $1, $0, -1
 sb $1, 0($gp)
 sb $1, 1($gp)
-lh $2, 0($gp)
+lhu $2, 0($gp)
 srl $2, $2, 16
 jr $0
 nop
