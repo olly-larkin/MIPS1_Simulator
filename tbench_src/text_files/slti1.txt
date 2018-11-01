@@ -1,8 +1,8 @@
 #slti1
 #slti
 #oll16
-#Message
-#Outcome
+#Expected exit code 1
+#1
 #
 #
 

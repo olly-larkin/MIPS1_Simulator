@@ -1,8 +1,8 @@
 #sllv1
 #sllv
 #oll16
-#Message
-#Outcome
+#Expected exit code 4
+#4
 #
 #
 

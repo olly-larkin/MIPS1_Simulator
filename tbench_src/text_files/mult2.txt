@@ -1,8 +1,8 @@
 #mult2
 #mult
 #oll16
-#Message
-#Outcome
+#Expected exit code 1
+#1
 #
 #
 

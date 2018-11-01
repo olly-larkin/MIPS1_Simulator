@@ -1,8 +1,8 @@
 #sll1
 #sll
 #oll16
-#Message
-#Outcome
+#Expected exit code 16
+#16
 #
 #
 

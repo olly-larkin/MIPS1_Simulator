@@ -1,8 +1,8 @@
 #jal1
 #jal
 #oll16
-#Message
-#Outcome
+#Expected exit code 10
+#10
 #
 #
 

@@ -1,8 +1,8 @@
 #lh1
 #lh
 #oll16
-#Message
-#Outcome
+#Expected exit code 15
+#15
 #
 #
 

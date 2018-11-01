@@ -1,8 +1,8 @@
 #bltzal1
 #bltzal
 #oll16
-#Message
-#Outcome
+#Expected exit code 10
+#10
 #
 #
 

@@ -1,8 +1,8 @@
 #lb3
 #lb
 #oll16
-#Message
-#Outcome
+#Expected exit code 5
+#5
 #
 #
 

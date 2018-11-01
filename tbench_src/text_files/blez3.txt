@@ -1,8 +1,8 @@
 #blez3
 #blez
 #oll16
-#Message
-#Outcome
+#Expected exit code 10 (if 5 branch failed)
+#10
 #
 #
 

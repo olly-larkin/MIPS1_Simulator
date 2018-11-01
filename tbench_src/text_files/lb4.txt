@@ -1,8 +1,8 @@
 #lb4
 #lb
 #oll16
-#Message
-#Outcome
+#Expected exit code -1 (255)
+#255
 #
 #
 

@@ -1,8 +1,8 @@
 #sh3
 #sh
 #oll16
-#Message
-#Outcome
+#Expected exit code -11 (245)
+#245
 #
 #
 

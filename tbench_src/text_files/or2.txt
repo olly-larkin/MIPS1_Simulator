@@ -1,8 +1,8 @@
 #or2
 #or
 #oll16
-#Message
-#Outcome
+#Expected exit code 3
+#3
 #
 #
 

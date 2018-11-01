@@ -1,8 +1,8 @@
 #lw2
 #lw
 #oll16
-#Message
-#Outcome
+#Expected exit code 10
+#10
 #
 #
 

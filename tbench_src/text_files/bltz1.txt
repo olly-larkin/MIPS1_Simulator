@@ -1,8 +1,8 @@
 #bltz1
 #bltz
 #oll16
-#Message
-#Outcome
+#Expected exit code 5 (if 10 false branch triggered)
+#5
 #
 #
 
