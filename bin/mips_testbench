@@ -16,6 +16,8 @@ RUN_TEST() {
     EXPECTED_OUTPUT=$7
     OUTPUT=$(echo $6 | $SIM test/temp/$TEST_ID.bin)
     EC=$?
+    echo $EXPECTED_OUTCOME
+    echo $EC
     if [[ $EC -eq $EXPECTED_OUTCOME ]]
     then
         if [ $# -eq 7 ]
