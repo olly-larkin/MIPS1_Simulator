@@ -1,3 +1,11 @@
+#beq2
+#beq
+#oll16
+#Expected exit code 5 (if 10 false branch trigger)
+#5
+#
+#
+
 addi $3, $0, 4
 addi $4, $0, 3
 beq $3, $4, jump

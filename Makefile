@@ -6,6 +6,7 @@ testbench:
 	git submodule update --init --recursive
 	make simulator
 	make -C parser -f ./Makefile parser
+	tbench_src/bin/bingen
 
 testbench_windows:
 	make simulator

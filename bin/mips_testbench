@@ -63,14 +63,10 @@ for f in $FILES; do
     read -r line <&5
     expected_stdout="${line:1:${#line}-1}"
 
-    parser/bin/parser $f "test/temp/#"
-
     RUN_TEST "$test_id" "$instr" "$author" "$message" "$expected_code" "$stdin" "$expected_stdout"
 done
 
 #************** WORK ABOVE HERE ****************
-
-rm -rf test/temp
 
 
 for i in ${FAILED_TESTS[*]}; do
