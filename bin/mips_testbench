@@ -48,6 +48,6 @@ RUN_TEST() {
 #************** WORK ABOVE HERE ****************
 
 
-for i in $FAILED_TESTS; do
+for i in ${FAILED_TESTS[*]}; do
     echo -e "Failed tests: " $i "\n"
 done
