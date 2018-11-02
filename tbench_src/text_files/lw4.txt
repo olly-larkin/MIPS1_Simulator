@@ -8,5 +8,6 @@
 
 lui $1, 0x3000
 lw $2, 0($1)
+nop
 jr $0
 nop

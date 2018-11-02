@@ -13,6 +13,7 @@ addiu $3, $0, 10
 sb $1, 0($gp)
 sb $3, 1($gp)
 lh $2, 0($gp)
+nop
 srl $3, $2, 8
 addu $2, $2, $3
 jr $0
