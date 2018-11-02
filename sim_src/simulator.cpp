@@ -314,24 +314,32 @@ void Simulator::jr(char rs, char rt, char rd, char sa) {
 void Simulator::lb(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm);
     int32_t val = memory.read(imm + registers[rs], 1);
+    branchExecute();
+    pc += 4;
     registers.write(rt, sgnExt8(val));
 }
 
 void Simulator::lbu(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm);
     int32_t val = memory.read(imm + registers[rs], 1) & 0xFF;
+    branchExecute();
+    pc += 4;
     registers.write(rt, val);
 }
 
 void Simulator::lh(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm);
     int32_t val = memory.read(imm + registers[rs], 2);
+    branchExecute();
+    pc += 4;
     registers.write(rt, sgnExt16(val));
 }
 
 void Simulator::lhu(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm);
     int32_t val = memory.read(imm + registers[rs], 2) & 0xFFFF;
+    branchExecute();
+    pc += 4;
     registers.write(rt, val);
 }
 
@@ -342,6 +350,8 @@ void Simulator::lui(char rs, char rt, int32_t imm) {
 void Simulator::lw(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm);
     int32_t val = memory.read(imm + registers[rs], 4);
+    branchExecute();
+    pc += 4;
     registers.write(rt, val);
 }
 
@@ -354,6 +364,8 @@ void Simulator::lwl(char rs, char rt, int32_t imm) {
         val = val << ((3-i)*8);
         regVal = regVal | val;
     }
+    branchExecute();
+    pc += 4;
     registers.write(rt, regVal);
 }
 
@@ -366,6 +378,8 @@ void Simulator::lwr(char rs, char rt, int32_t imm) {
         val = val << (i*8);
         regVal = regVal | val;
     }
+    branchExecute();
+    pc += 4;
     registers.write(rt, regVal);
 }
 
