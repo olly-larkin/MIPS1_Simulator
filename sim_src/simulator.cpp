@@ -37,6 +37,8 @@ char Simulator::execute() {
                 break;
             }
         }
+        registers = regBuff1;
+        regBuff1 = regBuff2;
     }
 
     return registers.exitCode();
@@ -133,6 +135,12 @@ int32_t Simulator::sgnExt8(int32_t val) {
     return val;
 }
 
+void Simulator::regWrite(char addr, int32_t data) {
+    registers.write(addr, data);
+    regBuff1.write(addr, data);
+    regBuff2.write(addr, data);
+}
+
 // ****************** INSTRUCTIONS ******************
 
 void Simulator::add(char rs, char rt, char rd, char sa) {
@@ -143,7 +151,7 @@ void Simulator::add(char rs, char rt, char rd, char sa) {
         std::cerr << "Overflow detected in 'add'." << std::endl << std::endl;
         std::exit(-10);
     }
-    registers.write(rd, out);
+    regWrite(rd, out);
 }
 
 void Simulator::addi(char rs, char rt, int32_t imm) {
@@ -153,31 +161,27 @@ void Simulator::addi(char rs, char rt, int32_t imm) {
         std::cerr << "Overflow detected in 'addi'." << std::endl << std::endl;
         std::exit(-10);
     }
-    registers.write(rt, out);
+    regWrite(rt, out);
 }
 
 void Simulator::addiu(char rs, char rt, int32_t imm) {
-    registers.write(rt, (uint32_t)sgnExt16(imm) + (uint32_t)registers[rs]);
+    regWrite(rt, (uint32_t)sgnExt16(imm) + (uint32_t)registers[rs]);
 }
 
 void Simulator::addu(char rs, char rt, char rd, char sa) {
-    registers.write(rd, registers[rs] + registers[rt]);
+    regWrite(rd, registers[rs] + registers[rt]);
 }
 
 void Simulator::and_instr(char rs, char rt, char rd, char sa) {
-    registers.write(rd, registers[rs] & registers[rt]);
+    regWrite(rd, registers[rs] & registers[rt]);
 }
 
 void Simulator::andi(char rs, char rt, int32_t imm) {
-    registers.write(rt, registers[rs] & (imm & 0xFFFF));
+    regWrite(rt, registers[rs] & (imm & 0xFFFF));
 }
 
 void Simulator::beq(char rs, char rt, int32_t imm) {
-    if ((imm >> 15) & 1) {
-        imm = (imm << 2) | 0xFFFC0000;
-    } else {
-        imm = (imm << 2) & 0x3FFFF;
-    }
+    imm = sgnExt16(imm) << 2;
     if (registers[rs] == registers[rt]) {
         branchExecute();
         pc += imm;
@@ -221,7 +225,7 @@ void Simulator::bgez(char rs, int32_t imm) {
 void Simulator::bgezal(char rs, int32_t imm) {
     imm = sgnExt16(imm) << 2;
     if (registers[rs] >= 0) {
-        registers.write(31, pc + 4);  
+        regWrite(31, pc + 4);  
         branchExecute();
         pc += imm;
     }
@@ -254,7 +258,7 @@ void Simulator::bltz(char rs, int32_t imm) {
 void Simulator::bltzal(char rs, int32_t imm) {
     imm = sgnExt16(imm) << 2;
     if (registers[rs] < 0){
-        registers.write(31, pc + 4);
+        regWrite(31, pc + 4);
         branchExecute();
         pc += imm;
     } 
@@ -294,14 +298,14 @@ void Simulator::j(int addr) {
 }
 
 void Simulator::jalr(char rs, char rt, char rd, char sa) {
-    registers.write(31, pc + 4);
+    regWrite(31, pc + 4);
     branchExecute();
     pc = registers[rs];
 }
 
 void Simulator::jal(int addr) {
     addr = (addr << 2) | (pc & 0xFF000000);
-    registers.write(31, pc + 4);
+    regWrite(31, pc + 4);
     branchExecute();
     pc = addr;
 }
@@ -314,45 +318,35 @@ void Simulator::jr(char rs, char rt, char rd, char sa) {
 void Simulator::lb(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm);
     int32_t val = memory.read(imm + registers[rs], 1);
-    branchExecute();
-    pc += 4;
-    registers.write(rt, sgnExt8(val));
+    regBuff2.write(rt, sgnExt8(val));
 }
 
 void Simulator::lbu(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm);
     int32_t val = memory.read(imm + registers[rs], 1) & 0xFF;
-    branchExecute();
-    pc += 4;
-    registers.write(rt, val);
+    regBuff2.write(rt, val);
 }
 
 void Simulator::lh(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm);
     int32_t val = memory.read(imm + registers[rs], 2);
-    branchExecute();
-    pc += 4;
-    registers.write(rt, sgnExt16(val));
+    regBuff2.write(rt, sgnExt16(val));
 }
 
 void Simulator::lhu(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm);
     int32_t val = memory.read(imm + registers[rs], 2) & 0xFFFF;
-    branchExecute();
-    pc += 4;
-    registers.write(rt, val);
+    regBuff2.write(rt, val);
 }
 
 void Simulator::lui(char rs, char rt, int32_t imm) {
-    registers.write(rt, (imm << 16) & 0xFFFF0000);
+    regWrite(rt, (imm << 16) & 0xFFFF0000);
 }
 
 void Simulator::lw(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm);
     int32_t val = memory.read(imm + registers[rs], 4);
-    branchExecute();
-    pc += 4;
-    registers.write(rt, val);
+    regBuff2.write(rt, val);
 }
 
 void Simulator::lwl(char rs, char rt, int32_t imm) {
@@ -364,9 +358,7 @@ void Simulator::lwl(char rs, char rt, int32_t imm) {
         val = val << ((3-i)*8);
         regVal = regVal | val;
     }
-    branchExecute();
-    pc += 4;
-    registers.write(rt, regVal);
+    regBuff2.write(rt, regVal);
 }
 
 void Simulator::lwr(char rs, char rt, int32_t imm) {
@@ -378,17 +370,15 @@ void Simulator::lwr(char rs, char rt, int32_t imm) {
         val = val << (i*8);
         regVal = regVal | val;
     }
-    branchExecute();
-    pc += 4;
-    registers.write(rt, regVal);
+    regBuff2.write(rt, regVal);
 }
 
 void Simulator::mfhi(char rs, char rt, char rd, char sa) {
-    registers.write(rd, HI);
+    regWrite(rd, HI);
 }
 
 void Simulator::mflo(char rs, char rt, char rd, char sa) {
-    registers.write(rd, LO);
+    regWrite(rd, LO);
 }
 
 void Simulator::mthi(char rs, char rt, char rd, char sa) {
@@ -412,11 +402,11 @@ void Simulator::multu(char rs, char rt, char rd, char sa) {
 }
 
 void Simulator::or_instr(char rs, char rt, char rd, char sa) {
-    registers.write(rd, registers[rs] | registers[rt]);
+    regWrite(rd, registers[rs] | registers[rt]);
 }
 
 void Simulator::ori(char rs, char rt, int32_t imm) {
-    registers.write(rt, registers[rs] | (imm & 0xFFFF));
+    regWrite(rt, registers[rs] | (imm & 0xFFFF));
 }
 
 void Simulator::sb(char rs, char rt, int32_t imm) {
@@ -430,65 +420,65 @@ void Simulator::sh(char rs, char rt, int32_t imm) {
 }
 
 void Simulator::sll(char rs, char rt, char rd, char sa) {
-    registers.write(rd, (registers[rt] << (sa & 0x1F)));
+    regWrite(rd, (registers[rt] << (sa & 0x1F)));
 }
 
 void Simulator::sllv(char rs, char rt, char rd, char sa) {
-    registers.write(rd, (registers[rt] << (registers[rs] & 0x1F)));
+    regWrite(rd, (registers[rt] << (registers[rs] & 0x1F)));
 }
 
 void Simulator::slt(char rs, char rt, char rd, char sa) {
     if (registers[rs] < registers[rt])
-        registers.write(rd, 1);
+        regWrite(rd, 1);
     else
-        registers.write(rd, 0);
+        regWrite(rd, 0);
 }
 
 void Simulator::sltu(char rs, char rt, char rd, char sa) {
     if ((uint32_t)registers[rs] < (uint32_t)registers[rt])
-        registers.write(rd, 1);
+        regWrite(rd, 1);
     else
-        registers.write(rd, 0);
+        regWrite(rd, 0);
 }
 
 void Simulator::slti(char rs, char rt, int32_t imm) {
     if (registers[rs] < sgnExt16(imm))
-        registers.write(rt, 1);
+        regWrite(rt, 1);
     else
-        registers.write(rt, 0);
+        regWrite(rt, 0);
 }
 
 void Simulator::sltiu(char rs, char rt, int32_t imm) {
     if ((uint32_t)registers[rs] < (uint32_t)sgnExt16(imm))
-        registers.write(rt, 1);
+        regWrite(rt, 1);
     else
-        registers.write(rt, 0);
+        regWrite(rt, 0);
 }
 
 void Simulator::sra(char rs, char rt, char rd, char sa) {
     int32_t mask = 0xFFFFFFFF;
     if (sgn(registers[rt]) == -1) {
-        registers.write(rd, (registers[rt] >> sa) | (mask << (32 - sa)));
+        regWrite(rd, (registers[rt] >> sa) | (mask << (32 - sa)));
     } else {
-        registers.write(rd, (registers[rt] >> sa));
+        regWrite(rd, (registers[rt] >> sa));
     }
 }
 
 void Simulator::srav(char rs, char rt, char rd, char sa) {
     int32_t mask = 0xFFFFFFFF;
     if (sgn(registers[rt]) == -1) {
-        registers.write(rd, (registers[rt] >> (registers[rs] & 0x1F)) | (mask << (32 - (registers[rs] & 0x1F))));
+        regWrite(rd, (registers[rt] >> (registers[rs] & 0x1F)) | (mask << (32 - (registers[rs] & 0x1F))));
     } else {
-        registers.write(rd, (registers[rt] >> (registers[rs] & 0x1F)));
+        regWrite(rd, (registers[rt] >> (registers[rs] & 0x1F)));
     }
 }
 
 void Simulator::srl(char rs, char rt, char rd, char sa) {
-    registers.write(rd, ((uint32_t)registers[rt] >> sa));
+    regWrite(rd, ((uint32_t)registers[rt] >> sa));
 }
 
 void Simulator::srlv(char rs, char rt, char rd, char sa) {
-    registers.write(rd, ((uint32_t)registers[rt] >> (registers[rs] & 0x1F)));
+    regWrite(rd, ((uint32_t)registers[rt] >> (registers[rs] & 0x1F)));
 }
 
 void Simulator::sub(char rs, char rt, char rd, char sa) {
@@ -499,14 +489,14 @@ void Simulator::sub(char rs, char rt, char rd, char sa) {
         std::cerr << "Overflow detected in 'sub'" << std::endl << std::endl;
         std::exit(-10);
     }
-    registers.write(rd, out);
+    regWrite(rd, out);
 }
 
 void Simulator::subu(char rs, char rt, char rd, char sa) {
     uint32_t in1 = registers[rs];
     uint32_t in2 = registers[rt];
     uint32_t out = in1 - in2;
-    registers.write(rd, out);
+    regWrite(rd, out);
 }
 
 void Simulator::sw(char rs, char rt, int32_t imm) {
@@ -515,9 +505,9 @@ void Simulator::sw(char rs, char rt, int32_t imm) {
 }
 
 void Simulator::xor_instr(char rs, char rt, char rd, char sa) {
-    registers.write(rd, (registers[rs] ^ registers[rt]));
+    regWrite(rd, (registers[rs] ^ registers[rt]));
 }
 
 void Simulator::xori(char rs, char rt, int32_t imm) {
-    registers.write(rt, (registers[rs] ^ (imm & 0xFFFF)));
+    regWrite(rt, (registers[rs] ^ (imm & 0xFFFF)));
 }

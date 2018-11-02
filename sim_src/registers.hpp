@@ -10,6 +10,7 @@ public:
     char exitCode();
     int32_t operator[] (int index);
     Registers();
+    Registers& operator=(const Registers& reg1);
 private:
     int32_t regArray[32];
 };

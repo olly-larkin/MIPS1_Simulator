@@ -22,6 +22,8 @@ public:
 private:
     MemoryMap memory;
     Registers registers;
+    Registers regBuff1;
+    Registers regBuff2;
     unsigned int pc;
     int32_t HI;
     int32_t LO;
@@ -33,6 +35,7 @@ private:
     char sgn(int num);
     int32_t sgnExt16(int32_t val);
     int32_t sgnExt8(int32_t val);
+    void regWrite(char addr, int32_t data);
 
     //---- Maps ----
     std::map<char, R_FUNC> R_MAP = {

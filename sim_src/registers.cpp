@@ -23,3 +23,10 @@ Registers::Registers() {
         regArray[i] = 0;
     }
 }
+
+Registers& Registers::operator=(const Registers& reg1) {
+    for(int i = 0; i < 32; ++i) {
+        regArray[i] = reg1.regArray[i];
+    }
+    return *this;
+}
