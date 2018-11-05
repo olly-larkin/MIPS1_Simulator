@@ -298,7 +298,7 @@ void Simulator::j(int addr) {
 }
 
 void Simulator::jalr(char rs, char rt, char rd, char sa) {
-    regWrite(31, pc + 4);
+    regWrite(rd, pc + 4);
     branchExecute();
     pc = registers[rs];
 }
