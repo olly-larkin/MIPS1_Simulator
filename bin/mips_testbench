@@ -69,6 +69,6 @@ done
 #************** WORK ABOVE HERE ****************
 
 for i in ${FAILED_TESTS[*]}; do
-    echo -e "Failed test: " $i
+    echo "Failed test: " $i
 done
 echo
