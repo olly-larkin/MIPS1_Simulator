@@ -23,3 +23,4 @@ bin/win_testbench
 tbench_src/test_bins/parser
 tbench_src/test_bins/bgezal2.bin
 tbench_src/bin/bingen_win
+tbench_src/bin/parser
