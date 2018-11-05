@@ -1,0 +1,15 @@
+#sllv1
+#sllv
+#oll16
+#Expected exit code 4
+#4
+#
+#
+
+addiu $1, $0, 2
+addiu $2, $0, 1
+sllv $2, $2, $1
+jr $0
+nop
+
+# expected outcome = 4

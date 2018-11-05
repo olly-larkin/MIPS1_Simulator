@@ -3,11 +3,16 @@ simulator: main.o simulator.o memoryMap.o registers.o
 	g++ sim_src/main.o sim_src/simulator.o sim_src/memoryMap.o sim_src/registers.o -o bin/mips_simulator
 
 testbench:
+	rm -f -rf test
+	git submodule update --init --recursive
+	make simulator
+	make -C parser -f ./Makefile parser
+	tbench_src/bin/bingen
 
 testbench_windows:
 	make simulator
-	chmod u+x bin/mips_testbench
-	tr -d '\r' <bin/mips_testbench> bin/win_testbench
+	#tr -d '\r' <bin/mips_testbench> bin/win_testbench
+	dos2unix bin/win_testbench
 
 main.o: sim_src/main.cpp
 	g++ --std=c++11 -c sim_src/main.cpp -o sim_src/main.o
@@ -22,4 +27,5 @@ registers.o: sim_src/registers.cpp sim_src/registers.hpp
 	g++ --std=c++11 -c sim_src/registers.cpp -o sim_src/registers.o
 
 clean:
-	rm -f sim_src/*.o bin/mips_simulator
+	rm -f -rf sim_src/*.o bin/mips_simulator test
+	make -C parser -f ./Makefile clean

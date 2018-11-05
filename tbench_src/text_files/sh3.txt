@@ -1,8 +1,17 @@
+#sh3
+#sh
+#oll16
+#Expected exit code -11 (245)
+#245
+#
+#
+
 addiu $3, $0, 2
 sll $3, $3, 28
 addiu $4, $4, 30
 sh $4, 3($3)
 lw $2, 0($3)
+nop
 jr $0
 
 #Expected outcome = -11 unalligned access

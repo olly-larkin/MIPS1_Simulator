@@ -1,8 +1,17 @@
+#lb4
+#lb
+#oll16
+#Expected exit code -1 (255)
+#255
+#
+#
+
 addi $1, $1, 2
 sll $1, $1, 28
 addi $3, $3, -1
 sb $3, 0($1)
 lb $2, 0($1)
+nop
 srl $2, $2, 4
 jr $0
 nop

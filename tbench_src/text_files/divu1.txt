@@ -1,3 +1,11 @@
+#divu1
+#divu
+#oll16
+#Expected exit code 1
+#1
+#
+#
+
 addi $1, $0, 1
 addi $2, $0, -1
 

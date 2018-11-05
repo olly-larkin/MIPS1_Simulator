@@ -1,3 +1,11 @@
+#lui2
+#lui
+#oll16
+#Expected exit code 0
+#0
+#
+#
+
 lui $2, 10
 jr $0
 nop

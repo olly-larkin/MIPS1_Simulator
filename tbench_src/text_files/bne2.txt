@@ -1,3 +1,11 @@
+#bne2
+#bne
+#oll16
+#Expected exit code 5
+#5
+#
+#
+
 addi $1, $0, 1
 bne $1, $0, jump
 nop

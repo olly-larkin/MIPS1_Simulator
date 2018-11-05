@@ -1,3 +1,11 @@
+#sh2
+#sh
+#oll16
+#Expected exit code 5
+#5
+#
+#
+
 addiu $3, $0, 2
 sll $3, $3, 28
 addiu $4, $0, 5
@@ -5,6 +13,7 @@ sll $4, $4, 16
 addiu $4, $4, 5
 sh $4, 2($3)
 lw $5, 0($3)
+nop
 srl $6, $5, 15
 or $2, $5, $6
 

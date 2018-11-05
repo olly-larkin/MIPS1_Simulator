@@ -1,0 +1,12 @@
+#srl2
+#srl
+#oll16
+#Expected exit code 1
+#1
+#
+#
+
+lui $1, 0x4000
+srl $2, $1, 30
+jr $0
+nop

@@ -1,0 +1,12 @@
+#addiu1
+#addiu
+#oll16
+#Testing addiu - expected exit code 5
+#5
+#
+#
+
+addiu $2, $0, 5
+jr $0
+
+#Expected outcome = 5

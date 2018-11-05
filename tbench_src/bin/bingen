@@ -1,13 +1,13 @@
 #!/bin/bash
 
 FILES="tbench_src/text_files/*"
-mkdir -p tbench_src/binaries
+mkdir -p test/temp
 
 FAILED=()
 
 for F in $FILES
 do
-    tbench_src/bin/parser $F "tbench_src/binaries/#"
+    parser/bin/parser $F "test/temp/#"
     if [ $? -eq 5 ] 
     then
         FAILED+=($F)
@@ -16,6 +16,8 @@ done
 
 echo -e "Finished.\n"
 
-for i in $FAILED; do
-    echo -e "Failed creation: " $i "\n"
+for i in ${FAILED[*]}; do
+    echo "Failed creation: " $i
 done
+
+echo

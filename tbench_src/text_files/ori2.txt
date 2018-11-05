@@ -1,3 +1,11 @@
+#ori2
+#ori
+#oll16
+#Expected exit code 0
+#0
+#
+#
+
 ori $2, $0, -1
 sll $2, $2, 16
 jr $0

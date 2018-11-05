@@ -1,3 +1,11 @@
+#j1
+#j
+#oll16
+#Expected exit code 5
+#5
+#
+#
+
 j jump
 nop
 addi $2, $2, 5

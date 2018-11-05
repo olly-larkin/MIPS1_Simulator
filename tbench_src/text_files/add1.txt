@@ -1,7 +1,12 @@
+#add1
+#add
+#oll16
+#Expected exit code 10
+#10
+#
+#
+
 addi $3, $0, 5
 addi $4, $0, 5
 add $2, $4, $3
 jr $0
-
-
-#Expected outcome = 10

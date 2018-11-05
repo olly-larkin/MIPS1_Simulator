@@ -1,3 +1,11 @@
+#div3
+#div
+#oll16
+#Expected exit code -10 (246)
+#246
+#
+#
+
 addi $1, $0, 10
 
 div $1, $0

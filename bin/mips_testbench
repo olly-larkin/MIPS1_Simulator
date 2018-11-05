@@ -1,6 +1,8 @@
 #!/bin/bash
 
 SIM=$1
+mkdir -p test/output
+mkdir -p test/temp
 OUTFILE="test/output/out.csv"
 echo "" > $OUTFILE
 
@@ -12,13 +14,13 @@ RUN_TEST() {
     AUTHOR=$3
     EXPECTED_OUTCOME=$5
     EXPECTED_OUTPUT=$7
-    OUTPUT=$(echo $6 | $SIM tbench_src/binaries/$TEST_ID.bin)
+    OUTPUT=$(echo $6 | $SIM test/temp/$TEST_ID.bin)
     EC=$?
-    if [ $EC -eq $EXPECTED_OUTCOME ]
+    if [[ "$EC" = $EXPECTED_OUTCOME ]]
     then
         if [ $# -eq 7 ]
         then
-            if [ $EXPECTED_OUTPUT = $OUTPUT ]
+            if [[ $EXPECTED_OUTPUT = $OUTPUT ]]
             then
                 STATUS="Pass"
             else
@@ -37,15 +39,36 @@ RUN_TEST() {
 }
 
 
-#************** WORK HERE ****************
+#************** WORK BELOW HERE ****************
 
 # RUN_TEST "test_id" "instr" "author" "message" expected_code "stdin" "expected_stdout"
 
+FILES="tbench_src/text_files/*.txt"
+for f in $FILES; do
 
+    exec 5< $f
 
-#************** WORK HERE ****************
+    read -r line <&5
+    test_id="${line:1:${#line}-1}"
+    read -r line <&5
+    instr="${line:1:${#line}-1}"
+    read -r line <&5
+    author="${line:1:${#line}-1}"
+    read -r line <&5
+    message="${line:1:${#line}-1}"
+    read -r line <&5
+    expected_code="$(echo -e "${line:1:${#line}-1}" | tr -d '[:space:]')"
+    read -r line <&5
+    stdin="${line:1:${#line}-1}"
+    read -r line <&5
+    expected_stdout="${line:1:${#line}-1}"
 
-
-for i in $FAILED_TESTS; do
-    echo -e "Failed tests: " $i "\n"
+    RUN_TEST "$test_id" "$instr" "$author" "$message" "$expected_code" "$stdin" "$expected_stdout"
 done
+
+#************** WORK ABOVE HERE ****************
+
+for i in ${FAILED_TESTS[*]}; do
+    echo "Failed test: " $i
+done
+echo

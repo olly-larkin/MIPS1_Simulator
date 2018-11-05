@@ -1,18 +1,26 @@
+#sw1
+#sw
+#oll16
+#Expected exit code 15
+#15
+#
+#
+
 addi $1, $0, 2
 sll $1, $1, 28
-addi $3, $0, 1
+addi $3, $3, 1
 sll $3, $3, 8
-addi $3, $0, 2
+addi $3, $3, 2
 sll $3, $3, 8
-addi $3, $0, 4
+addi $3, $3, 4
 sll $3, $3, 8
-addi $3, $0, 8
-sll $3, $3, 8
+addi $3, $3, 8
 sw $3, 0($1)
 lb $4, 0($1)
 lb $5, 1($1)
 lb $6, 2($1)
 lb $7, 3($1)
+nop
 or $4, $4, $5
 or $6, $6, $7
 or $2, $4, $6

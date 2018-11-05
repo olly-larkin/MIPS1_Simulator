@@ -1,0 +1,13 @@
+#srlv2
+#srlv
+#oll16
+#Expected exit code 1
+#1
+#
+#
+
+addiu $3, $0, 30
+lui $1, 0x4000
+srlv $2, $1, $3
+jr $0
+nop

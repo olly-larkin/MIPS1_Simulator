@@ -1,9 +1,18 @@
+#lh2
+#lh
+#oll16
+#Expected exit code -1 (255)
+#255
+#
+#
+
 addiu $gp, $0, 2
 sll $gp, $gp, 28
 addi $1, $0, -1
 sb $1, 0($gp)
 sb $1, 1($gp)
 lh $2, 0($gp)
+nop
 srl $2, $2, 16
 jr $0
 nop

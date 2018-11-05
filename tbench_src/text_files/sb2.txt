@@ -1,3 +1,11 @@
+#sb2
+#sb
+#oll16
+#Expected exit code 0 (testing stdout)
+#0
+#
+#!
+
 lui $1, 0x3000
 addiu $1, $1, 4
 addiu $5, $0, 545

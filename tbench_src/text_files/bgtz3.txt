@@ -1,3 +1,11 @@
+#bgtz3
+#bgtz
+#oll16
+#Expected exit code 5 (if 10 false branch triggered)
+#5
+#
+#
+
 addi $3, $0, -5
 bgtz $3, jump
 nop

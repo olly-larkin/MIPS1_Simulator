@@ -1,0 +1,13 @@
+#subu1
+#subu
+#oll16
+#Expected exit code 5
+#5
+#
+#
+
+addiu $5, $0, 10
+addiu $6, $0, 5
+subu $2, $5, $6
+jr $0
+nop

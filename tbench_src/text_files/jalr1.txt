@@ -1,3 +1,11 @@
+#jalr1
+#jalr
+#oll16
+#Expected exit code 15
+#15
+#
+#
+
 jal jump1
 nop
 addiu $2, $2, 5

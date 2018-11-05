@@ -1,8 +1,17 @@
+#sh1
+#sh
+#oll16
+#Expected exit code 30
+#30
+#
+#
+
 addiu $3, $0, 2
 sll $3, $3, 28
 addiu $4, $4, 30
 sh $4, 2($3)
 lw $2, 0($3)
+nop
 jr $0
 
 #Expected outcome = 30

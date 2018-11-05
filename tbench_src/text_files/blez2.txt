@@ -1,3 +1,11 @@
+#blez2
+#blez
+#oll16
+#Expected exit code 10 (if 5 branch failed)
+#10
+#
+#
+
 blez $0, jump
 nop
 addi $2, $2, 5
@@ -7,4 +15,4 @@ nop
 jump: addi $2, $2, 10
 jr $0
 
-#Expected outcome = 10, if exit code = -5 branch false-triggered
+#Expected outcome = 10, if exit code = 5 branch false-triggered

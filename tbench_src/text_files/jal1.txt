@@ -1,3 +1,11 @@
+#jal1
+#jal
+#oll16
+#Expected exit code 10
+#10
+#
+#
+
 jal jump
 nop
 addi $2, $2, 5

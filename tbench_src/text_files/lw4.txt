@@ -1,0 +1,13 @@
+#lw4
+#lw
+#oll16
+#Expected exit code 33
+#33
+#!
+#
+
+lui $1, 0x3000
+lw $2, 0($1)
+nop
+jr $0
+nop

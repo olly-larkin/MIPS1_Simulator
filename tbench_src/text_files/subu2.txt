@@ -1,0 +1,13 @@
+#subu2
+#subu
+#oll16
+#Expected exit code 255
+#255
+#
+#
+
+lui $5, 0x8000
+addi $6, $0, 1
+subu $2, $5, $6
+jr $0
+nop
