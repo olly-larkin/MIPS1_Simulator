@@ -51,19 +51,26 @@ void MemoryMap::write(unsigned int addr, int32_t data, unsigned char byteNum) {
         std::exit(-11);
     }
 
+    char out = 0;
+    bool output = false;
+
     for(int i = 0; i < byteNum; ++i) {
         int shift = (byteNum - i - 1) * 8;
         if (addr >= ADDR_DATA_P && addr < ADDR_DATA_P + ADDR_DATA_SIZE) {
             ADDR_DATA[addr - ADDR_DATA_P] = ((data >> shift) & 0xFF);
         } else if (addr >= ADDR_PUTC_P && addr < ADDR_PUTC_P + ADDR_PUTC_SIZE) {
+            output = true;
             if (addr == ADDR_PUTC_P + 3)
-                putchar(data & 0xFF);
+                //putchar(data & 0xFF);
+                out = data & 0xFF;
         } else {
             std::cerr << "Invalid memory write." << std::endl << std::endl;
             std::exit(-11);
         }
         addr += 1;
     }
+    if (output)
+        putchar(out);
 }
 
 void MemoryMap::instrDump(std::ifstream& binFile) {
