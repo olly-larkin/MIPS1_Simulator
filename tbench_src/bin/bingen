@@ -5,19 +5,19 @@ mkdir -p test/temp
 
 FAILED=()
 
+echo "Generating binary files..."
+
 for F in $FILES
 do
-    parser/bin/parser $F "test/temp/#"
+    {parser/bin/parser $F "test/temp/#"} 2> /dev/null
     if [ $? -eq 5 ] 
     then
         FAILED+=($F)
     fi
 done
 
-echo -e "Finished.\n"
-
 for i in ${FAILED[*]}; do
     echo "Failed creation: " $i
 done
 
-echo
+echo "Finished."
