@@ -114,7 +114,7 @@ void Simulator::executeJ(uint32_t instr) {
 }
 
 char Simulator::sgn(int num) {
-    return (num > 0) - (num < 0);
+    return (num >= 0) - (num < 0);
 }
 
 int32_t Simulator::sgnExt16(int32_t val) {
