@@ -9,7 +9,7 @@ echo "Generating binary files..."
 
 for F in $FILES
 do
-    {parser/bin/parser $F "test/temp/#"} 2> /dev/null
+    parser/bin/parser $F "test/temp/#"
     if [ $? -eq 5 ] 
     then
         FAILED+=($F)
