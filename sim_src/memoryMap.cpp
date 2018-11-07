@@ -90,6 +90,7 @@ void MemoryMap::instrDump(std::ifstream& binFile) {
         std::cerr << ".bin file too large." << std::endl << std::endl;
         std::exit(-21);
     }
+    delete[] ADDR_INSTR;
     ADDR_INSTR = new char[instrSize];
     ADDR_INSTR[instrSize] = 0;
     binFile.seekg(0, std::ios::beg);
