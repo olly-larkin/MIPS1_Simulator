@@ -21,7 +21,7 @@ int32_t MemoryMap::read(unsigned int addr, unsigned char byteNum, bool signedRea
 
         } else if (addr >= ADDR_INSTR_P && addr < ADDR_INSTR_P + ADDR_INSTR_SIZE) {     // ADDR_INSTR
             
-            if (addr <= instrSize + ADDR_INSTR_P + 1){
+            if (addr <= instrSize + ADDR_INSTR_P){
                 returnVal += ((ADDR_INSTR[addr - ADDR_INSTR_P] & 0xFF) << shift);
             }
 
@@ -90,7 +90,7 @@ void MemoryMap::instrDump(std::ifstream& binFile) {
         std::cerr << ".bin file too large." << std::endl << std::endl;
         std::exit(-21);
     }
-    ADDR_INSTR = new char[instrSize+1];
+    ADDR_INSTR = new char[instrSize];
     ADDR_INSTR[instrSize] = 0;
     binFile.seekg(0, std::ios::beg);
     binFile.read(&ADDR_INSTR[0], size);

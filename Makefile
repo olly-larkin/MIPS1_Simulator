@@ -5,9 +5,11 @@ simulator: main.o simulator.o memoryMap.o registers.o
 testbench:
 	make clean
 	git submodule update --init --recursive
-	make simulator
 	make -C parser -f ./Makefile parser
 	tbench_src/bin/bingen
+
+tb_run: testbench simulator
+	bin/mips_testbench bin/mips_simulator
 
 testbench_windows:
 	make simulator
