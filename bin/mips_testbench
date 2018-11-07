@@ -40,7 +40,6 @@ RUN_TEST() {
     echo -e "\t\t"$STATUS
 }
 
-
 #************** WORK BELOW HERE ****************
 
 # RUN_TEST "test_id" "instr" "author" "message" expected_code "stdin" "expected_stdout"
