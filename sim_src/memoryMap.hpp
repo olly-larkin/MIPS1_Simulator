@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <fstream>
-#include <vector>
+#include <map>
 
 #define ADDR_NULL_P 0x00000000
 #define ADDR_INSTR_P 0x10000000
@@ -22,13 +22,11 @@ public:
     int32_t read(unsigned int addr, unsigned char byteNum, bool signedRead = false);
     void write(unsigned int addr, int32_t data, unsigned char byteNum);
     void instrDump(std::ifstream& binFile);
-    MemoryMap();
+    ~MemoryMap();
 private:
-    std::vector<char> ADDR_NULL;
-    std::vector<char> ADDR_INSTR;
-    std::vector<char> ADDR_DATA;
-    std::vector<char> ADDR_GETC;
-    std::vector<char> ADDR_PUTC;
+    char* ADDR_INSTR;
+    int instrSize;
+    std::map<uint32_t, uint32_t> ADDR_DATA;
 };
 
 #endif //MEMORYMAP_HPP
