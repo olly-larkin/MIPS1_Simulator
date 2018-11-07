@@ -13,7 +13,6 @@ tb_run: testbench simulator
 
 testbench_windows:
 	make simulator
-	#tr -d '\r' <bin/mips_testbench> bin/win_testbench
 	dos2unix bin/win_testbench
 
 main.o: sim_src/main.cpp
