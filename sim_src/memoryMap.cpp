@@ -92,7 +92,6 @@ void MemoryMap::instrDump(std::ifstream& binFile) {
     }
     delete[] ADDR_INSTR;
     ADDR_INSTR = new char[instrSize];
-    ADDR_INSTR[instrSize] = 0;
     binFile.seekg(0, std::ios::beg);
     binFile.read(&ADDR_INSTR[0], size);
     binFile.close();
