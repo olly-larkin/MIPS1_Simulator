@@ -10,7 +10,6 @@ FAILED_TESTS=()
 
 RUN_TEST() {
     TEST_ID=$1
-    echo -n "Running test: "$TEST_ID
     INSTRUCTION=$2
     AUTHOR=$3
     EXPECTED_OUTCOME=$5
@@ -26,7 +25,7 @@ RUN_TEST() {
     fi
     MESSAGE=$4" - exited with code "$EC
     echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
-    echo -e "\t\t"$STATUS
+    echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE
 }
 
 #************** WORK BELOW HERE ****************
