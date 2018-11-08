@@ -17,20 +17,9 @@ RUN_TEST() {
     EXPECTED_OUTPUT=$7
     OUTPUT=$(echo $6 | $SIM test/temp/$TEST_ID.bin 2> /dev/null)
     EC=$?
-    if [[ "$EC" = $EXPECTED_OUTCOME ]]
+    if [[ "$EC" = $EXPECTED_OUTCOME ]] && [[ $EXPECTED_OUTPUT = $OUTPUT ]]
     then
-        if [ $# -eq 7 ]
-        then
-            if [[ $EXPECTED_OUTPUT = $OUTPUT ]]
-            then
-                STATUS="Pass"
-            else
-                STATUS="Fail"
-                FAILED_TESTS+=($TEST_ID)
-            fi
-        else
-            STATUS="Pass"
-        fi
+    	STATUS="Pass"
     else
         STATUS="Fail"
         FAILED_TESTS+=($TEST_ID)
