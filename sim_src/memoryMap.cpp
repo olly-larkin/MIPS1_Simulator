@@ -1,10 +1,8 @@
 #include <iostream>
 #include "memoryMap.hpp"
 #include <fstream>
-
-MemoryMap::~MemoryMap() {
-    delete[] ADDR_INSTR;
-}
+#include <map>
+#include <vector>
 
 int32_t MemoryMap::read(unsigned int addr, unsigned char byteNum, bool signedRead) {
     if (addr % byteNum != 0) {
@@ -21,7 +19,7 @@ int32_t MemoryMap::read(unsigned int addr, unsigned char byteNum, bool signedRea
 
         } else if (addr >= ADDR_INSTR_P && addr < ADDR_INSTR_P + ADDR_INSTR_SIZE) {     // ADDR_INSTR
             
-            if (addr <= (unsigned int) instrSize + ADDR_INSTR_P){
+            if (addr <= ADDR_INSTR.size() + ADDR_INSTR_P){
                 returnVal += ((ADDR_INSTR[addr - ADDR_INSTR_P] & 0xFF) << shift);
             }
 
@@ -85,14 +83,11 @@ void MemoryMap::write(unsigned int addr, int32_t data, unsigned char byteNum) {
 void MemoryMap::instrDump(std::ifstream& binFile) {
     binFile.seekg(0, std::ios::end);
     std::streampos size = binFile.tellg();
-    instrSize = (int)size;
     if (size > ADDR_INSTR_SIZE) {
         std::cerr << ".bin file too large." << std::endl << std::endl;
         std::exit(-21);
     }
-    if (ADDR_INSTR != NULL)
-        delete[] ADDR_INSTR;
-    ADDR_INSTR = new char[instrSize];
+    ADDR_INSTR = std::vector<char>(size, 0);
     binFile.seekg(0, std::ios::beg);
     binFile.read(&ADDR_INSTR[0], size);
     binFile.close();
