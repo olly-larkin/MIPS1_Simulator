@@ -56,8 +56,3 @@ for f in $FILES; do
 done
 
 #************** WORK ABOVE HERE ****************
-
-for i in ${FAILED_TESTS[*]}; do
-    echo "Failed test: " $i
-done
-echo "Finished."
