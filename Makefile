@@ -1,5 +1,5 @@
 CXX=g++
-CXXARGS=--std=c++11 -Wall -Wextra -pedantic
+CXXARGS=--std=c++11 -Wall #-Wextra -pedantic
 
 simulator: main.o simulator.o memoryMap.o registers.o
 	mkdir -p bin

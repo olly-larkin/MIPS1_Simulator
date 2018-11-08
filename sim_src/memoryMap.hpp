@@ -24,7 +24,7 @@ public:
     void instrDump(std::ifstream& binFile);
     ~MemoryMap();
 private:
-    char* ADDR_INSTR;
+    char* ADDR_INSTR = NULL;
     int instrSize;
     std::map<uint32_t, uint32_t> ADDR_DATA;
 };
