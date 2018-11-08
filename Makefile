@@ -11,8 +11,9 @@ testbench:
 	make -C parser -f ./Makefile parser
 	tbench_src/bin/bingen
 
-tb_run: testbench simulator
-	bin/mips_testbench bin/mips_simulator
+tb_run: clean testbench simulator
+	clear
+	bin/mips_testbench bin/mips_simulator | column -t -s, | grep -E --color=auto 'Fail|$$'
 
 testbench_windows:
 	make simulator
