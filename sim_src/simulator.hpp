@@ -13,7 +13,7 @@ class Simulator {
 public:
     void loadInstr(std::ifstream& binFile);
     char execute();
-    Simulator(): HI(0), LO(0), pc(ADDR_INSTR_P) {};
+    Simulator();
     Simulator(std::ifstream& binFile);
 
     typedef void (Simulator::*R_FUNC)(char rs, char rt, char rd, char sa);
@@ -24,9 +24,9 @@ private:
     Registers registers;
     Registers regBuff1;
     Registers regBuff2;
-    unsigned int pc;
-    int32_t HI;
-    int32_t LO;
+    unsigned int pc = ADDR_INSTR_P;
+    int32_t HI = 0;
+    int32_t LO = 0;
     OP_TYPE opcode(uint32_t instr);
     void branchExecute();
     void executeR(uint32_t instr);

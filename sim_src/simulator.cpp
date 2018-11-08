@@ -2,7 +2,9 @@
 #include "simulator.hpp"
 #include <map>
 
-Simulator::Simulator(std::ifstream& binFile): HI(0), LO(0), pc(ADDR_INSTR_P) {
+Simulator::Simulator() {}
+
+Simulator::Simulator(std::ifstream& binFile) {
     loadInstr(binFile);
 }
 

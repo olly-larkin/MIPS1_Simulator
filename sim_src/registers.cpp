@@ -1,11 +1,11 @@
 #include <iostream>
 #include "registers.hpp"
 
-int32_t Registers::read(char addr) {
+int32_t Registers::read(uint8_t addr) {
     return regArray[addr];
 }
 
-void  Registers::write(char addr, int32_t data) { 
+void  Registers::write(uint8_t addr, int32_t data) { 
     if (addr != 0)
         regArray[addr] = data;
 }

@@ -5,8 +5,8 @@
 
 class Registers {
 public:
-    int32_t read(char addr);
-    void write(char addr, int32_t data);
+    int32_t read(uint8_t addr);
+    void write(uint8_t addr, int32_t data);
     char exitCode();
     int32_t operator[] (int index);
     Registers();

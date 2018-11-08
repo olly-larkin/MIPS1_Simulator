@@ -21,7 +21,7 @@ int32_t MemoryMap::read(unsigned int addr, unsigned char byteNum, bool signedRea
 
         } else if (addr >= ADDR_INSTR_P && addr < ADDR_INSTR_P + ADDR_INSTR_SIZE) {     // ADDR_INSTR
             
-            if (addr <= instrSize + ADDR_INSTR_P){
+            if (addr <= (unsigned int) instrSize + ADDR_INSTR_P){
                 returnVal += ((ADDR_INSTR[addr - ADDR_INSTR_P] & 0xFF) << shift);
             }
 
