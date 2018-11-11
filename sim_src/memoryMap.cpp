@@ -11,6 +11,9 @@ int32_t MemoryMap::read(unsigned int addr, unsigned char byteNum, bool signedRea
     }
     
     int32_t returnVal = 0;
+    bool readIn = false;
+    int32_t inputVal = 0;
+    
     for(int i = 0; i < byteNum; ++i) {
         int shift = (byteNum - i - 1) * 8;
         if (addr < ADDR_NULL_SIZE) {        // NULL
@@ -29,11 +32,14 @@ int32_t MemoryMap::read(unsigned int addr, unsigned char byteNum, bool signedRea
 
         } else if (addr >= ADDR_GETC_P && addr < ADDR_GETC_P + ADDR_GETC_SIZE) {        // ADDR_GETC
 
+            if (!readIn) {
+                readIn = true;
+                inputVal = getchar();
+            }
             if (addr == ADDR_GETC_P + 3) {
-                int32_t inputVal = getchar();
                 if (inputVal == EOF)
                     return -1;
-                returnVal += inputVal;
+                returnVal += inputVal & 0xFF;
             }
 
         } else {
@@ -67,7 +73,6 @@ void MemoryMap::write(unsigned int addr, int32_t data, unsigned char byteNum) {
         } else if (addr >= ADDR_PUTC_P && addr < ADDR_PUTC_P + ADDR_PUTC_SIZE) {
             output = true;
             if (addr == ADDR_PUTC_P + 3)
-                //putchar(data & 0xFF);
                 out = data & 0xFF;
         } else {
             std::cerr << "Invalid memory write." << std::endl << std::endl;
