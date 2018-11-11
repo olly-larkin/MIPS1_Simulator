@@ -1,7 +1,7 @@
 #bgtz3
 #bgtz
 #oll16
-#Expected exit code 5 (if 10 false branch triggered)
+#Expected exit code 5 (if 10 false branch triggered) - testing with negative val
 #5
 #
 #

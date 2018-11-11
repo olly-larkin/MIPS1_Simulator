@@ -1,7 +1,7 @@
 #bltzal2
 #bltzal
 #oll16
-#Expected exit code 5
+#Expected exit code 5( if 15 false branch triggered) - testing with 0 reg
 #5
 #
 #
@@ -13,7 +13,7 @@ addi $2, $2, 5
 jr $0
 nop
 
-jump: addi $2, $2, 5
+jump: addi $2, $2, 10
 jr $ra
 nop
 

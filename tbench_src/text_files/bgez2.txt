@@ -1,7 +1,7 @@
 #bgez2
 #bgez
 #oll16
-#Expected exit code 10 (if 5 false branch failed)
+#Expected exit code 10 (if 5 false branch failed) - testing with 0 reg
 #10
 #
 #

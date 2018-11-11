@@ -1,7 +1,7 @@
 #bne2
 #bne
 #oll16
-#Expected exit code 5
+#Expected exit code 5 (if 10 failed branch) - testing with positive vals
 #5
 #
 #

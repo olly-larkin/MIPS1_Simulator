@@ -1,7 +1,7 @@
 #bgtz2
 #bgtz
 #oll16
-#Expected exit code 5 (if 10 branch failed)
+#Expected exit code 5 (if 10 branch failed) - testing with 0 reg
 #5
 #
 #

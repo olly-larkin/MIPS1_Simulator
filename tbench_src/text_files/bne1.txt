@@ -1,7 +1,7 @@
 #bne1
 #bne
 #oll16
-#Expected exit code 10
+#Expected exit code 10 (if 5 branch false triggered) - testing with two 0 regs
 #10
 #
 #

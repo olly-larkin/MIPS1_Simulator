@@ -1,7 +1,7 @@
 #bgtz1
 #bgtz
 #oll16
-#Expected exit code 10 (if 5 branch failed)
+#Expected exit code 10 (if 5 branch failed) - testing with positive val
 #10
 #
 #

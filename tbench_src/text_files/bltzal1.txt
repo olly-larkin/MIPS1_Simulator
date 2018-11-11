@@ -1,8 +1,8 @@
 #bltzal1
 #bltzal
 #oll16
-#Expected exit code 10
-#10
+#Expected exit code 15 (if 5 branch failed - if 10 link failed) - testing with negative val
+#15
 #
 #
 
@@ -13,7 +13,7 @@ addi $2, $2, 5
 jr $0
 nop
 
-jump: addi $2, $2, 5
+jump: addi $2, $2, 10
 jr $ra
 nop
 

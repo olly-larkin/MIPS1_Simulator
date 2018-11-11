@@ -8,7 +8,7 @@
 
 addi $1, $0, 10
 
-div $1, $0
+divu $1, $0
 
 jr $0
 nop
