@@ -15,5 +15,7 @@ nop
 jump: addi $2, $2, 10
 jr $31
 nop
+jr $0
+nop
 
 # expected outcome = 15
