@@ -135,3 +135,5 @@ test/temp/xor2.bin
 test/temp/xori1.bin
 test/temp/xori2.bin
 test/temp/lb5.bin
+test/temp/divu3.bin
+test/temp/mult3.bin
