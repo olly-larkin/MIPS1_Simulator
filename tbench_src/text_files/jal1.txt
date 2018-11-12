@@ -2,7 +2,7 @@
 #jal
 #oll16
 #Expected exit code 15 (if 5 jump failed - if 10 link failed)
-#10
+#15
 #
 #
 
@@ -16,4 +16,4 @@ jump: addi $2, $2, 10
 jr $31
 nop
 
-# expected outcome = 10
+# expected outcome = 15
