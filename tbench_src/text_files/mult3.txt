@@ -1,4 +1,4 @@
-#mult2
+#mult3
 #mult
 #oll16
 #Expected exit code 4

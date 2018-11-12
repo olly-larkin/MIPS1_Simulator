@@ -1,8 +1,8 @@
 #mult2
 #mult
 #oll16
-#Expected exit code 2
-#2
+#Expected exit code 1
+#1
 #
 #
 
@@ -12,8 +12,7 @@ mult $1, $1
 mfhi $2
 mflo $3
 addu $2, $2, $3
-srl $2, $2, 30
 jr $0
 nop
 
-#expected output = 2
+#expected output = 1

@@ -384,13 +384,13 @@ void Simulator::mtlo(char rs, char rt, char rd, char sa) {
 }
 
 void Simulator::mult(char rs, char rt, char rd, char sa) {
-    int64_t val = registers[rs] * registers[rt];
+    int64_t val = (int64_t)registers[rs] * (int64_t)registers[rt];
     LO = val & 0xFFFFFFF;
     HI = (val >> 32) & 0xFFFFFFFF;
 }
 
 void Simulator::multu(char rs, char rt, char rd, char sa) {
-    uint64_t val = (uint32_t)registers[rs] * (uint32_t)registers[rt];
+    uint64_t val = (uint64_t)registers[rs] * (uint64_t)registers[rt];
     LO = val & 0xFFFFFFF;
     HI = (val >> 32) & 0xFFFFFFFF;
 }

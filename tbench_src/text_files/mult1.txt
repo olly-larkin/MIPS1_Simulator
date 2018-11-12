@@ -9,6 +9,7 @@
 addiu $5, $0, -1
 mult $5, $5
 mfhi $2
+sll $2, $2, 4
 mflo $3
 addu $2, $2, $3
 jr $0
