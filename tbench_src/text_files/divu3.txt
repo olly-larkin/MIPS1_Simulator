@@ -1,8 +1,8 @@
-#div3
-#div
+#divu3
+#divu
 #oll16
-#Expected exit code -10 (246) - testing for divide by 0
-#246
+#Expected exit code 0 - testing for divide by 0
+#0
 #
 #
 
@@ -13,4 +13,4 @@ divu $1, $0
 jr $0
 nop
 
-# divide by 0 --> expected output = -10
+# divide by 0 --> expected output = 0

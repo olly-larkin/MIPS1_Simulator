@@ -283,8 +283,8 @@ void Simulator::div_instr(char rs, char rt, char rd, char sa) {
 
 void Simulator::divu(char rs, char rt, char rd, char sa){
     if(registers[rt] == 0){
-        LO = registers[rs] / registers[rt];
-        HI = registers[rs] % registers[rt];
+        LO = (uint32_t)registers[rs] / (uint32_t)registers[rt];
+        HI = (uint32_t)registers[rs] % (uint32_t)registers[rt];
     }
 }
 
