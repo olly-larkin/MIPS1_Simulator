@@ -275,22 +275,17 @@ void Simulator::bne(char rs, char rt, int32_t imm) {
 }
 
 void Simulator::div_instr(char rs, char rt, char rd, char sa) {
-    if(registers[rt] == 0){
-        std::cerr << "Attempted to divide by 0." << std::endl << std::endl;
-        std::exit(-10);
+    if(registers[rt] != 0){
+        LO = (int32_t)registers[rs] / (int32_t)registers[rt];
+        HI = (int32_t)registers[rs] % (int32_t)registers[rt];
     }
-    LO = registers[rs] / registers[rt];
-    HI = registers[rs] % registers[rt];
-    
 }
 
 void Simulator::divu(char rs, char rt, char rd, char sa){
     if(registers[rt] == 0){
-        std::cerr << "Attempted to divide by 0." << std::endl << std::endl;
-        std::exit(-10);
+        LO = (uint32_t)registers[rs] / (uint32_t)registers[rt];
+        HI = (uint32_t)registers[rs] % (uint32_t)registers[rt];
     }
-    LO = (uint32_t)registers[rs] / (uint32_t)registers[rt];
-    HI = (uint32_t)registers[rs] % (uint32_t)registers[rt];
 }
 
 void Simulator::j(int addr) {
