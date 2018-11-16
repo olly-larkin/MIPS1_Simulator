@@ -25,3 +25,4 @@ tbench_src/test_bins/bgezal2.bin
 tbench_src/bin/bingen_win
 tbench_src/bin/parser
 test/temp/*.bin
+sim_testing/*
