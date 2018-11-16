@@ -167,7 +167,7 @@ void Simulator::addi(char rs, char rt, int32_t imm) {
 }
 
 void Simulator::addiu(char rs, char rt, int32_t imm) {
-    regWrite(rt, (uint32_t)sgnExt16(imm) + (uint32_t)registers[rs]);
+    regWrite(rt, (uint32_t)sgnExt16(imm) + registers[rs]);
 }
 
 void Simulator::addu(char rs, char rt, char rd, char sa) {
@@ -218,7 +218,7 @@ void Simulator::branches(char rs, char rt, int32_t imm) {
 
 void Simulator::bgez(char rs, int32_t imm) {
     imm = sgnExt16(imm) << 2;
-    if (registers[rs] >= 0) {
+    if ((int32_t)registers[rs] >= 0) {
         branchExecute();
         pc += imm;
     }
@@ -226,8 +226,8 @@ void Simulator::bgez(char rs, int32_t imm) {
 
 void Simulator::bgezal(char rs, int32_t imm) {
     imm = sgnExt16(imm) << 2;
-    if (registers[rs] >= 0) {
-        regWrite(31, pc + 4);  
+    regWrite(31, pc + 4);  
+    if ((int32_t)registers[rs] >= 0) {
         branchExecute();
         pc += imm;
     }
@@ -235,7 +235,7 @@ void Simulator::bgezal(char rs, int32_t imm) {
 
 void Simulator::bgtz(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm) << 2;
-    if (registers[rs] > 0) {
+    if ((int32_t)registers[rs] > 0) {
         branchExecute();
         pc += imm;
     }
@@ -243,7 +243,7 @@ void Simulator::bgtz(char rs, char rt, int32_t imm) {
 
 void Simulator::blez(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm) << 2;
-    if (registers[rs] <= 0){
+    if ((int32_t)registers[rs] <= 0){
         branchExecute();
         pc += imm;
     }
@@ -251,7 +251,7 @@ void Simulator::blez(char rs, char rt, int32_t imm) {
 
 void Simulator::bltz(char rs, int32_t imm) {
     imm = sgnExt16(imm) << 2;
-    if (registers[rs] < 0){
+    if ((int32_t)registers[rs] < 0){
         branchExecute();
         pc += imm;
     } 
@@ -259,8 +259,8 @@ void Simulator::bltz(char rs, int32_t imm) {
 
 void Simulator::bltzal(char rs, int32_t imm) {
     imm = sgnExt16(imm) << 2;
-    if (registers[rs] < 0){
-        regWrite(31, pc + 4);
+    regWrite(31, pc + 4);  
+    if ((int32_t)registers[rs] < 0){
         branchExecute();
         pc += imm;
     } 
@@ -279,7 +279,7 @@ void Simulator::div_instr(char rs, char rt, char rd, char sa) {
         std::cerr << "Attempted to divide by 0." << std::endl << std::endl;
         std::exit(-10);
     }
-    LO = registers[rs] / registers[rt];
+    LO = ()registers[rs] / registers[rt];
     HI = registers[rs] % registers[rt];
     
 }
