@@ -283,8 +283,8 @@ void Simulator::div_instr(char rs, char rt, char rd, char sa) {
 
 void Simulator::divu(char rs, char rt, char rd, char sa){
     if(registers[rt] == 0){
-        LO = (uint32_t)registers[rs] / (uint32_t)registers[rt];
-        HI = (uint32_t)registers[rs] % (uint32_t)registers[rt];
+        LO = registers[rs] / registers[rt];
+        HI = registers[rs] % registers[rt];
     }
 }
 
@@ -379,7 +379,7 @@ void Simulator::mtlo(char rs, char rt, char rd, char sa) {
 }
 
 void Simulator::mult(char rs, char rt, char rd, char sa) {
-    int64_t val = (int64_t)registers[rs] * (int64_t)registers[rt];
+    int64_t val = (int64_t)(int32_t)registers[rs] * (int64_t)(int32_t)registers[rt];
     LO = val & 0xFFFFFFF;
     HI = (val >> 32) & 0xFFFFFFFF;
 }
@@ -417,28 +417,28 @@ void Simulator::sllv(char rs, char rt, char rd, char sa) {
 }
 
 void Simulator::slt(char rs, char rt, char rd, char sa) {
-    if (registers[rs] < registers[rt])
+    if ((int32_t)registers[rs] < (int32_t)registers[rt])
         regWrite(rd, 1);
     else
         regWrite(rd, 0);
 }
 
 void Simulator::sltu(char rs, char rt, char rd, char sa) {
-    if ((uint32_t)registers[rs] < (uint32_t)registers[rt])
+    if (registers[rs] < registers[rt])
         regWrite(rd, 1);
     else
         regWrite(rd, 0);
 }
 
 void Simulator::slti(char rs, char rt, int32_t imm) {
-    if (registers[rs] < sgnExt16(imm))
+    if ((int32_t)registers[rs] < sgnExt16(imm))
         regWrite(rt, 1);
     else
         regWrite(rt, 0);
 }
 
 void Simulator::sltiu(char rs, char rt, int32_t imm) {
-    if ((uint32_t)registers[rs] < (uint32_t)sgnExt16(imm))
+    if (registers[rs] < (uint32_t)sgnExt16(imm))
         regWrite(rt, 1);
     else
         regWrite(rt, 0);
