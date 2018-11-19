@@ -314,25 +314,25 @@ void Simulator::jr(char rs, char rt, char rd, char sa) {
 
 void Simulator::lb(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm);
-    int32_t val = memory.read(imm + registers[rs], 1);
+    int32_t val = sgnExt8(memory.read(imm + registers[rs], 1));
     regBuff2.write(rt, sgnExt8(val));
 }
 
 void Simulator::lbu(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm);
-    int32_t val = memory.read(imm + registers[rs], 1) & 0xFF;
+    uint32_t val = memory.read(imm + registers[rs], 1) & 0xFF;
     regBuff2.write(rt, val);
 }
 
 void Simulator::lh(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm);
-    int32_t val = memory.read(imm + registers[rs], 2);
+    int32_t val = sgnExt16(memory.read(imm + registers[rs], 2));
     regBuff2.write(rt, sgnExt16(val));
 }
 
 void Simulator::lhu(char rs, char rt, int32_t imm) {
     imm = sgnExt16(imm);
-    int32_t val = memory.read(imm + registers[rs], 2) & 0xFFFF;
+    uint32_t val = memory.read(imm + registers[rs], 2) & 0xFFFF;
     regBuff2.write(rt, val);
 }
 
