@@ -25,8 +25,8 @@ private:
     Registers regBuff1;
     Registers regBuff2;
     unsigned int pc = ADDR_INSTR_P;
-    int32_t HI = 0;
-    int32_t LO = 0;
+    uint32_t HI = 0;
+    uint32_t LO = 0;
     OP_TYPE opcode(uint32_t instr);
     void branchExecute();
     void executeR(uint32_t instr);
