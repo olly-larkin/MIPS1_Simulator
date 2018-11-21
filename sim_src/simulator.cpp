@@ -70,7 +70,7 @@ OP_TYPE Simulator::opcode(uint32_t instr) {
         return R;
     else if (op == 2 || op == 3)
         return J;
-    else   
+    else
         return I;
 }
 
@@ -214,7 +214,7 @@ void Simulator::branches(char rs, char rt, int32_t imm) {
             std::exit(-12);
         }
     }
-}                                               
+}
 
 void Simulator::bgez(char rs, int32_t imm) {
     imm = sgnExt16(imm) << 2;
@@ -226,7 +226,7 @@ void Simulator::bgez(char rs, int32_t imm) {
 
 void Simulator::bgezal(char rs, int32_t imm) {
     imm = sgnExt16(imm) << 2;
-    regWrite(31, pc + 4);  
+    regWrite(31, pc + 4);
     if ((int32_t)registers[rs] >= 0) {
         branchExecute();
         pc += imm;
@@ -254,16 +254,16 @@ void Simulator::bltz(char rs, int32_t imm) {
     if ((int32_t)registers[rs] < 0){
         branchExecute();
         pc += imm;
-    } 
+    }
 }
 
 void Simulator::bltzal(char rs, int32_t imm) {
     imm = sgnExt16(imm) << 2;
-    regWrite(31, pc + 4);  
+    regWrite(31, pc + 4);
     if ((int32_t)registers[rs] < 0){
         branchExecute();
         pc += imm;
-    } 
+    }
 }
 
 void Simulator::bne(char rs, char rt, int32_t imm) {
