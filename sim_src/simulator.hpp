@@ -17,7 +17,7 @@ public:
     Simulator(std::ifstream& binFile);
 
     typedef void (Simulator::*R_FUNC)(char rs, char rt, char rd, char sa);
-    typedef void (Simulator::*I_FUNC)(char rs, char rt, int32_t imm);
+    typedef void (Simulator::*I_FUNC)(char rs, char rt, uint32_t imm);
     typedef void (Simulator::*J_FUNC)(int addr);
 private:
     MemoryMap memory;
@@ -33,9 +33,9 @@ private:
     void executeI(uint32_t instr);
     void executeJ(uint32_t instr);
     char sgn(int num);
-    int32_t sgnExt16(int32_t val);
-    int32_t sgnExt8(int32_t val);
-    void regWrite(char addr, int32_t data);
+    uint32_t sgnExt16(uint32_t val);
+    uint32_t sgnExt8(uint32_t val);
+    void regWrite(char addr, uint32_t data);
 
     //---- Maps ----
     std::map<char, R_FUNC> R_MAP = {
@@ -97,34 +97,34 @@ private:
 
     //---- Instructions ----
     void add(char rs, char rt, char rd, char sa);
-    void addi(char rs, char rt, int32_t imm);
-    void addiu(char rs, char rt, int32_t imm);
+    void addi(char rs, char rt, uint32_t imm);
+    void addiu(char rs, char rt, uint32_t imm);
     void addu(char rs, char rt, char rd, char sa);
     void and_instr(char rs, char rt, char rd, char sa);
-    void andi(char rs, char rt, int32_t imm);
-    void beq(char rs, char rt, int32_t imm);
-    void branches(char rs, char rt, int32_t imm);
-    void bgez(char rs, int32_t imm);
-    void bgezal(char rs, int32_t imm);
-    void bgtz(char rs, char rt, int32_t imm);
-    void blez(char rs, char rt, int32_t imm);
-    void bltz(char rs, int32_t imm);
-    void bltzal(char rs, int32_t imm);
-    void bne(char rs, char rt, int32_t imm);
+    void andi(char rs, char rt, uint32_t imm);
+    void beq(char rs, char rt, uint32_t imm);
+    void branches(char rs, char rt, uint32_t imm);
+    void bgez(char rs, uint32_t imm);
+    void bgezal(char rs, uint32_t imm);
+    void bgtz(char rs, char rt, uint32_t imm);
+    void blez(char rs, char rt, uint32_t imm);
+    void bltz(char rs, uint32_t imm);
+    void bltzal(char rs, uint32_t imm);
+    void bne(char rs, char rt, uint32_t imm);
     void div_instr(char rs, char rt, char rd, char sa);
     void divu(char rs, char rt, char rd, char sa);
     void j(int addr);
     void jalr(char rs, char rt, char rd, char sa);
     void jal(int addr);
     void jr(char rs, char rt, char rd, char sa);
-    void lb(char rs, char rt, int32_t imm);
-    void lbu(char rs, char rt, int32_t imm);
-    void lh(char rs, char rt, int32_t imm);
-    void lhu(char rs, char rt, int32_t imm);
-    void lui(char rs, char rt, int32_t imm);
-    void lw(char rs, char rt, int32_t imm);
-    void lwl(char rs, char rt, int32_t imm);
-    void lwr(char rs, char rt, int32_t imm);
+    void lb(char rs, char rt, uint32_t imm);
+    void lbu(char rs, char rt, uint32_t imm);
+    void lh(char rs, char rt, uint32_t imm);
+    void lhu(char rs, char rt, uint32_t imm);
+    void lui(char rs, char rt, uint32_t imm);
+    void lw(char rs, char rt, uint32_t imm);
+    void lwl(char rs, char rt, uint32_t imm);
+    void lwr(char rs, char rt, uint32_t imm);
     void mfhi(char rs, char rt, char rd, char sa);
     void mflo(char rs, char rt, char rd, char sa);
     void mthi(char rs, char rt, char rd, char sa);
@@ -132,24 +132,24 @@ private:
     void mult(char rs, char rt, char rd, char sa);
     void multu(char rs, char rt, char rd, char sa);
     void or_instr(char rs, char rt, char rd, char sa);
-    void ori(char rs, char rt, int32_t imm);
-    void sb(char rs, char rt, int32_t imm);
-    void sh(char rs, char rt, int32_t imm);
+    void ori(char rs, char rt, uint32_t imm);
+    void sb(char rs, char rt, uint32_t imm);
+    void sh(char rs, char rt, uint32_t imm);
     void sll(char rs, char rt, char rd, char sa);
     void sllv(char rs, char rt, char rd, char sa);
     void slt(char rs, char rt, char rd, char sa);
     void sltu(char rs, char rt, char rd, char sa);
-    void slti(char rs, char rt, int32_t imm);
-    void sltiu(char rs, char rt, int32_t imm);
+    void slti(char rs, char rt, uint32_t imm);
+    void sltiu(char rs, char rt, uint32_t imm);
     void sra(char rs, char rt, char rd, char sa);
     void srav(char rs, char rt, char rd, char sa);
     void srl(char rs, char rt, char rd, char sa);
     void srlv(char rs, char rt, char rd, char sa);
     void sub(char rs, char rt, char rd, char sa);
     void subu(char rs, char rt, char rd, char sa);
-    void sw(char rs, char rt, int32_t imm);
+    void sw(char rs, char rt, uint32_t imm);
     void xor_instr(char rs, char rt, char rd, char sa);
-    void xori(char rs, char rt, int32_t imm);
+    void xori(char rs, char rt, uint32_t imm);
 };
 
 #endif //SIMULATOR_HPP
