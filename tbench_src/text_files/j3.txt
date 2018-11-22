@@ -1,0 +1,14 @@
+#j
+#ng2517
+#Testing delay slot (if exit with 0 branch delay not implemented)
+#5
+#
+#
+#ADDI JR
+
+jump end
+addi $2, $0, 5
+nop
+nop
+end: jr $0
+nop
