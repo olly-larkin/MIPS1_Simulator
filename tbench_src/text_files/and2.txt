@@ -1,8 +1,8 @@
 #and2
 #and
 #ng2517
-#Testing normal AND functionality (1 & 3) (dependant on ADDI) - Expected exit code 0
-#0
+#Testing normal AND functionality (1 & 3) (dependant on ADDI) - Expected exit code 1
+#1
 #
 #
 

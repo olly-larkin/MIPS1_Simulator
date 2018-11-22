@@ -1,8 +1,8 @@
 #andi2
 #andi
 #ng2517
-#Testing normal ANDI functionality (1 & 3) (dependant on ADDI) - Expected exit code 0
-#0
+#Testing normal ANDI functionality (1 & 3) (dependant on ADDI) - Expected exit code 1
+#1
 #
 #
 
