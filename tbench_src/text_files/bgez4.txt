@@ -1,10 +1,10 @@
-#bgez4
 #bgez
 #ng2517
-#Testing backwards branch (dependant on ADDI) - Expected exit code 10
+#Testing backwards branch
 #10
 #
 #
+#ADDI JR
 
 bgez $0, jump_forward
 nop

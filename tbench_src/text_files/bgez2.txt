@@ -1,10 +1,10 @@
-#bgez2
 #bgez
 #oll16
-#Testing with 0 (dependant on ADDI) - Expected exit code 10 (if 5 false branch failed)
+#Testing with 0 (if exit with 5 false branch failed)
 #10
 #
 #
+#ADDI JR
 
 bgez $0, jump
 nop
