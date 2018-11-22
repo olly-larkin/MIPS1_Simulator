@@ -1,0 +1,16 @@
+#lb
+#ng2517
+#Testing sign extension (if exit with 15 no sign extension)
+#255
+#
+#
+#LUI ADDI SB SRL JR
+
+lui $1, 0x2000
+addi $3, $3, -1
+sb $3, 0($1)
+lb $2, 0($1)
+nop
+srl $2, $2, 4
+jr $0
+nop
