@@ -1,10 +1,10 @@
-#bltz3
 #bltz
 #oll16
-#Expected exit code 10 (if 5 branch failed) - testing with negative val
+#Testing with negative val (if 5 branch failed)
 #10
 #
 #
+#ADDI JR
 
 addi $3, $0, -5
 bltz $3, jump

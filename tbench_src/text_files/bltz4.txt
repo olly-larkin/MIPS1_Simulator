@@ -1,4 +1,4 @@
-#blez
+#bltz
 #ng2517
 #Testing backwards branch
 #5
@@ -6,7 +6,8 @@
 #
 #ADDI JR
 
-blez $0, jump_forward
+addi $5, $0, -1
+bltz $5, jump_forward
 nop
 addi $2, $2, 10
 
@@ -14,7 +15,7 @@ jump_back: addi $2, $2, 5
 jr $0
 nop
 
-jump_forward: blez $0, jump_back
+jump_forward: bltz $5, jump_back
 nop
 jr $0
 nop
