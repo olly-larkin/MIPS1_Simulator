@@ -14,6 +14,7 @@ RUN_TEST() {
     AUTHOR=$3
     EXPECTED_OUTCOME=$5
     EXPECTED_OUTPUT=$7
+    DEP=$8
     OUTPUT=$(echo $6 | $SIM test/temp/$TEST_ID.bin 2> /dev/null)
     EC=$?
     if [[ "$EC" = $EXPECTED_OUTCOME ]] && [[ $EXPECTED_OUTPUT = $OUTPUT ]]
@@ -23,7 +24,12 @@ RUN_TEST() {
         STATUS="Fail"
         FAILED_TESTS+=($TEST_ID)
     fi
-    MESSAGE=$4" - exited with code "$EC
+    if [[ "$DEP" = "" ]]
+    then
+        MESSAGE="$4 - Exected exit code $EXPECTED_OUTCOME - Exited with code $EC"
+    else
+        MESSAGE="$4 (dependant on: $DEP) - Exected exit code $EXPECTED_OUTCOME - Exited with code $EC"
+    fi
     echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
     echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE
 }
@@ -37,8 +43,8 @@ for f in $FILES; do
 
     exec 5< $f
 
-    read -r line <&5
-    test_id="${line:1:${#line}-1}"
+    fileName=${f##*/}
+    test_id=${fileName%%.*}
     read -r line <&5
     instr="${line:1:${#line}-1}"
     read -r line <&5
@@ -51,8 +57,10 @@ for f in $FILES; do
     stdin="${line:1:${#line}-1}"
     read -r line <&5
     expected_stdout="${line:1:${#line}-1}"
+    read -r line <&5
+    dependancies="${line:1:${#line}-1}"
 
-    RUN_TEST "$test_id" "$instr" "$author" "$message" "$expected_code" "$stdin" "$expected_stdout"
+    RUN_TEST "$test_id" "$instr" "$author" "$message" "$expected_code" "$stdin" "$expected_stdout" "$dependancies"
 done
 
 #************** WORK ABOVE HERE ****************

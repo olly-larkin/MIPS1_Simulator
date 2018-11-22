@@ -1,10 +1,10 @@
-#add1
 #add
 #oll16
-#Testing normal ADD functionality - Expected exit code 10
+#Testing normal ADD functionality
 #10
 #
 #
+#ADDI JR
 
 addi $3, $0, 5
 addi $4, $0, 5

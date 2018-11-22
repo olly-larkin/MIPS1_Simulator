@@ -1,10 +1,10 @@
-#addu1
 #addu
 #oll16
-#Testing normal ADDU functionality - Expected exit code 10
+#Testing normal ADDU functionality
 #10
 #
 #
+#ADDI JR
 
 addi $3, $0, 5
 addi $4, $0, 5
