@@ -431,7 +431,7 @@ void Simulator::sltu(char rs, char rt, char rd, char sa) {
 }
 
 void Simulator::slti(char rs, char rt, uint32_t imm) {
-    if ((int32_t)registers[rs] < sgnExt16(imm))
+    if ((int32_t)registers[rs] < (int32_t)sgnExt16(imm))
         regWrite(rt, 1);
     else
         regWrite(rt, 0);
