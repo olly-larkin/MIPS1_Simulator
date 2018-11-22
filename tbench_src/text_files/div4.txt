@@ -1,15 +1,15 @@
 #div
 #ng2517
-#Testing (5/3) LO reg
-#1
+#Testing (5/3) HI reg
+#2
 #
 #
-#ADDI MFLO JR
+#ADDI MFHI JR
 
 addi $5, $0, 5
 addi $3, $0, 3
 div $5, $3
 nop
-mflo $2
+mfhi $2
 jr $0
 nop

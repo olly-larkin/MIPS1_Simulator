@@ -1,15 +1,12 @@
-#divu3
 #divu
 #oll16
 #Expected exit code 0 - testing for divide by 0
 #0
 #
 #
+#JR
 
-addi $1, $0, 10
-
-divu $1, $0
-
+divu $0, $0
 jr $0
 nop
 

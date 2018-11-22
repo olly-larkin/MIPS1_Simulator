@@ -1,10 +1,10 @@
-#divu1
 #divu
 #oll16
-#Expected exit code 1
+#Testing (1/-1) should fail
 #1
 #
 #
+#ADDI MFHI MFLO ADD JR
 
 addi $1, $0, 1
 addi $2, $0, -1
@@ -17,5 +17,3 @@ add $2, $2, $1
 
 jr $0
 nop
-
-# should fail to divide - expected outcome = 1

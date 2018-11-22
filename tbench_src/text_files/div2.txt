@@ -1,19 +1,14 @@
-#div2
 #div
-#oll16
-#Expected exit code 2
-#2
+#ng2517
+#Testing (3/-1) HI reg
+#0
 #
 #
+#ADDI MFHI JR
 
-addi $1, $0, 4
-addi $2, $0, 3
-
+addi $1, $0, 3
+addi $2, $0, -1
 div $1, $2
-mfhi $1
-mflo $2
-add $2, $2, $1
+mfhi $2
 jr $0
 nop
-
-# 4/3 -> 1 r 1 -> expected output 2

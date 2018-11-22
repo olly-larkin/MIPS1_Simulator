@@ -1,0 +1,11 @@
+#div
+#ng2517
+#Testing divide by 0 (should'nt throw exception)
+#0
+#
+#
+#JR
+
+div $0, $0
+jr $0
+nop
