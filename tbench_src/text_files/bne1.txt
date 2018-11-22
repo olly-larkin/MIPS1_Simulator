@@ -1,10 +1,10 @@
-#bne1
 #bne
 #oll16
-#Expected exit code 10 (if 5 branch false triggered) - testing with two 0 regs
+#Testing equal (0 == 0) (if 5 branch false triggered)
 #10
 #
 #
+#ADDI JR
 
 bne $0, $0, jump
 nop

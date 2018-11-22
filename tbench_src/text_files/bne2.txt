@@ -1,10 +1,10 @@
-#bne2
 #bne
 #oll16
-#Expected exit code 5 (if 10 failed branch) - testing with positive vals
+#Testing with different values (1 != 0) (if exit with 10 failed branch)
 #5
 #
 #
+#ADDI JR
 
 addi $1, $0, 1
 bne $1, $0, jump

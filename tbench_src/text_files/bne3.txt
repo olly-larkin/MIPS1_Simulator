@@ -1,0 +1,17 @@
+#bne
+#ng2517
+#Testing with same values different registers (if exit with 5 false branch)
+#10
+#
+#
+#ADDI JR
+
+addi $4, $0, 5
+addi $5, $0, 5
+bne $4, $5, jump
+nop
+addi $2, $2, 5
+
+jump: addi $2, $2, 5
+jr $0
+nop
