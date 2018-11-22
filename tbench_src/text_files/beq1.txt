@@ -1,7 +1,7 @@
 #beq1
 #beq
 #oll16
-#Expected exit code 10 (if 5 branch failed)
+#Testing normal functionality (dependant on ADDI) - Expected exit code 10 (if 5 branch failed)
 #10
 #
 #
