@@ -1,0 +1,20 @@
+#j
+#ng2517
+#Testing backwards jump
+#5
+#
+#
+#ADDI JR
+
+j jump_f
+nop
+addi $2, $2, 10
+
+jump_b: addi $2, $2, 5
+jr $0
+nop
+
+jump_f: j jump_b
+nop
+jr $0
+nop

@@ -1,10 +1,10 @@
-#j1
 #j
 #oll16
-#Expected exit code 5
+#Testing std jump
 #5
 #
 #
+#ADDI JR
 
 j jump
 nop
@@ -13,5 +13,3 @@ jump: addi $2, $2, 5
 
 jr $0
 nop
-
-# expected outcome = 5
