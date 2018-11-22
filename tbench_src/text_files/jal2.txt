@@ -1,0 +1,14 @@
+#jal
+#ng2517
+#Testing branch delay (if 0 branch delay failed)
+#5
+#
+#
+#ADDI JR
+
+jal jump
+addi $2, $2, 5
+nop
+nop
+jump: jr $0
+nop

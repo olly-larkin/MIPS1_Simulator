@@ -1,10 +1,10 @@
-#jal1
 #jal
 #oll16
-#Expected exit code 15 (if 5 jump failed - if 10 link failed)
+#Testing standard behaviour (if exit with 5 jump failed - if 10 link failed)
 #15
 #
 #
+#ADDI JR
 
 jal jump
 nop
@@ -17,5 +17,3 @@ jr $31
 nop
 jr $0
 nop
-
-# expected outcome = 15
