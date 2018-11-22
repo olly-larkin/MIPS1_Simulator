@@ -1,7 +1,7 @@
 #bgez3
 #bgez
 #oll16
-#Expected exit code 10 (if 5 false branch triggered) - testing with negative val
+#Testing with negatice value (dependant on ADDI) - Expected exit code 10 (if 5 false branch triggered)
 #10
 #
 #
