@@ -1,6 +1,6 @@
 #divu
 #oll16
-#Expected exit code 0 - testing for divide by 0
+#Testing divide by 0
 #0
 #
 #

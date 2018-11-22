@@ -1,13 +1,12 @@
-#lh1
 #lh
 #oll16
-#Expected exit code 15
+#Testing offset 0
 #15
 #
 #
+#LUI ADDIU SB SRL ADDU JR
 
-addiu $gp, $0, 2
-sll $gp, $gp, 28
+lui $gp, 0x2000
 addiu $1, $0, 5
 addiu $3, $0, 10
 sb $1, 0($gp)

@@ -327,7 +327,7 @@ void Simulator::lbu(char rs, char rt, uint32_t imm) {
 void Simulator::lh(char rs, char rt, uint32_t imm) {
     imm = sgnExt16(imm);
     int32_t val = sgnExt16(memory.read(imm + registers[rs], 2));
-    regBuff2.write(rt, sgnExt16(val));
+    regBuff2.write(rt, val);
 }
 
 void Simulator::lhu(char rs, char rt, uint32_t imm) {

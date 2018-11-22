@@ -1,0 +1,16 @@
+#lh
+#ng2517
+#Testing sign extension
+#255
+#
+#
+#LUI ADDIU SB JR
+
+lui $1, 0x2000
+addi $3, $0, -1
+sb $3, 0($1)
+lh $2, 0($1)
+nop
+srl $2, $2, 16
+jr $0
+nop
