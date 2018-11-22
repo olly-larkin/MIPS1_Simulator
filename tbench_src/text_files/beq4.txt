@@ -2,7 +2,7 @@
 #beq
 #ng2517
 #Testing branch delay slot (dependant on ADDI) - Expected exit code 5 (if 0 BDS not implemented - if 10 branch failed)
-#1
+#5
 #
 #
 
