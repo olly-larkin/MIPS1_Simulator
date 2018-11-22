@@ -1,0 +1,16 @@
+#lhu
+#oll16
+#Testing no sign extension
+#0
+#
+#
+#LUI ADDI SB SRL JR
+
+lui $1, 0x2000
+addi $5, $0, -1
+sb $5, 0($1)
+lhu $2, 0($1)
+nop
+srl $2, $2, 16
+jr $0
+nop
