@@ -1,7 +1,7 @@
 #add1
 #add
 #oll16
-#Expected exit code 10
+#Testing normal ADD functionality - Expected exit code 10
 #10
 #
 #

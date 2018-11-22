@@ -1,7 +1,7 @@
 #addi1
 #addi
 #oll16
-#Testing addi instr - expected exit code 5
+#Testing normal ADDI functionality - expected exit code 5
 #5
 #
 #
