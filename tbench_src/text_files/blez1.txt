@@ -1,10 +1,10 @@
-#blez1
 #blez
 #oll16
-#Expected exit code 5 (if 10 branch false triggered) - testing with positive val
+#Testing with positive value (if exit with 10 false branch triggered)
 #5
 #
 #
+#ADDI JR
 
 addi $3, $0, 5
 blez $3, jump

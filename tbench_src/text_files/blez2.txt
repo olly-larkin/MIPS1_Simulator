@@ -1,10 +1,10 @@
-#blez2
 #blez
 #oll16
-#Expected exit code 10 (if 5 branch failed) - testing with 0 reg
+#Testing with 0 reg (if exit with 5 branch failed)
 #10
 #
 #
+#ADDI JR
 
 blez $0, jump
 nop
