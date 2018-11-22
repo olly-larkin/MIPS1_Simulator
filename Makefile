@@ -14,6 +14,7 @@ testbench:
 tb_run: clean testbench simulator
 	clear
 	bin/mips_testbench bin/mips_simulator | column -t -s, | grep -E --color=auto 'Fail|$$'
+	make clean
 
 testbench_windows:
 	make simulator
