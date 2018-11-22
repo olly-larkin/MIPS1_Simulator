@@ -9,19 +9,15 @@ int32_t MemoryMap::read(unsigned int addr, unsigned char byteNum, bool signedRea
         std::cerr << "Unaligned memory access." << std::endl << std::endl;
         std::exit(-11);
     }
-    
+
     int32_t returnVal = 0;
     bool readIn = false;
     int32_t inputVal = 0;
-    
+
     for(int i = 0; i < byteNum; ++i) {
         int shift = (byteNum - i - 1) * 8;
-        if (addr < ADDR_NULL_SIZE) {        // NULL
+        if (addr >= ADDR_INSTR_P && addr < ADDR_INSTR_P + ADDR_INSTR_SIZE) {     // ADDR_INSTR
 
-            //Nothing should happen
-
-        } else if (addr >= ADDR_INSTR_P && addr < ADDR_INSTR_P + ADDR_INSTR_SIZE) {     // ADDR_INSTR
-            
             if (addr <= ADDR_INSTR.size() + ADDR_INSTR_P){
                 returnVal += ((ADDR_INSTR[addr - ADDR_INSTR_P] & 0xFF) << shift);
             }
