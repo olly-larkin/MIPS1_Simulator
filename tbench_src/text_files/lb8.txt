@@ -1,0 +1,11 @@
+#lb
+#ng2517
+#Testing invalid memory read (ADDR_NULL)
+#245
+#
+#
+#LUI JR
+
+lb $2, 0($0)
+jr $0
+nop

@@ -1,21 +1,17 @@
-#lbu4
 #lbu
 #oll16
-#Expected exit code 15
-#15
+#Testing offset 3
+#5
 #
 #
+#LUI ADDI SB JR
 
-addi $1, $1, 2
-sll $1, $1, 28
-addi $3, $3, -1
-sb $3, 0($1)
-lbu $2, 0($1)
+lui $1, 0x2000
+addi $3, $3, 5
+sb $3, 3($1)
+lbu $2, 3($1)
 nop
-srl $2, $2, 4
 jr $0
 nop
 
-#expected outcome = 15
-#dependant on srl
-#checking for sign extension
+#expected outcome = 5

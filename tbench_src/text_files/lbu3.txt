@@ -1,16 +1,15 @@
-#lbu3
 #lbu
 #oll16
-#Expected exit code 5
+#Testing offset 2
 #5
 #
 #
+#LUI ADDI SB JR
 
-addi $1, $1, 2
-sll $1, $1, 28
+lui $1, 0x2000
 addi $3, $3, 5
-sb $3, 1($1)
-lbu $2, 1($1)
+sb $3, 2($1)
+lbu $2, 2($1)
 nop
 jr $0
 nop

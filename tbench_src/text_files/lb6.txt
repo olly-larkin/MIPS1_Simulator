@@ -1,0 +1,12 @@
+#lb
+#ng2517
+#Testing read from instr memory
+#60
+#
+#
+#LUI JR
+
+lui $1, 0x1000
+lb $2, 0($1)
+jr $0
+nop
