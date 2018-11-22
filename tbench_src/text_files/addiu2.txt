@@ -1,0 +1,13 @@
+#addiu1
+#addiu
+#ng2175
+#Testing ADDIU sign extended immediate (dependant on LUI and SRL) - expected exit code 0 (if 1 sgn extend failed)
+#0
+#
+#
+
+lui $2, 0x1000
+addiu $2, $2, -1
+srl $2, $2, 31
+jr $0
+nop

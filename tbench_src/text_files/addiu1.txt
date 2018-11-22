@@ -1,7 +1,7 @@
 #addiu1
 #addiu
 #oll16
-#Testing addiu - expected exit code 5
+#Testing normal ADDIU functionality - expected exit code 5
 #5
 #
 #

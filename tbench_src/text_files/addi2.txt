@@ -1,13 +1,12 @@
 #addi2
 #addi
 #oll16
-#Testing addi instr overflow - expected exit code -10 (246)
+#Testing ADDI overflow and immediate sign extension (dependant on LUI) - expected exit code -10 (246)
 #246
 #
 #
 
-addiu $2, $0, 1
-sll $2, $2, 31
+lui $2, 0x1000
 addi $2, $2, -1
 jr $0
 
