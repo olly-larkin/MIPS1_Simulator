@@ -1,10 +1,10 @@
-#jalr1
 #jalr
 #oll16
-#Expected exit code 15
+#Testing std functionality
 #15
 #
 #
+#JAL ADDIU JR 
 
 jal jump1
 nop

@@ -1,0 +1,17 @@
+#jalr
+#ng2517
+#Testing branch delay
+#5
+#
+#
+#LUI ADDI JR
+
+lui $5, 0x1000
+addi $5, $5, 20
+jalr $5
+addi $2, $0, 5
+nop
+nop
+nop
+jr $0
+nop

@@ -1,0 +1,16 @@
+#jalr
+#ng2517
+#Testing different return address
+#16
+#
+#
+#LUI ADDI JR
+
+lui $5, 0x1000
+addi $5, $5, 12
+jalr $2, $5
+nop
+nop
+nop
+jr $0
+nop
