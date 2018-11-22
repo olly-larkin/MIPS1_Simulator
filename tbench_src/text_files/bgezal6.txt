@@ -1,10 +1,10 @@
-#bgezal6
 #bgezal
 #ng2517
-#Testing link on no branch - Expected exit code 12
+#Testing link on no branch
 #12
 #
 #
+#ADDI ADD JR
 
 addi $5, $0, -1
 bgezal $5, jump

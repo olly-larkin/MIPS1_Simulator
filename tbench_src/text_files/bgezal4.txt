@@ -1,10 +1,10 @@
-#bgezal4
 #bgezal
 #ng2517
-#Testing backwards jump - Expected exit code 10
+#Testing backwards jump
 #10
 #
 #
+#ADDI JR
 
 bgezal $0, jump_forward
 nop

@@ -1,10 +1,10 @@
-#bgtz1
 #bgtz
 #oll16
-#Testing positive value (dependant on ADDI) - Expected exit code 10 (if 5 branch failed)
+#Testing positive value (if exit with 5 branch failed)
 #10
 #
 #
+#ADDI JR
 
 addi $3, $0, 5
 bgtz $3, jump

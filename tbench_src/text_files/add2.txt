@@ -1,10 +1,10 @@
-#add2
 #add
 #oll16
-#Testing ADD for overflow - expected exit code -10 (246)
+#Testing ADD for overflow
 #246
 #
 #
+#ORI SLL JR
 
 ori $2, $0, 0x7FFF
 sll $2, $2, 16

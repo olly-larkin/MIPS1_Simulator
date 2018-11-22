@@ -1,10 +1,10 @@
-#bgezal3
 #bgezal
 #oll16
-#Testing negative value - Expected exit code 5 (if 15 false branch triggered)
+#Testing negative value (if exit with 15 false branch triggered)
 #5
 #
 #
+#ADDI JR
 
 addi $3, $0, -1
 bgezal $3, jump

@@ -1,10 +1,10 @@
-#addiu1
 #addiu
 #oll16
-#Testing normal ADDIU functionality - expected exit code 5
+#Testing normal ADDIU functionality
 #5
 #
 #
+#JR
 
 addiu $2, $0, 5
 jr $0

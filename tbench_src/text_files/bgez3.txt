@@ -1,10 +1,10 @@
-#bgez3
 #bgez
 #oll16
-#Testing with negatice value (dependant on ADDI) - Expected exit code 10 (if 5 false branch triggered)
+#Testing with negatice value (if exit with 5 false branch triggered)
 #10
 #
 #
+#ADDI JR
 
 addi $3, $0, -1
 bgez $0, jump
