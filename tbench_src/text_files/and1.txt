@@ -1,14 +1,12 @@
 #and1
 #and
 #oll16
-#Expected exit code 5
-#5
+#Testing normal AND functionality (1 & 1) (dependant on ADDI) - Expected exit code 1
+#1
 #
 #
 
-addi $3, $0, 21
-addi $4, $0, 13
-and $2, $3, $4
+addi $3, $0, 1
+and $2, $3, $3
 jr $0
-
-#Expected outcome = 5
+nop
