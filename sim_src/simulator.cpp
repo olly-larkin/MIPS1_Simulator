@@ -320,7 +320,7 @@ void Simulator::lb(char rs, char rt, uint32_t imm) {
 
 void Simulator::lbu(char rs, char rt, uint32_t imm) {
     imm = sgnExt16(imm);
-    uint32_t val = (uint32_t)memory.read(imm + registers[rs], 1) & 0xFF;
+    uint32_t val = memory.read(imm + registers[rs], 1) & 0xFF;
     regBuff2.write(rt, val);
 }
 
