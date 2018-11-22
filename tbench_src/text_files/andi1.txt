@@ -1,13 +1,12 @@
 #andi1
 #andi
 #oll16
-#Expected exit code 5
-#5
+#testing normal ANDI functionality (1 & 1) (dependant on ADDI) - Expected exit code 1
+#1
 #
 #
 
-addi $3, $0, 21
-andi $2, $3, 13
+addi $3, $0, 1
+andi $2, $3, 1
 jr $0
-
-#Expected outcome = 5
+nop

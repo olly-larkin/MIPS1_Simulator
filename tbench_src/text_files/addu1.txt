@@ -1,7 +1,7 @@
 #addu1
 #addu
 #oll16
-#Expected exit code 10
+#Testing normal ADDU functionality - Expected exit code 10
 #10
 #
 #

@@ -1,0 +1,13 @@
+#addu2
+#addiu
+#ng2517
+#Testing ADDU no overflow (dependant on LUI and SRL) - expected exit code 0 (if -10 false overflow)
+#0
+#
+#
+
+lui $2, 0x1000
+addu $2, $2, $2
+srl $2, $2, 31
+jr $0
+nop
