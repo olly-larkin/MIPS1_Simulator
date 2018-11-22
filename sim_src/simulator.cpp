@@ -463,11 +463,11 @@ void Simulator::srav(char rs, char rt, char rd, char sa) {
 }
 
 void Simulator::srl(char rs, char rt, char rd, char sa) {
-    regWrite(rd, ((uint32_t)registers[rt] >> sa));
+    regWrite(rd, (registers[rt] >> sa));
 }
 
 void Simulator::srlv(char rs, char rt, char rd, char sa) {
-    regWrite(rd, ((uint32_t)registers[rt] >> (registers[rs] & 0x1F)));
+    regWrite(rd, (registers[rt] >> (registers[rs] & 0x1F)));
 }
 
 void Simulator::sub(char rs, char rt, char rd, char sa) {
