@@ -1,13 +1,13 @@
 #andi3
 #andi
 #oll16
-#testing ANDI no sign extention - Expected exit code 0 (if -1 sign extended)
+#testing ANDI no sign extention (dependant on LUI and SRL) - Expected exit code 0 (if -1 sign extended)
 #0
 #
 #
 
 lui $3, 0x1111
 andi $2, $3, -1
-slr $2, $2, 16
+srl $2, $2, 16
 jr $0
 nop
