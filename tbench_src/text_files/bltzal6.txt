@@ -1,0 +1,13 @@
+#bltzal
+#ng2517
+#Testing link without branch
+#8
+#
+#
+#ADDI ADD JR
+
+bltzal $0, jump
+nop
+jump: add $2, $0, $31
+jr $0
+nop

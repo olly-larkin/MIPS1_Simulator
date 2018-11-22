@@ -1,0 +1,14 @@
+#bltzal
+#ng2517
+#Testing link
+#12
+#
+#
+#ADDI ADD JR
+
+addi $5, $0, -1
+bltzal $5, jump
+nop
+jump: add $2, $0, $31
+jr $0
+nop

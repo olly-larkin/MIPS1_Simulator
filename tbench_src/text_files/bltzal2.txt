@@ -1,10 +1,10 @@
-#bltzal2
 #bltzal
 #oll16
-#Expected exit code 5( if 15 false branch triggered) - testing with 0 reg
+#Testing with 0 (if exit with 15 false branch triggered)
 #5
 #
 #
+#ADDI JR
 
 addi $1, $0, 0
 bltzal $1, jump
