@@ -30,14 +30,14 @@ RUN_TEST() {
         then
             MESSAGE="$4 - Exected exit code $EXPECTED_OUTCOME - Exited with code $EC"
         else
-            MESSAGE="$4 - Exected exit code $EXPECTED_OUTCOME - Exited with code $EC - Expected output $EXPECTED_OUTPUT - Recieved output $OUTPUT"
+            MESSAGE="$4 - Exected exit code $EXPECTED_OUTCOME - Exited with code $EC - Expected output \"$EXPECTED_OUTPUT\" - Recieved output \"$OUTPUT\""
         fi
     else
         if [[ "$EXPECTED_OUTPUT" = "" ]]
         then
             MESSAGE="$4 (dependant on: $DEP) - Exected exit code $EXPECTED_OUTCOME - Exited with code $EC"
         else
-            MESSAGE="$4 (dependant on: $DEP) - Exected exit code $EXPECTED_OUTCOME - Exited with code $EC - Expected output $EXPECTED_OUTPUT - Recieved output $OUTPUT"
+            MESSAGE="$4 (dependant on: $DEP) - Exected exit code $EXPECTED_OUTCOME - Exited with code $EC - Expected output \"$EXPECTED_OUTPUT\" - Recieved output \"$OUTPUT\""
         fi
     fi
     echo $TEST_ID", "$INSTRUCTION", "$STATUS", "$AUTHOR", "$MESSAGE >> $OUTFILE
