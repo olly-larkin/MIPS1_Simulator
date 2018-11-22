@@ -1,7 +1,7 @@
 #bgezal1
 #bgezal
 #oll16
-#Expected exit code 15 (if 5 branch failed - if 10 link failed) - testing with positive val
+#Testing positive value - Expected exit code 15 (if 5 branch failed - if 10 link failed)
 #15
 #
 #

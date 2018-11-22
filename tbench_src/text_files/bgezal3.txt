@@ -1,7 +1,7 @@
 #bgezal3
 #bgezal
 #oll16
-#Expected exit code 5 (if 15 false branch triggered) - testing with negative val
+#Testing negative value - Expected exit code 5 (if 15 false branch triggered)
 #5
 #
 #

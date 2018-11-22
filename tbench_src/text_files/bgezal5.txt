@@ -1,0 +1,14 @@
+#bgezal5
+#bgezal
+#ng2517
+#Testing link on branch - Expected exit code 8
+#8
+#
+#
+
+bgezal $0, jump
+nop
+
+jump: add $2, $0, $31
+jr $0
+nop
