@@ -115,8 +115,8 @@ void Simulator::executeJ(uint32_t instr) {
     (this->*J_MAP[op])(addr);
 }
 
-char Simulator::sgn(int num) {
-    return (num >= 0) - (num < 0);
+char Simulator::sgn(uint32_t num) {
+    return ((signed)num >= 0) - ((signed)num < 0);
 }
 
 uint32_t Simulator::sgnExt16(uint32_t val) {
@@ -159,7 +159,7 @@ void Simulator::add(char rs, char rt, char rd, char sa) {
 void Simulator::addi(char rs, char rt, uint32_t imm) {
     int32_t in1 = registers[rs];
     int32_t out = in1 + sgnExt16(imm);
-    if (sgn(in1) == sgn(imm) && sgn(in1) != sgn(out)) {
+    if (sgn(in1) == sgn(sgnExt16(imm)) && sgn(in1) != sgn(out)) {
         std::cerr << "Overflow detected in 'addi'." << std::endl << std::endl;
         std::exit(-10);
     }

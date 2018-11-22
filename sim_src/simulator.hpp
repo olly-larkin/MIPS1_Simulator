@@ -32,7 +32,7 @@ private:
     void executeR(uint32_t instr);
     void executeI(uint32_t instr);
     void executeJ(uint32_t instr);
-    char sgn(int num);
+    char sgn(uint32_t num);
     uint32_t sgnExt16(uint32_t val);
     uint32_t sgnExt8(uint32_t val);
     void regWrite(char addr, uint32_t data);
