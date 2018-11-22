@@ -1,10 +1,10 @@
-#beq2
 #beq
 #oll16
-#Testing not equal (dependant on ADDI) - Expected exit code 5 (if 10 false branch trigger)
+#Testing not equal (if exit with 10 false branch trigger)
 #5
 #
 #
+#ADDI JR
 
 addi $3, $0, 4
 addi $4, $0, 3

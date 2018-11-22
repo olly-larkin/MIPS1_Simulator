@@ -1,10 +1,10 @@
-#beq3
 #beq
 #ng2517
-#Testing backwards branch - Expected exit code 5 (if 10 branch failed - if 0 backwards branch failed)
+#Testing backwards branch (if exit with 10 branch failed - if 0 backwards branch failed)
 #5
 #
 #
+#ADDIU JR
 
 beq $0, $0, jump_down
 nop
