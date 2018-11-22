@@ -15,5 +15,6 @@ jr $0
 nop
 
 jump_down: beq $0, $0, jump_up
+nop
 jr $0
 nop
