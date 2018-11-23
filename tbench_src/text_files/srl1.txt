@@ -1,13 +1,12 @@
-#srl1
 #srl
 #oll16
-#Expected exit code 1
+#Testing std functionality
 #1
 #
 #
+#LUI JR
 
-addiu $1, $0, 8
-sll $1, $1, 28
+lui $1, 0x1000
 srl $2, $1, 31
 jr $0
 nop

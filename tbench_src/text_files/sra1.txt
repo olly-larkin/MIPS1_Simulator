@@ -1,10 +1,10 @@
-#sra1
 #sra
 #oll16
-#Expected exit code 255
+#Testing std functionality
 #255
 #
 #
+#LUI JR
 
 lui $1, 0x8000
 sra $2, $1, 31

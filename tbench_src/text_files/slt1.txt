@@ -1,20 +1,20 @@
-#slt1
 #slt
 #oll16
-#Expected exit code 1
+#Testing < and = and >
 #1
 #
 #
+#ADDI SLL ADDU JR
 
-addiu $1, $0, -1
+addi $1, $0, -1
 slt $2, $1, $0
 
-addiu $1, $0, 0
+addi $1, $0, 0
 slt $3, $1, $0
 sll $3, $3, 1
 addu $2, $2, $3
 
-addiu $1, $0, 1
+addi $1, $0, 1
 slt $3, $1, $0
 sll $3, $3, 2
 addu $2, $2, $3

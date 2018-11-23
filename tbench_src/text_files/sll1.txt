@@ -1,13 +1,11 @@
-#sll1
 #sll
 #oll16
-#Expected exit code 16
+#Testing std functionality
 #16
 #
 #
+#ADDIU JR
 
 addiu $2, $0, 2
 sll $2, $2, 3
 jr $0
-
-#Expectec outcome = 16
