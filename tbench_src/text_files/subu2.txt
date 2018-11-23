@@ -1,10 +1,10 @@
-#subu2
 #subu
 #oll16
-#Expected exit code 255
+#Testing largest negative - 1
 #255
 #
 #
+#LUI ADDI JR
 
 lui $5, 0x8000
 addi $6, $0, 1

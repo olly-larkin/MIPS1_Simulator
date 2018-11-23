@@ -1,10 +1,10 @@
-#sw1
 #sw
 #oll16
-#Expected exit code 15
+#Testing std functionality
 #15
 #
 #
+#ADDI SLL LB OR JR
 
 addi $1, $0, 2
 sll $1, $1, 28
