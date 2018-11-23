@@ -26,3 +26,6 @@ tbench_src/bin/bingen_win
 tbench_src/bin/parser
 test/temp/*.bin
 sim_testing/*
+lwl1.s
+lwl1.bin
+lwl1.txt
