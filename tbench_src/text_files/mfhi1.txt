@@ -1,10 +1,10 @@
-#mfhi1
 #mfhi
 #oll16
-#Expected exit code 5
+#Testing std functionality with MTHI
 #5
 #
 #
+#ADDI MTHI JR
 
 addi $1, $0, 5
 mthi $1

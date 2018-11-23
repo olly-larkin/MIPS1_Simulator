@@ -1,0 +1,15 @@
+#mfhi
+#oll16
+#Testing std functionality with DIV
+#1
+#
+#
+#ADDI DIV JR
+
+addi $4, $0, 5
+addi $5, $0, 2
+div $4, $5
+nop
+mfhi $2
+jr $0
+nop

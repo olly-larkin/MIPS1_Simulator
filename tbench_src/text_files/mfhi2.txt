@@ -1,0 +1,15 @@
+#mfhi
+#oll16
+#Testing std functionality with MULTU
+#1
+#
+#
+#LUI ADDI MULTU JR
+
+lui $4, 0x8000
+addi $5, $0, 2
+multu $4, $5
+nop
+mfhi $2
+jr $0
+nop

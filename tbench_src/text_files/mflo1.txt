@@ -1,14 +1,14 @@
-#mflo1
 #mflo
 #oll16
-#Expected exit code 5
+#Testing with MTLO
 #5
 #
 #
+#ADDI MTLO JR
 
 addi $1, $0, 5
-mthi $1
-mfhi $2
+mtlo $1
+mflo $2
 jr $0
 nop
 

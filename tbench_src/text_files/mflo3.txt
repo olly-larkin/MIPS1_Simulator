@@ -1,0 +1,15 @@
+#mflo
+#oll16
+#Testing with DIV
+#2
+#
+#
+#ADDI DIV JR
+
+addi $4, $0, 2
+addi $5, $0, 5
+div $5, $4
+nop
+mflo $2
+jr $0
+nop
