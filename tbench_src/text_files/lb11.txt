@@ -1,0 +1,15 @@
+#lb
+#oll16
+#Testing illegal mem access ADDR_PUTC
+#245
+#
+#
+#LUI ADDI JR
+
+lui $5, 0x3000
+addi $5, $5, 4
+lb $2, 0($5)
+jr $0
+nop
+
+#expected outcome = 5

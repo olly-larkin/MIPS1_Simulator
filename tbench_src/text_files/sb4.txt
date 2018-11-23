@@ -1,0 +1,12 @@
+#sb
+#ng2517
+#Testing invalid mem write ADDR_INSTR
+#245
+#
+#
+#LUI JR
+
+lui $5, 0x1000
+sb $1, 0($1)
+jr $0
+nop

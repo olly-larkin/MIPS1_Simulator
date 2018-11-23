@@ -1,0 +1,13 @@
+#lb
+#oll16
+#Testing illegal mem access ADDR_NULL
+#245
+#
+#
+#JR
+
+lb $2, 0($0)
+jr $0
+nop
+
+#expected outcome = 5
