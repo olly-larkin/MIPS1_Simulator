@@ -1,14 +1,11 @@
-#lui2
 #lui
 #oll16
-#Expected exit code 0
+#Testing lower half
 #0
 #
 #
+#JR
 
 lui $2, 10
 jr $0
 nop
-
-#expected outcome = 0
-#testing the lower half

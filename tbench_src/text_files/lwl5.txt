@@ -1,17 +1,15 @@
-#lwl5
 #lwl
-#oll16
-#Testing with offset 3 - Expected exit code 4
-#4
+#ng2517
+#Testing register isn't overwritten
+#15
 #
 #
+#LUI ADDI SRL JR
 
 lui $1, 0x2000
-lui $3, 0x0102
-addiu $3, $3, 0x0304
-sw $3, 0($1)
-lwl $4, 3($1)
+addi $2, $0, -1
+lwl $2, 1($1)
 nop
-srl $2, $4, 24
+srl $2, $2, 4
 jr $0
 nop

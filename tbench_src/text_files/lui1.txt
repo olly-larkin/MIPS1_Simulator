@@ -1,14 +1,12 @@
-#lui1
 #lui
 #oll16
-#Expected exit code 10
+#Testing upper half
 #10
 #
 #
+#SRL JR
 
 lui $2, 10
 srl $2, $2, 16
 jr $0
 nop
-
-#expected outcome = 10

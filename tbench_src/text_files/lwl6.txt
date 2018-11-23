@@ -1,0 +1,15 @@
+#lwl
+#ng2517
+#Testing single IO
+#99
+#12
+#
+#LUI ADDI LW ADD JR
+
+lui $1, 0x3000
+lwl $2, 0($1)
+lw $3, 0($1)
+nop
+add $2, $2, $3
+jr $0
+nop

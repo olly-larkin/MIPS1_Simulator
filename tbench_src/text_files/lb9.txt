@@ -1,0 +1,15 @@
+#lb
+#ng2517
+#Testing read to GET_C triggers IO
+#50
+#12
+#
+#LUI LW ADDU JR
+
+lui $1, 0x3000
+lb $3, 0($1)
+lw $2, 0($1)
+nop
+addu $2, $2, $3
+jr $0
+nop

@@ -1,23 +1,34 @@
-#lwl1
 #lwl
-#oll16
-#Testing aligned lwl - Expected exit code 10
-#10
+#ng2517
+#Testing aligned read
+#91
 #
 #
+#LUI ADDI SB SRL ANDI OR JR
 
 lui $1, 0x2000
-lui $3, 0x0102
-addiu $3, $3, 0x0304
-sw $3, 0($1)
-lwl $4, 0($1)
+addi $5, $0, 1
+sb $5, 0($1)
+sb $5, 1($1)
+addi $5, $0, 2
+sb $5, 2($1)
+addi $5, $0, 3
+sb $5, 3($1)
+
+lwl $2, 0($1)
 nop
-addu $2, $0, $4
-srl $4, $4, 8
-addu $2, $2, $4
-srl $4, $4, 8
-addu $2, $2, $4
-srl $4, $4, 8
-addu $2, $2, $4
+
+srl $3, $2, 6
+andi $3, $3, 0xFF
+or $2, $2, $3
+
+srl $3, $2, 12
+andi $3, $3, 0xFF
+or $2, $2, $3
+
+srl $3, $2, 18
+andi $3, $3, 0xFF
+or $2, $2, $3
+
 jr $0
 nop

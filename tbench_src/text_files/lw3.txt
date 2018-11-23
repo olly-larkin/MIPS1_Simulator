@@ -1,16 +1,13 @@
-#lw3
 #lw
 #oll16
-#Expected exit code -11 (245)
-#245
+#Testing stdin "!"
+#33
+#!
 #
-#
+#LUI JR
 
-addi $1, $0, 2
-sll $1, $1, 28
-lw $2, 1($1)
+lui $1, 0x3000
+lw $2, 0($1)
 nop
 jr $0
-
-#Expected outcome = -11,
-
+nop
