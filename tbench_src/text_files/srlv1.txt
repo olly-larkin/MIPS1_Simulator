@@ -1,10 +1,10 @@
-#srlv1
 #srlv
 #oll16
-#Expected exit code 1
+#Testing std functionality
 #1
 #
 #
+#ADDIU LUI JR
 
 addiu $3, $0, 31
 lui $1, 0x8000

@@ -1,0 +1,13 @@
+#jr
+#ng2517
+#Testing jump outside executable memory
+#245
+#
+#
+#
+
+lui $1, 0x0100
+jr $1
+nop
+jr $0
+nop

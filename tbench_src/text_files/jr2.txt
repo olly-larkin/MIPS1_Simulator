@@ -1,0 +1,14 @@
+#jr
+#ng2517
+#Testing jump to reg and branch delay
+#10
+#
+#
+#LUI ADDI
+
+lui $1, 0x1000
+addi $1, $1, 12
+jr $1
+addi $2, $2, 5
+jr $0
+nop

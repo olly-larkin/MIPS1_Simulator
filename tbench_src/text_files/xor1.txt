@@ -1,10 +1,10 @@
-#xor1
 #xor
 #oll16
-#Expected exit code 3
+#Testing std functionality (1^2)
 #3
 #
 #
+#ADDIU JR
 
 addiu $5, $0, 1
 addiu $6, $0, 2

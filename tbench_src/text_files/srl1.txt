@@ -6,7 +6,7 @@
 #
 #LUI JR
 
-lui $1, 0x1000
+lui $1, 0x8000
 srl $2, $1, 31
 jr $0
 nop

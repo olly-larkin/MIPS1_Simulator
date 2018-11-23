@@ -1,0 +1,9 @@
+#jr
+#ng2517
+#Testing jump to 0
+#0
+#
+#
+#
+
+jr $0
