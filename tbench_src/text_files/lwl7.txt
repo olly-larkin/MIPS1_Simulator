@@ -6,6 +6,8 @@
 #
 #LUI ADDIU SH LWR ANDI ADDU SRL JR
 
+addi $6, $0, -1
+
 lui $1, 0x2000
 addiu $4, $0, 0x0101
 addiu $5, $0, 0x0203
