@@ -1,0 +1,18 @@
+#multu
+#ng2517
+#Testing unsigned mult (-1*1)
+#255
+#
+#
+#ADDI MFHI MFLO ADD JR
+
+addi $4, $0, -1
+addi $5, $0, 1
+multu $4, $5
+nop
+mfhi $2
+mflo $3
+nop
+add $2, $2, $3
+jr $0
+nop

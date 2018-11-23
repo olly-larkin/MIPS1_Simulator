@@ -1,0 +1,18 @@
+#multu
+#ng2517
+#Testing HI reg (0x40000000*4)
+#1
+#
+#
+#LUI ADDI MFHI MFLO ADD JR
+
+lui $4, 0x4000
+addi $5, $0, 4
+multu $4, $5
+nop
+mfhi $2
+mflo $3
+nop
+add $2, $2, $3
+jr $0
+nop
