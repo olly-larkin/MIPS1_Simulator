@@ -4,7 +4,7 @@
 #248
 #
 #
-#LUI ADDI MFHI MFLO ADDU JR
+#LUI ADDI MFHI MFLO ADD JR
 
 lui $4, 0x8000
 addi $5, $0, -1

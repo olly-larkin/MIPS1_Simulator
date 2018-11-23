@@ -1,10 +1,10 @@
-#or1
 #or
 #oll16
-#Expected exit code 3
+#Testing std functionality (1 | 2)
 #3
 #
 #
+#ADDIU JR
 
 addiu $1, $0, 1
 addiu $2, $0, 2
