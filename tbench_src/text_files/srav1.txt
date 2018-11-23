@@ -1,10 +1,10 @@
-#srav1
 #srav
 #oll16
-#Expected exit code 255
+#Testing std functionality
 #255
 #
 #
+#ADDIU LUI JR
 
 addiu $3, $0, 31
 lui $1, 0x8000

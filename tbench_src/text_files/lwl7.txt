@@ -1,0 +1,34 @@
+#lwl
+#oll16
+#Testing combo with lwr
+#91
+#
+#
+#LUI ADDIU SH LWR ANDI ADDU SRL JR
+
+lui $1, 0x2000
+addiu $4, $0, 0x0101
+addiu $5, $0, 0x0203
+sh $4, 2($1)
+sh $5, 4($1)
+lwl $6, 2($1)
+lwr $6, 5($1)
+nop
+
+andi $5, $6, 0xFF
+addu $2, $0, $5
+
+srl $5, $6, 6
+andi $5, $5, 0xFF
+addu $2, $2, $5
+
+srl $5, $6, 12
+andi $5, $5, 0xFF
+addu $2, $2, $5
+
+srl $5, $6, 18
+andi $5, $5, 0xFF
+addu $2, $2, $5
+
+jr $0
+nop
