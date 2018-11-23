@@ -1,16 +1,18 @@
-#mult3
 #mult
-#oll16
-#Expected exit code 4
-#4
+#ng2517
+#Testing signed mult (-1*1)
+#254
 #
 #
+#ADDI MFHI MFLO ADD JR
 
-addiu $1, $0, 1
-sll $1, $1, 17
-mult $1, $1
+addi $4, $0, -1
+addi $5, $0, 1
+mult $4, $5
+nop
 mfhi $2
+mflo $3
+nop
+add $2, $2, $3
 jr $0
 nop
-
-#expected output = 4

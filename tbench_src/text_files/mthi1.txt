@@ -1,10 +1,10 @@
-#mthi1
 #mthi
 #oll16
-#Expected exit code 10
+#Testing with MFHI
 #10
 #
 #
+#ADDI MFHI JR
 
 addi $1, $0, 10
 mthi $1

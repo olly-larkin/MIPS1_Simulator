@@ -1,18 +1,17 @@
-#mult1
 #mult
-#oll16
-#Expected exit code 1
-#1
+#ng2517
+#Testing std functionality (5*5)
+#25
 #
 #
+#ADDI MFHI MFLO ADD JR
 
-addiu $5, $0, -1
+addi $5, $0, 5
 mult $5, $5
+nop
 mfhi $2
-sll $2, $2, 4
 mflo $3
-addu $2, $2, $3
+nop
+add $2, $2, $3
 jr $0
 nop
-
-#expected outcome = 1

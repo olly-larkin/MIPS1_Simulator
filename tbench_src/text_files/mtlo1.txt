@@ -1,14 +1,13 @@
-#mtlo1
 #mtlo
 #oll16
-#Expected exit code 10
+#Testing with MFLO
 #10
 #
 #
 
 addi $1, $0, 10
-mthi $1
-mfhi $2
+mtlo $1
+mflo $2
 jr $0
 nop
 

@@ -1,18 +1,18 @@
-#mult2
 #mult
-#oll16
-#Expected exit code 1
+#ng2517
+#Testing HI reg (0x40000000*4)
 #1
 #
 #
+#LUI ADDI MFHI MFLO ADD JR
 
-addiu $1, $0, 1
-sll $1, $1, 16
-mult $1, $1
+lui $4, 0x4000
+addi $5, $0, 4
+mult $4, $5
+nop
 mfhi $2
 mflo $3
-addu $2, $2, $3
+nop
+add $2, $2, $3
 jr $0
 nop
-
-#expected output = 1
