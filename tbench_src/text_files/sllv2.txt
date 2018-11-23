@@ -1,12 +1,12 @@
-#sllv2
 #sllv
 #oll16
-#Expected exit code 1
+#Testing shift by 32 (shouldnt do anything)
 #1
 #
 #
+#ADDIU JR
 
-addiu $1, $0, 0x20
+addiu $1, $0, 32
 addiu $2, $0, 1
 sllv $2, $2, $1
 jr $0
