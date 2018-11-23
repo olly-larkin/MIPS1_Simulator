@@ -1,18 +1,15 @@
-#sh1
 #sh
 #oll16
-#Expected exit code 30
+#Testing std functionality
 #30
 #
 #
+#LUI ADDI LW JR
 
-addiu $3, $0, 2
-sll $3, $3, 28
+lui $3, 0x2000
 addiu $4, $4, 30
 sh $4, 2($3)
 lw $2, 0($3)
-nop
 jr $0
-
-#Expected outcome = 30
+nop
 

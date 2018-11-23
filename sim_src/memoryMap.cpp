@@ -31,10 +31,10 @@ int32_t MemoryMap::read(unsigned int addr, unsigned char byteNum, bool signedRea
             if (!readIn) {
                 readIn = true;
                 inputVal = getchar();
-            }
-            if (addr == ADDR_GETC_P + 3) {
                 if (inputVal == EOF)
                     return -1;
+            }
+            if (addr == ADDR_GETC_P + 3) {
                 returnVal += inputVal & 0xFF;
             }
 

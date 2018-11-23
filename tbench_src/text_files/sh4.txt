@@ -3,13 +3,13 @@
 #Testing stdout functionality
 #0
 #
-#
+#!
 #LUI ADDIU LW SRL OR
 
 lui $3, 0x3000
 addi $3, $3, 4
 addi $4, $0, 33
-sh $4, 0($3)
+sh $4, 2($3)
 
 jr $0
 nop
