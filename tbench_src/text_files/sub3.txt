@@ -1,0 +1,13 @@
+#sub
+#ng2517
+#Testing std functionality (10-(-1))
+#11
+#
+#
+#LUI ADDI JR
+
+addi $4, $0, 10
+addi $5, $0, -1
+sub $2, $4, $5
+jr $0
+nop

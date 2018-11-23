@@ -1,10 +1,10 @@
-#sub2
 #sub
 #oll16
-#Expected exit code -10 (246)
+#Testing overflow
 #246
 #
 #
+#LUI ADDI JR
 
 lui $5, 0x8000
 addi $6, $0, 1
