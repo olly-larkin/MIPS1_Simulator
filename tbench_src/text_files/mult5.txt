@@ -1,0 +1,19 @@
+#mult
+#ng2517
+#Testing signed mult in HI (0x80000000*-1)
+#128
+#
+#
+#LUI ADDI MFHI MFLO SRL ADD JR
+
+lui $4, 0x8000
+addi $5, $0, -1
+mult $4, $5
+nop
+mfhi $2
+mflo $3
+nop
+srl $3, $3, 24
+add $2, $2, $3
+jr $0
+nop

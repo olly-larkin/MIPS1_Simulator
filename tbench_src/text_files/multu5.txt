@@ -1,0 +1,20 @@
+#multu
+#ng2517
+#Testing unsigned mult in HI (0x80000000*0xFFFFFFFF)
+#248
+#
+#
+#LUI ADDI MFHI MFLO ADDU JR
+
+lui $4, 0x8000
+addi $5, $0, -1
+multu $4, $5
+nop
+mfhi $2
+mflo $3
+nop
+sll $2, $2, 4
+srl $3, $3, 28
+add $2, $2, $3
+jr $0
+nop
