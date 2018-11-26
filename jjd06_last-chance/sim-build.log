@@ -1,0 +1,8 @@
+make[1]: Entering directory '/media/sf_shared/cw/last-chance/working/BoogieWoogieWoogie'
+g++ --std=c++11 -Wall  -c sim_src/main.cpp -o sim_src/main.o
+g++ --std=c++11 -Wall  -c sim_src/simulator.cpp -o sim_src/simulator.o
+g++ --std=c++11 -Wall  -c sim_src/memoryMap.cpp -o sim_src/memoryMap.o
+g++ --std=c++11 -Wall  -c sim_src/registers.cpp -o sim_src/registers.o
+mkdir -p bin
+g++ --std=c++11 -Wall  sim_src/main.o sim_src/simulator.o sim_src/memoryMap.o sim_src/registers.o -o bin/mips_simulator
+make[1]: Leaving directory '/media/sf_shared/cw/last-chance/working/BoogieWoogieWoogie'
