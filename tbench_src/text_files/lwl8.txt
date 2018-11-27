@@ -1,0 +1,13 @@
+#lwl
+#ng2517
+#Testing invalid mem
+#245
+#
+#
+#LUI SUB JR
+
+lui $1, 0x2000
+sub $1, $1, -1
+lwl $2, 0($1)
+jr $0
+nop

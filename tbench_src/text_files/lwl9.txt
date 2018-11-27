@@ -1,0 +1,12 @@
+#lwl
+#ng2517
+#Testing offset -1
+#245
+#
+#
+#LUI JR
+
+lui $1, 0x2000
+lwl $2, -1($1)
+jr $0
+nop

@@ -347,7 +347,7 @@ void Simulator::lw(char rs, char rt, uint32_t imm) {
 }
 
 void Simulator::lwl(char rs, char rt, uint32_t imm) {
-    uint32_t addr = registers[rs] + imm;
+    uint32_t addr = registers[rs] + (int32_t)sgnExt16(imm);
     uint64_t mask = (uint64_t)0xFFFFFFFF >> (32-(addr % 4)*8);
     int32_t regVal = regBuff2[rt] & mask;
     uint32_t val = memory.read(addr-(addr%4), 4) << ((addr % 4)*8);
@@ -355,7 +355,7 @@ void Simulator::lwl(char rs, char rt, uint32_t imm) {
 }
 
 void Simulator::lwr(char rs, char rt, uint32_t imm) {
-    uint32_t addr = registers[rs] + imm;
+    uint32_t addr = registers[rs] + (int32_t)sgnExt16(imm);
     uint64_t mask = (uint64_t)0xFFFFFFFF << ((addr % 4 + 1)*8);
     int32_t regVal = regBuff2[rt] & mask;
     uint32_t val = memory.read(addr-(addr%4), 4) >> (32 - (addr % 4 + 1)*8);
