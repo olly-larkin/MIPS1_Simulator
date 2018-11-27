@@ -4,10 +4,10 @@
 #245
 #
 #
-#LUI SUB JR
+#LUI JR ADDI
 
 lui $1, 0x2000
-sub $1, $1, -1
+addi $1, $1, -1
 lwl $2, 0($1)
 jr $0
 nop
