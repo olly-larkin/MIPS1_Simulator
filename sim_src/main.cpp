@@ -17,9 +17,15 @@ int main(int argc, const char * argv[]) {
     
     std::cerr << "Binary file opened: " << argv[1] << std::endl;
     
-    Simulator sim;
-    sim.loadInstr(binaryFile);
-    int exitCode = sim.execute();
+    int exitCode;
+    try {
+        Simulator sim;
+        sim.loadInstr(binaryFile);
+        exitCode = sim.execute();
+    } catch(...) {
+        std::cerr << "Unknown simulator error..." << std::endl;
+        std::exit(-20);
+    }
 
     std::cerr << "Successful execution: " << exitCode << std::endl << std::endl;
     std::exit(exitCode);
