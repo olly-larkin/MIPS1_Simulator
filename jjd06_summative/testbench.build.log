@@ -1,0 +1,858 @@
+make[1]: Entering directory '/media/sf_shared/cw/summative/working/BoogieWoogieWoogie'
+rm -rf test
+git submodule update --init --recursive
+Submodule 'parser' (https://github.com/olly-larkin/mips-parser.git) registered for path 'parser'
+Cloning into 'parser'...
+Submodule path 'parser': checked out '8140e2ee94828e6510c30117ab9811600ed41862'
+make -C parser -f ./Makefile parser
+make[2]: Entering directory '/media/sf_shared/cw/summative/working/BoogieWoogieWoogie/parser'
+g++ --std=c++11 -c src/main.cpp -o src/main.o
+g++ --std=c++11 -c src/parser.cpp -o src/parser.o
+g++ --std=c++11 -c src/instructionList.cpp -o src/instructionList.o
+mkdir -p bin
+g++ src/main.o src/parser.o src/instructionList.o -o bin/parser
+make[2]: Leaving directory '/media/sf_shared/cw/summative/working/BoogieWoogieWoogie/parser'
+tbench_src/bin/bingen
+Generating binary files...
+
+
+Commands passed successfully.
+Output file generated: test/temp/add1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/add2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/addi1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/addi2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/addiu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/addiu2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/addu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/addu2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/and1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/and2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/andi1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/andi2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/andi3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/beq1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/beq2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/beq3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/beq4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bgez1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bgez2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bgez3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bgez4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bgezal1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bgezal2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bgezal3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bgezal4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bgezal5.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bgezal6.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bgtz1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bgtz2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bgtz3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bgtz4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/blez1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/blez2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/blez3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/blez4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bltz1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bltz2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bltz3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bltz4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bltzal1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bltzal2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bltzal3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bltzal4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bltzal5.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bltzal6.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bne1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bne2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bne3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/bne4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/div1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/div2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/div3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/div4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/div5.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/divu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/divu2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/divu3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/hello1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/j1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/j2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/j3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/jal1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/jal2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/jalr1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/jalr2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/jalr3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/jr1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/jr2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/jr3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lb10.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lb11.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lb1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lb2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lb3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lb4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lb5.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lb6.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lb7.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lb8.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lb9.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lbu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lbu2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lbu3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lbu4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lbu5.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lh1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lh2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lh3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lhu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lhu2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lhu3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lui1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lui2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lw1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lw2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lw3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lwl1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lwl2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lwl3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lwl4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lwl5.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lwl6.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lwl7.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lwl8.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lwl9.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lwr1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lwr2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lwr3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lwr4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lwr5.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/lwr6.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/mfhi1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/mfhi2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/mfhi3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/mflo1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/mflo2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/mflo3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/mthi1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/mtlo1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/mult1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/mult2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/mult3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/mult4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/mult5.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/multu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/multu2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/multu3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/multu4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/multu5.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/or1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/or2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/ori1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/ori2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sb1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sb2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sb3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sb4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sb5.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sh1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sh2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sh3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sh4.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sll1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sllv1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sllv2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/slt1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/slti1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sltiu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sltu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sra1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sra2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/srav1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/srav2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/srl1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/srl2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/srlv1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/srlv2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sub1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sub2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sub3.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/subu1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/subu2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sw1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/sw2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/xor1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/xor2.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/xori1.bin
+
+
+
+Commands passed successfully.
+Output file generated: test/temp/xori2.bin
+
+Finished.
+make[1]: Leaving directory '/media/sf_shared/cw/summative/working/BoogieWoogieWoogie'
