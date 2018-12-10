@@ -1,31 +1,31 @@
-add1, add, Pass, oll16, Testing normal ADD functionality (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 10
+add1, add, Fail, oll16, Testing normal ADD functionality (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 0
 add2, add, Pass, oll16, Testing ADD for overflow (dependant on: ORI SLL JR) - Expected exit code 246 - Exited with code 246
-addi1, addi, Pass, oll16, Testing normal ADDI functionality (dependant on: JR) - Expected exit code 5 - Exited with code 5
+addi1, addi, Fail, oll16, Testing normal ADDI functionality (dependant on: JR) - Expected exit code 5 - Exited with code 0
 addi2, addi, Pass, oll16, Testing ADDI overflow and immediate sign extension (dependant on: LUI JR) - Expected exit code 246 - Exited with code 246
-addiu1, addiu, Pass, oll16, Testing normal ADDIU functionality (dependant on: JR) - Expected exit code 5 - Exited with code 5
+addiu1, addiu, Fail, oll16, Testing normal ADDIU functionality (dependant on: JR) - Expected exit code 5 - Exited with code 0
 addiu2, addiu, Pass, ng2517, Testing ADDIU sign extended immediate (if exit with 1 sgn extend failed) (dependant on: LUI SRL JR) - Expected exit code 0 - Exited with code 0
-addu1, addu, Pass, oll16, Testing normal ADDU functionality (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 10
+addu1, addu, Fail, oll16, Testing normal ADDU functionality (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 0
 addu2, addiu, Pass, ng2517, Testing ADDU no overflow (if exit with -10 false overflow) (dependant on: LUI SRL JR) - Expected exit code 0 - Exited with code 0
-and1, and, Pass, oll16, Testing normal AND functionality (1 & 1) (dependant on: ADDI JR) - Expected exit code 1 - Exited with code 1
+and1, and, Fail, oll16, Testing normal AND functionality (1 & 1) (dependant on: ADDI JR) - Expected exit code 1 - Exited with code 0
 and2, and, Fail, ng2517, Testing normal AND functionality (1 & 3) (dependant on: ADDI JR) - Expected exit code 1 - Exited with code 0
-andi1, andi, Pass, oll16, testing normal ANDI functionality (1 & 1) (dependant on: ADDI JR) - Expected exit code 1 - Exited with code 1
+andi1, andi, Fail, oll16, testing normal ANDI functionality (1 & 1) (dependant on: ADDI JR) - Expected exit code 1 - Exited with code 0
 andi2, andi, Fail, ng2517, Testing normal ANDI functionality (1 & 3) (dependant on: ADDI JR) - Expected exit code 1 - Exited with code 0
 andi3, andi, Pass, oll16, testing ANDI no sign extention (if exit with -1 sign extended) (dependant on: LUI SRL JR) - Expected exit code 0 - Exited with code 0
-beq1, beq, Pass, oll16, Testing normal functionality (if exit with 5 branch failed) (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 10
+beq1, beq, Fail, oll16, Testing normal functionality (if exit with 5 branch failed) (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 5
 beq2, beq, Pass, oll16, Testing not equal (if exit with 10 false branch trigger) (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 5
 beq3, beq, Fail, ng2517, Testing backwards branch (if exit with 10 branch failed - if 0 backwards branch failed) (dependant on: ADDIU JR) - Expected exit code 5 - Exited with code 10
 beq4, beq, Fail, ng2517, Testing branch delay slot (if exit with 0 BDS not implemented - if 10 branch failed) (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 10
-bgez1, bgez, Pass, oll16, Testing positive value (if exit with 5 false branch failed) (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 10
+bgez1, bgez, Fail, oll16, Testing positive value (if exit with 5 false branch failed) (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 5
 bgez2, bgez, Fail, oll16, Testing with 0 (if exit with 5 false branch failed) (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 5
 bgez3, bgez, Fail, oll16, Testing with negatice value (if exit with 5 false branch triggered) (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 5
 bgez4, bgez, Fail, ng2517, Testing backwards branch (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 15
-bgezal1, bgezal, Pass, oll16, Testing positive value (if exit with 5 branch failed - if 10 link failed) (dependant on: ADDI JR) - Expected exit code 15 - Exited with code 15
+bgezal1, bgezal, Fail, oll16, Testing positive value (if exit with 5 branch failed - if 10 link failed) (dependant on: ADDI JR) - Expected exit code 15 - Exited with code 5
 bgezal2, bgezal, Fail, oll16, Testing 0 (if exit with 5 branch failed - if 10 link failed) (dependant on: ADDI JR) - Expected exit code 15 - Exited with code 5
 bgezal3, bgezal, Pass, oll16, Testing negative value (if exit with 15 false branch triggered) (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 5
 bgezal4, bgezal, Fail, ng2517, Testing backwards jump (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 15
 bgezal5, bgezal, Pass, ng2517, Testing link on branch (dependant on: ADD JR) - Expected exit code 8 - Exited with code 8
 bgezal6, bgezal, Pass, ng2517, Testing link on no branch (dependant on: ADDI ADD JR) - Expected exit code 12 - Exited with code 12
-bgtz1, bgtz, Pass, oll16, Testing positive value (if exit with 5 branch failed) (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 10
+bgtz1, bgtz, Fail, oll16, Testing positive value (if exit with 5 branch failed) (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 5
 bgtz2, bgtz, Pass, oll16, Testing 0 (if exit with 10 branch failed) (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 5
 bgtz3, bgtz, Pass, oll16, Testing negative value (if exit with 10 false branch triggered) (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 5
 bgtz4, bgtz, Fail, oll16, Testing backwards branch (if exit with 15 branch failed) (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 15
@@ -37,7 +37,7 @@ bltz1, bltz, Pass, oll16, Testing with positive val (if 10 false branch triggere
 bltz2, bltz, Pass, oll16, Testing with 0 reg (if 10 false branch triggered) (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 5
 bltz3, bltz, Fail, oll16, Testing with negative val (if 5 branch failed) (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 5
 bltz4, bltz, Fail, ng2517, Testing backwards branch (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 15
-bltzal1, bltzal, Pass, oll16, Testing with negative val (if exit with 5 branch failed - if 10 link failed) (dependant on: ADDI JR) - Expected exit code 15 - Exited with code 15
+bltzal1, bltzal, Fail, oll16, Testing with negative val (if exit with 5 branch failed - if 10 link failed) (dependant on: ADDI JR) - Expected exit code 15 - Exited with code 5
 bltzal2, bltzal, Pass, oll16, Testing with 0 (if exit with 15 false branch triggered) (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 5
 bltzal3, bltzal, Pass, oll16, Testing with positive val (if exit with 15 false branch triggered) (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 5
 bltzal4, bltzal, Fail, ng2517, Testing backwards branch (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 15
@@ -47,24 +47,24 @@ bne1, bne, Pass, oll16, Testing equal (0 == 0) (if 5 branch false triggered) (de
 bne2, bne, Fail, oll16, Testing with different values (1 != 0) (if exit with 10 failed branch) (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 10
 bne3, bne, Pass, ng2517, Testing with same values different registers (if exit with 5 false branch) (dependant on: ADDI JR) - Expected exit code 10 - Exited with code 10
 bne4, bne, Fail, ng2517, Testing backwards branch (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 15
-div1, div, Pass, oll16, Testing (3/-1) LO reg (dependant on: ADDI MFLO JR) - Expected exit code 253 - Exited with code 253
+div1, div, Fail, oll16, Testing (3/-1) LO reg (dependant on: ADDI MFLO JR) - Expected exit code 253 - Exited with code 0
 div2, div, Pass, ng2517, Testing (3/-1) HI reg (dependant on: ADDI MFHI JR) - Expected exit code 0 - Exited with code 0
 div3, div, Fail, ng2517, Testing (5/3) LO reg (dependant on: ADDI MFLO JR) - Expected exit code 1 - Exited with code 0
 div4, div, Fail, ng2517, Testing (5/3) HI reg (dependant on: ADDI MFHI JR) - Expected exit code 2 - Exited with code 0
 div5, div, Pass, ng2517, Testing divide by 0 (should'nt throw exception) (dependant on: JR) - Expected exit code 0 - Exited with code 0
-divu1, divu, Pass, oll16, Testing (1/-1) should fail (dependant on: ADDI MFHI MFLO ADD JR) - Expected exit code 1 - Exited with code 1
+divu1, divu, Fail, oll16, Testing (1/-1) should fail (dependant on: ADDI MFHI MFLO ADD JR) - Expected exit code 1 - Exited with code 0
 divu2, divu, Fail, oll16, Testing (10/5) normal functionality (dependant on: ADDI MFHI MFLO ADD JR) - Expected exit code 2 - Exited with code 0
 divu3, divu, Pass, oll16, Testing divide by 0 (dependant on: JR) - Expected exit code 0 - Exited with code 0
-hello1, sw, Pass, oll16, Testing stdout (dependant on: LUI ADDI JR) - Expected exit code 0 - Exited with code 0 - Expected output "Hello World" - Recieved output "Hello World"
-j1, j, Pass, oll16, Testing std jump (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 5
+hello1, sw, Fail, oll16, Testing stdout (dependant on: LUI ADDI JR) - Expected exit code 0 - Exited with code 0 - Expected output "Hello World" - Recieved output ""
+j1, j, Fail, oll16, Testing std jump (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 10
 j2, j, Fail, ng2517, Testing backwards jump (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 15
 j3, j, Pass, ng2517, Testing delay slot (if exit with 0 branch delay not implemented) (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 5
-jal1, jal, Pass, oll16, Testing standard behaviour (if exit with 5 jump failed - if 10 link failed) (dependant on: ADDI JR) - Expected exit code 15 - Exited with code 15
+jal1, jal, Fail, oll16, Testing standard behaviour (if exit with 5 jump failed - if 10 link failed) (dependant on: ADDI JR) - Expected exit code 15 - Exited with code 5
 jal2, jal, Pass, ng2517, Testing branch delay (if 0 branch delay failed) (dependant on: ADDI JR) - Expected exit code 5 - Exited with code 5
-jalr1, jalr, Fail, oll16, Testing std functionality (dependant on: JAL ADDIU JR) - Expected exit code 15 - Exited with code 236
+jalr1, jalr, Fail, oll16, Testing std functionality (dependant on: JAL ADDIU JR) - Expected exit code 15 - Exited with code 10
 jalr2, jalr, Fail, ng2517, Testing different return address (dependant on: LUI ADDI JR) - Expected exit code 16 - Exited with code 0
 jalr3, jalr, Pass, ng2517, Testing branch delay (dependant on: LUI ADDI JR) - Expected exit code 5 - Exited with code 5
-jr1, jr, Pass, ng2517, Testing jump to 0 - Expected exit code 0 - Exited with code 0
+jr1, jr, Fail, ng2517, Testing jump to 0 - Expected exit code 0 - Exited with code 245
 jr2, jr, Fail, ng2517, Testing jump to reg and branch delay (dependant on: LUI ADDI) - Expected exit code 10 - Exited with code 245
 jr3, jr, Pass, ng2517, Testing jump outside executable memory - Expected exit code 245 - Exited with code 245
 lb10, lb, Pass, oll16, Testing illegal mem access ADDR_NULL (dependant on: JR) - Expected exit code 245 - Exited with code 245
@@ -78,23 +78,23 @@ lb6, lb, Fail, ng2517, Testing read from instr memory (dependant on: LUI JR) - E
 lb7, lb, Pass, ng2517, Testing invalid memory read (dependant on: LUI JR) - Expected exit code 245 - Exited with code 245
 lb8, lb, Pass, ng2517, Testing invalid memory read (ADDR_NULL) (dependant on: LUI JR) - Expected exit code 245 - Exited with code 245
 lb9, lb, Pass, ng2517, Testing read to GET_C triggers IO (dependant on: LUI LW ADDU JR) - Expected exit code 50 - Exited with code 50
-lbu1, lbu, Pass, oll16, Testing offset 0 (dependant on: LUI ADDI SB JR) - Expected exit code 5 - Exited with code 5
+lbu1, lbu, Fail, oll16, Testing offset 0 (dependant on: LUI ADDI SB JR) - Expected exit code 5 - Exited with code 0
 lbu2, lbu, Fail, oll16, Testing offset 1 (dependant on: LUI ADDI SB JR) - Expected exit code 5 - Exited with code 0
 lbu3, lbu, Fail, oll16, Testing offset 2 (dependant on: LUI ADDI SB JR) - Expected exit code 5 - Exited with code 0
 lbu4, lbu, Fail, oll16, Testing offset 3 (dependant on: LUI ADDI SB JR) - Expected exit code 5 - Exited with code 0
 lbu5, lbu, Fail, ng2517, Testing no sign extension (if exit with 255 sign extension) (dependant on: LUI ADDI SB SRL JR) - Expected exit code 15 - Exited with code 0
-lh1, lh, Pass, oll16, Testing offset 0 (dependant on: LUI ADDIU SB SRL ADDU JR) - Expected exit code 15 - Exited with code 15
+lh1, lh, Fail, oll16, Testing offset 0 (dependant on: LUI ADDIU SB SRL ADDU JR) - Expected exit code 15 - Exited with code 0
 lh2, lh, Fail, ng2517, Testing offset 2 (dependant on: LUI ADDIU SB JR) - Expected exit code 10 - Exited with code 0
 lh3, lh, Fail, ng2517, Testing sign extension (dependant on: LUI ADDIU SB JR) - Expected exit code 255 - Exited with code 0
-lhu1, lhu, Pass, oll16, Testing offset 0 (dependant on: LUI ADDIU SB SRL ADDU) - Expected exit code 15 - Exited with code 15
+lhu1, lhu, Fail, oll16, Testing offset 0 (dependant on: LUI ADDIU SB SRL ADDU) - Expected exit code 15 - Exited with code 0
 lhu2, lhu, Fail, oll16, Testing offset 2 (dependant on: LUI ADDI SB JR) - Expected exit code 10 - Exited with code 0
 lhu3, lhu, Pass, oll16, Testing no sign extension (dependant on: LUI ADDI SB SRL JR) - Expected exit code 0 - Exited with code 0
-lui1, lui, Pass, oll16, Testing upper half (dependant on: SRL JR) - Expected exit code 10 - Exited with code 10
+lui1, lui, Fail, oll16, Testing upper half (dependant on: SRL JR) - Expected exit code 10 - Exited with code 0
 lui2, lui, Pass, oll16, Testing lower half (dependant on: JR) - Expected exit code 0 - Exited with code 0
-lw1, lw, Pass, oll16, Testing std functionality (dependant on: ADDI SLL SW ANDI SRL OR JR) - Expected exit code 15 - Exited with code 15
+lw1, lw, Fail, oll16, Testing std functionality (dependant on: ADDI SLL SW ANDI SRL OR JR) - Expected exit code 15 - Exited with code 0
 lw2, lw, Fail, oll16, Testing for big-endian read (dependant on: LUI ADDI SB JR) - Expected exit code 10 - Exited with code 0
 lw3, lw, Fail, oll16, Testing stdin "!" (dependant on: LUI JR) - Expected exit code 33 - Exited with code 0
-lwl1, lwl, Pass, ng2517, Testing aligned read (dependant on: LUI ADDI SB SRL ANDI OR JR) - Expected exit code 91 - Exited with code 91
+lwl1, lwl, Fail, ng2517, Testing aligned read (dependant on: LUI ADDI SB SRL ANDI OR JR) - Expected exit code 91 - Exited with code 0
 lwl2, lwl, Fail, ng2517, Testing offset 1 (dependant on: LUI ADDI SB SRL ANDI OR JR) - Expected exit code 108 - Exited with code 0
 lwl3, lwl, Fail, ng2517, Testing offset 2 (dependant on: LUI ADDI SB SRL ANDI OR JR) - Expected exit code 176 - Exited with code 0
 lwl4, lwl, Fail, ng2517, Testing offset 3 (dependant on: LUI ADDI SB SRL ANDI OR JR) - Expected exit code 192 - Exited with code 0
@@ -103,66 +103,66 @@ lwl6, lwl, Fail, ng2517, Testing single IO (dependant on: LUI ADDI LW ADD JR) - 
 lwl7, lwl, Fail, oll16, Testing combo with lwr (dependant on: LUI ADDIU SH LWR ANDI ADDU SRL JR) - Expected exit code 91 - Exited with code 250
 lwl8, lwl, Pass, ng2517, Testing invalid mem (dependant on: LUI JR ADDI) - Expected exit code 245 - Exited with code 245
 lwl9, lwl, Pass, ng2517, Testing offset -1 (dependant on: LUI JR) - Expected exit code 245 - Exited with code 245
-lwr1, lwr, Pass, ng2517, Testing offset 0 (dependant on: LUI ADDI SB SRL ANDI OR JR) - Expected exit code 1 - Exited with code 1
+lwr1, lwr, Fail, ng2517, Testing offset 0 (dependant on: LUI ADDI SB SRL ANDI OR JR) - Expected exit code 1 - Exited with code 0
 lwr2, lwr, Fail, ng2517, Testing offset 1 (dependant on: LUI ADDI SB SRL ANDI OR JR) - Expected exit code 5 - Exited with code 0
 lwr3, lwr, Fail, ng2517, Testing offset 2 (dependant on: LUI ADDI SB SRL ANDI OR JR) - Expected exit code 22 - Exited with code 0
 lwr4, lwr, Fail, ng2517, Testing aligned read (dependant on: LUI ADDI SB SRL ANDI OR JR) - Expected exit code 91 - Exited with code 0
 lwr5, lwr, Fail, ng2517, Testing register isn't overwritten (dependant on: LUI ADDI SRL JR) - Expected exit code 240 - Exited with code 255
 lwr6, lwr, Fail, ng2517, Testing single IO (dependant on: LUI ADDI LW ADD JR) - Expected exit code 99 - Exited with code 50
-mfhi1, mfhi, Pass, oll16, Testing std functionality with MTHI (dependant on: ADDI MTHI JR) - Expected exit code 5 - Exited with code 5
+mfhi1, mfhi, Fail, oll16, Testing std functionality with MTHI (dependant on: ADDI MTHI JR) - Expected exit code 5 - Exited with code 0
 mfhi2, mfhi, Fail, oll16, Testing std functionality with MULTU (dependant on: LUI ADDI MULTU JR) - Expected exit code 1 - Exited with code 0
 mfhi3, mfhi, Fail, oll16, Testing std functionality with DIV (dependant on: ADDI DIV JR) - Expected exit code 1 - Exited with code 0
-mflo1, mflo, Pass, oll16, Testing with MTLO (dependant on: ADDI MTLO JR) - Expected exit code 5 - Exited with code 5
+mflo1, mflo, Fail, oll16, Testing with MTLO (dependant on: ADDI MTLO JR) - Expected exit code 5 - Exited with code 0
 mflo2, mflo, Fail, oll16, Testing with MULTU (dependant on: ADDI MULTU JR) - Expected exit code 10 - Exited with code 0
 mflo3, mflo, Fail, oll16, Testing with DIV (dependant on: ADDI DIV JR) - Expected exit code 2 - Exited with code 0
-mthi1, mthi, Pass, oll16, Testing with MFHI (dependant on: ADDI MFHI JR) - Expected exit code 10 - Exited with code 10
-mtlo1, mtlo, Pass, oll16, Testing with MFLO - Expected exit code 10 - Exited with code 10
-mult1, mult, Pass, ng2517, Testing std functionality (5*5) (dependant on: ADDI MFHI MFLO ADD JR) - Expected exit code 25 - Exited with code 25
+mthi1, mthi, Fail, oll16, Testing with MFHI (dependant on: ADDI MFHI JR) - Expected exit code 10 - Exited with code 0
+mtlo1, mtlo, Fail, oll16, Testing with MFLO - Expected exit code 10 - Exited with code 0
+mult1, mult, Fail, ng2517, Testing std functionality (5*5) (dependant on: ADDI MFHI MFLO ADD JR) - Expected exit code 25 - Exited with code 0
 mult2, mult, Fail, ng2517, Testing HI reg (0x40000000*4) (dependant on: LUI ADDI MFHI MFLO ADD JR) - Expected exit code 1 - Exited with code 0
 mult3, mult, Fail, ng2517, Testing signed mult (-1*1) (dependant on: ADDI MFHI MFLO ADD JR) - Expected exit code 254 - Exited with code 0
 mult4, mult, Fail, ng2517, Testing signed mult in HI (0x80000000*2) (dependant on: LUI ADDI MFHI MFLO SLL ADD JR) - Expected exit code 240 - Exited with code 0
 mult5, mult, Fail, ng2517, Testing signed mult in HI (0x80000000*-1) (dependant on: LUI ADDI MFHI MFLO SRL ADD JR) - Expected exit code 128 - Exited with code 0
-multu1, multu, Pass, ng2517, Testing std functionality (5*5) (dependant on: ADDI MFHI MFLO ADD JR) - Expected exit code 25 - Exited with code 25
+multu1, multu, Fail, ng2517, Testing std functionality (5*5) (dependant on: ADDI MFHI MFLO ADD JR) - Expected exit code 25 - Exited with code 0
 multu2, multu, Fail, ng2517, Testing HI reg (0x40000000*4) (dependant on: LUI ADDI MFHI MFLO ADD JR) - Expected exit code 1 - Exited with code 0
 multu3, multu, Fail, ng2517, Testing unsigned mult (-1*1) (dependant on: ADDI MFHI MFLO ADD JR) - Expected exit code 255 - Exited with code 0
 multu4, multu, Fail, ng2517, Testing mult in HI (0x80000000*2) (dependant on: LUI ADDI MFHI MFLO SLL ADD JR) - Expected exit code 16 - Exited with code 0
 multu5, multu, Fail, ng2517, Testing unsigned mult in HI (0x80000000*0xFFFFFFFF) (dependant on: LUI ADDI MFHI MFLO ADD JR) - Expected exit code 248 - Exited with code 0
-or1, or, Pass, oll16, Testing std functionality (1 | 2) (dependant on: ADDIU JR) - Expected exit code 3 - Exited with code 3
+or1, or, Fail, oll16, Testing std functionality (1 | 2) (dependant on: ADDIU JR) - Expected exit code 3 - Exited with code 2
 or2, or, Fail, oll16, Testing std functionality (1 | 3) (dependant on: ADDDIU JR) - Expected exit code 3 - Exited with code 1
-ori1, ori, Pass, oll16, Testing std functionality (1 | 3) (dependant on: ADDI JR) - Expected exit code 3 - Exited with code 3
+ori1, ori, Fail, oll16, Testing std functionality (1 | 3) (dependant on: ADDI JR) - Expected exit code 3 - Exited with code 0
 ori2, ori, Fail, oll16, Testing std functionality (-1 | 0) (dependant on: JR) - Expected exit code 255 - Exited with code 0
-sb1, sb, Fail, oll16, Testing stdout (dependant on: ADDIU LUI JR) - Expected exit code 0 - Exited with code 0 - Expected output "!" - Recieved output ""
+sb1, sb, Fail, oll16, Testing stdout (dependant on: ADDIU LUI JR) - Expected exit code 0 - Exited with code 0 - Expected output "!" - Recieved output ""
 sb2, sb, Fail, oll16, Testing stdout and only 1 byte (dependant on: LUI ADDIU JR) - Expected exit code 0 - Exited with code 0 - Expected output "!" - Recieved output ""
 sb3, sb, Fail, ng2517, Testing invalid mem write ADDR_NULL (dependant on: JR) - Expected exit code 245 - Exited with code 0
 sb4, sb, Fail, ng2517, Testing invalid mem write ADDR_INSTR (dependant on: LUI JR) - Expected exit code 245 - Exited with code 0
 sb5, sb, Fail, ng2517, Testing invalid mem write ADDR_GETC (dependant on: LUI JR) - Expected exit code 245 - Exited with code 0
-sh1, sh, Pass, oll16, Testing std functionality (dependant on: LUI ADDI LW JR) - Expected exit code 30 - Exited with code 30
+sh1, sh, Fail, oll16, Testing std functionality (dependant on: LUI ADDI LW JR) - Expected exit code 30 - Exited with code 0
 sh2, sh, Fail, oll16, Testing std functionality (dependant on: LUI ADDIU LW SRL OR) - Expected exit code 5 - Exited with code 0
 sh3, sh, Pass, oll16, Testing stdout functionality (dependant on: LUI ADDIU LW SRL OR) - Expected exit code 0 - Exited with code 0
 sh4, sh, Fail, oll16, Testing stdout functionality (dependant on: LUI ADDIU LW SRL OR) - Expected exit code 0 - Exited with code 0 - Expected output "!" - Recieved output ""
-sll1, sll, Pass, oll16, Testing std functionality (dependant on: ADDIU JR) - Expected exit code 16 - Exited with code 16
-sllv1, sllv, Pass, oll16, Testing std functionality (dependant on: ADDIU JR) - Expected exit code 4 - Exited with code 4
+sll1, sll, Fail, oll16, Testing std functionality (dependant on: ADDIU JR) - Expected exit code 16 - Exited with code 2
+sllv1, sllv, Fail, oll16, Testing std functionality (dependant on: ADDIU JR) - Expected exit code 4 - Exited with code 1
 sllv2, sllv, Pass, oll16, Testing shift by 32 (shouldnt do anything) (dependant on: ADDIU JR) - Expected exit code 1 - Exited with code 1
-slt1, slt, Pass, oll16, Testing < and = and > (dependant on: ADDI SLL ADDU JR) - Expected exit code 1 - Exited with code 1
-slti1, slti, Pass, oll16, Testing < and = and > (dependant on: ADDU SLL JR) - Expected exit code 1 - Exited with code 1
-sltiu1, sltiu, Pass, oll16, Testing < and = and > (dependant on: SLL ADDU JR) - Expected exit code 5 - Exited with code 5
-sltu1, sltu, Pass, oll16, Testing < and = and > (dependant on: ADDI ADDU SLL JR) - Expected exit code 5 - Exited with code 5
-sra1, sra, Pass, oll16, Testing std functionality (dependant on: LUI JR) - Expected exit code 255 - Exited with code 255
+slt1, slt, Fail, oll16, Testing < and = and > (dependant on: ADDI SLL ADDU JR) - Expected exit code 1 - Exited with code 0
+slti1, slti, Fail, oll16, Testing < and = and > (dependant on: ADDU SLL JR) - Expected exit code 1 - Exited with code 0
+sltiu1, sltiu, Fail, oll16, Testing < and = and > (dependant on: SLL ADDU JR) - Expected exit code 5 - Exited with code 0
+sltu1, sltu, Fail, oll16, Testing < and = and > (dependant on: ADDI ADDU SLL JR) - Expected exit code 5 - Exited with code 0
+sra1, sra, Fail, oll16, Testing std functionality (dependant on: LUI JR) - Expected exit code 255 - Exited with code 0
 sra2, sra, Fail, oll16, Testing std functionality (dependant on: LUI JR) - Expected exit code 1 - Exited with code 0
-srav1, srav, Pass, oll16, Testing std functionality (dependant on: ADDIU LUI JR) - Expected exit code 255 - Exited with code 255
+srav1, srav, Fail, oll16, Testing std functionality (dependant on: ADDIU LUI JR) - Expected exit code 255 - Exited with code 0
 srav2, srav, Fail, oll16, testing std functionality (dependant on: ADDIU LUI JR) - Expected exit code 1 - Exited with code 0
-srl1, srl, Pass, oll16, Testing std functionality (dependant on: LUI JR) - Expected exit code 1 - Exited with code 1
+srl1, srl, Fail, oll16, Testing std functionality (dependant on: LUI JR) - Expected exit code 1 - Exited with code 0
 srl2, srl, Fail, oll16, Testing std functionality (dependant on: LUI JR) - Expected exit code 1 - Exited with code 0
-srlv1, srlv, Pass, oll16, Testing std functionality (dependant on: ADDIU LUI JR) - Expected exit code 1 - Exited with code 1
+srlv1, srlv, Fail, oll16, Testing std functionality (dependant on: ADDIU LUI JR) - Expected exit code 1 - Exited with code 0
 srlv2, srlv, Fail, oll16, Testing std functionality (dependant on: ADDIU LUI JR) - Expected exit code 1 - Exited with code 0
-sub1, sub, Pass, oll16, Testing std functionality (10-5) (dependant on: ADDIU JR) - Expected exit code 5 - Exited with code 5
+sub1, sub, Fail, oll16, Testing std functionality (10-5) (dependant on: ADDIU JR) - Expected exit code 5 - Exited with code 0
 sub2, sub, Pass, oll16, Testing overflow (dependant on: LUI ADDI JR) - Expected exit code 246 - Exited with code 246
 sub3, sub, Fail, ng2517, Testing std functionality (10-(-1)) (dependant on: LUI ADDI JR) - Expected exit code 11 - Exited with code 0
-subu1, subu, Pass, oll16, Testing std functionality (10-5) (dependant on: ADDIU JR) - Expected exit code 5 - Exited with code 5
+subu1, subu, Fail, oll16, Testing std functionality (10-5) (dependant on: ADDIU JR) - Expected exit code 5 - Exited with code 0
 subu2, subu, Fail, oll16, Testing largest negative - 1 (dependant on: LUI ADDI JR) - Expected exit code 255 - Exited with code 0
-sw1, sw, Pass, oll16, Testing std functionality (dependant on: ADDI SLL LB OR JR) - Expected exit code 15 - Exited with code 15
+sw1, sw, Fail, oll16, Testing std functionality (dependant on: ADDI SLL LB OR JR) - Expected exit code 15 - Exited with code 0
 sw2, sw, Fail, ng2517, Testing stdout - Expected exit code 0 - Exited with code 0 - Expected output "!" - Recieved output ""
-xor1, xor, Pass, oll16, Testing std functionality (1^2) (dependant on: ADDIU JR) - Expected exit code 3 - Exited with code 3
+xor1, xor, Fail, oll16, Testing std functionality (1^2) (dependant on: ADDIU JR) - Expected exit code 3 - Exited with code 0
 xor2, xor, Fail, oll16, Testing std functionality (1^3) (dependant on: ADDIU JR) - Expected exit code 2 - Exited with code 0
-xori1, xori, Pass, oll16, Testing std functionality (1^2) (dependant on: ADDIU JR) - Expected exit code 3 - Exited with code 3
+xori1, xori, Fail, oll16, Testing std functionality (1^2) (dependant on: ADDIU JR) - Expected exit code 3 - Exited with code 0
 xori2, xori, Fail, oll16, Testing std functionality (1^3) (dependant on: ADDIU JR) - Expected exit code 2 - Exited with code 0
