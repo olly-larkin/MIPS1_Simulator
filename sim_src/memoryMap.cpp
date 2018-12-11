@@ -25,6 +25,7 @@ int32_t MemoryMap::read(unsigned int addr, unsigned char byteNum, bool signedRea
         } else if (addr >= ADDR_DATA_P && addr < ADDR_DATA_P + ADDR_DATA_SIZE) {        // ADDR_DATA
 
             returnVal += ((ADDR_DATA[addr - ADDR_DATA_P] & 0xFF) << shift);
+            std::cerr << std::hex << addr << " " << ((ADDR_DATA[addr - ADDR_DATA_P] & 0xFF) << shift) << " " << returnVal << std::endl;
 
         } else if (addr >= ADDR_GETC_P && addr < ADDR_GETC_P + ADDR_GETC_SIZE) {        // ADDR_GETC
 
@@ -65,6 +66,7 @@ void MemoryMap::write(unsigned int addr, int32_t data, unsigned char byteNum) {
         if (addr >= ADDR_DATA_P && addr < ADDR_DATA_P + ADDR_DATA_SIZE) {
 
             ADDR_DATA[addr - ADDR_DATA_P] = ((data >> shift) & 0xFF);
+            std::cerr << std::hex << addr << " " << ((data >> shift) & 0xFF) << std::endl;
 
         } else if (addr >= ADDR_PUTC_P && addr < ADDR_PUTC_P + ADDR_PUTC_SIZE) {
             output = true;

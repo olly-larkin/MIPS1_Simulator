@@ -1,0 +1,36 @@
+#lbu
+#oll16
+#Testing big endian
+#91
+#
+#
+#LUI ADDIU SW SLL ADDU JR
+
+# output should be 0b01011011 (91) if big endian
+# output should be 0b11100101 (229) if little endian
+
+lui $1, 0x2000
+lui $5, 0x0101
+addiu $5, $5, 0x0203
+sw $5, 0($1)		# should store 0x01010203 in memory
+
+lbu $2, 3($1)	# should read LSB = 0x03 -> $2 = 0b11
+
+lbu $3, 2($1)	# should read 0x02
+nop
+sll $3, $3, 2
+addu $2, $2, $3	# add to $2 = 0b1011
+
+lbu $3, 1($1)	# should read 0x01
+nop
+sll $3, $3, 4
+addu $2, $2, $3	# add to $2 = 0b011011
+
+lbu $3, 0($1)	# should read MSB = 0x01
+nop
+sll $3, $3, 6
+addu $2, $2, $3 # add to $2 = 0b01011011
+
+jr $0
+nop
+
