@@ -68,7 +68,7 @@ jr1, jr, Pass, ng2517, Testing jump to 0 - Expected exit code 0 - Exited with co
 jr2, jr, Pass, ng2517, Testing jump to reg and branch delay (dependant on: LUI ADDI) - Expected exit code 10 - Exited with code 10
 jr3, jr, Pass, ng2517, Testing jump outside executable memory - Expected exit code 245 - Exited with code 245
 lb10, lb, Pass, oll16, Testing illegal mem access ADDR_NULL (dependant on: JR) - Expected exit code 245 - Exited with code 245
-lb11, lb, Fail, oll16, Testing illegal mem access ADDR_PUTC (dependant on: LUI ADDI JR) - Expected exit code 245 - Exited with code 0
+lb11, lb, Pass, oll16, Testing illegal mem access ADDR_PUTC (dependant on: LUI ADDI JR) - Expected exit code 245 - Exited with code 245
 lb1, lb, Pass, oll16, Testing offset 0 (dependant on: LUI ADDI SB JR) - Expected exit code 5 - Exited with code 5
 lb2, lb, Pass, oll16, Testing offset 1 (dependant on: LUI ADDI SB JR) - Expected exit code 5 - Exited with code 5
 lb3, lb, Pass, oll16, Testing offset 2 (dependant on: LUI ADDI SB JR) - Expected exit code 5 - Exited with code 5
