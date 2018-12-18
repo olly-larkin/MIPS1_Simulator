@@ -29,3 +29,4 @@ sim_testing/*
 lwl1.s
 lwl1.bin
 lwl1.txt
+tbench_src/text_files/regbuff.txt
